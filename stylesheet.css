@@ -73,7 +73,8 @@ header {
 /* MAIN */
 main {
   font-family: var(--font-sans-serif);
-  height: 90vh;
+  height: 100%;
+  margin-bottom: 64px;
 }
 
 .team {
