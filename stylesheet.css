@@ -144,9 +144,10 @@ main {
   font-weight: bold;
 }
 
-.team-contact {
+a.team-contact {
   color: gray;
   font-size: 0.85rem;
+  line-height: 2.5rem;
 }
 
 /* FOOTER */
