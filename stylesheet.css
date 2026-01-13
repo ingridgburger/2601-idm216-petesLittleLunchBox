@@ -148,6 +148,11 @@ a.team-contact {
   color: gray;
   font-size: 0.85rem;
   line-height: 2.5rem;
+  transition: color 180ms ease;
+}
+
+a.team-contact:hover {
+  color: var(--highlight-color);
 }
 
 /* FOOTER */
