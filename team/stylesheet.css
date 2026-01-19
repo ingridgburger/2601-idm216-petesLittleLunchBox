@@ -73,7 +73,8 @@ header {
 /* MAIN */
 main {
   font-family: var(--font-sans-serif);
-  height: 90vh;
+  height: 100%;
+  margin-bottom: 64px;
 }
 
 .team {
@@ -141,6 +142,17 @@ main {
   
 .team-member:hover .team-role {
   font-weight: bold;
+}
+
+a.team-contact {
+  color: gray;
+  font-size: 0.85rem;
+  line-height: 2.5rem;
+  transition: color 180ms ease;
+}
+
+a.team-contact:hover {
+  color: var(--highlight-color);
 }
 
 /* FOOTER */
