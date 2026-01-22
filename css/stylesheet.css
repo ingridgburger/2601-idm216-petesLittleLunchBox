@@ -12,7 +12,7 @@
 	font-family: 'Futura';
 	font-style: normal;
 	font-weight: 400;
-	src: url('../fonts/futura/futura-demi.woff') format('truetype');
+	src: url('../fonts/futura/futura-light.woff') format('truetype');
 }
 
 @font-face {
@@ -27,8 +27,8 @@
 :root {
     --white: #FFFEFB;
     --off-white: #FAFAFA;
-    --light-grey: #EEEEEE;
-    --grey: #818181;
+    --light-gray: #EEEEEE;
+    --gray: #818181;
     --black: #363232;
     --blue: #143A9B;
     --red: #F7564E;
@@ -53,9 +53,10 @@ body {
 }
 
 /* TYPOGRAPHY */
-h1, h2, h3 {
+h1, h2, h3, h4 {
     font-family: var(--font-sans-serif);
     font-weight: 800;
+    color: var(--highlight-2);
 }
 
 h1 {
