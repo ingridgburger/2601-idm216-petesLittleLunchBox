@@ -23,7 +23,7 @@
     flex-direction: column;
     align-items: center;
     gap: 30px;
-    margin-bottom: 90px;
+    margin-bottom: 30px;
 }
 
 .personas-section h1 {
@@ -119,6 +119,29 @@
         height: 100px;
     }
 }
+
+/* STYLING SECTION */
+.styling-section {
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 90px;
+}
+
+.styling-section h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.styling-section img {
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+
 
 /* APP FLOW (CRITICAL PATH) SECTION */
 .app-flow-section {
