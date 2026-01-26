@@ -91,11 +91,6 @@ main {
   
 .team-member {
   text-align: center;
-  transition: transform 180ms ease;
-}
-  
-.team-member:hover {
-  transform: translateY(-4px);
 }
   
 .team-photo {
@@ -145,7 +140,7 @@ main {
 }
 
 a.team-contact {
-  color: gray;
+  color: var(--foreground-color);
   font-size: 0.85rem;
   line-height: 2.5rem;
   transition: color 180ms ease;
