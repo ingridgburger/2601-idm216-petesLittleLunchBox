@@ -26,7 +26,7 @@
 /* GENERAL */
 :root {
     --white: #FFFEFB;
-    --off-white: #FAFAFA;
+    --off-white: #f8f5f1;
     --light-gray: #EEEEEE;
     --gray: #818181;
     --black: #363232;
@@ -47,9 +47,78 @@
 }
   
 body {
-  background-color: var(--background-color);
-  color: var(--foreground-color);
-  margin: 0;
+    background-color: var(--background-color);
+    color: var(--foreground-color);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* HEADER */
+.site-header {
+    position: sticky;
+    top: 0;
+    background: rgba(255, 254, 251, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: box-shadow 0.3s ease;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.nav-logo {
+    height: 32px;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 35px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu a {
+    font-family: var(--font-sans-serif);
+    font-weight: 800;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--foreground-color);
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--highlight-1);
+    transition: width 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color: var(--highlight-1);
+}
+
+.nav-menu a:hover::after {
+    width: 100%;
 }
 
 /* TYPOGRAPHY */
@@ -78,10 +147,45 @@ h4 {
 
 .script {
     font-family: var(--font-bold);
-    font-size: 2.5rem;
+    font-size: 3rem;
+    text-align: center;
+    margin: 0 auto;
+    color: var(--highlight-2);
 }
 
 p {
     font-family: var(--font-sans-serif);
     font-size: 1rem;
+}
+
+/* FOOTER */
+.site-footer {
+    background: var(--foreground-color);
+    padding: 50px 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.site-footer img {
+    height: 35px;
+    opacity: 0.9;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+    .header-content {
+        padding: 15px 20px;
+    }
+
+    .nav-menu {
+        gap: 20px;
+    }
+
+    .nav-menu a {
+        font-size: 0.75rem;
+    }
+
+    .script {
+        font-size: 2.2rem;
+    }
 }
