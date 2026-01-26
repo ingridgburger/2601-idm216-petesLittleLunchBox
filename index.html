@@ -12,7 +12,9 @@
 
 <header class="site-header">
     <div class="header-content">
-        <img src="images/flare-logos/flare-logo-dark.svg" alt="Flare Logo" class="nav-logo">
+        <a href="#top">
+            <img src="images/flare-logos/flare-logo-dark.svg" alt="Flare Logo" class="nav-logo">
+        </a>
         <nav>
             <ul class="nav-menu">
                 <li><a href="#personas">User Personas</a></li>
@@ -23,7 +25,7 @@
     </div>
 </header>
 
-<main>
+<main id="top">
 
     <section class="petes-banner">
         <img src="images/petes-banner.webp" alt="Pete's Little Lunch Box Banner">
@@ -36,42 +38,49 @@
         </div>
 
         <div class="personas-wrapper">
-            <a href="https://www.figma.com/proto/HvmPw1ypI2twvYLquDowSJ/IDM216-Pete-sLittleLunchBox-HighFidelity?page-id=2006%3A1582&node-id=2026-945" target="_blank" class="user-card-link">
+            <div class="user-card-link" data-image="images/user-personas/user-persona-1.webp">
                 <div class="user-card">
                     <img src="images/user-personas/user-1.webp" alt="User 1" class="user-image">
                     <h4 class="user-name">Kayla Liu</h4>
                     <p class="user-info">20 | MIS Student</p>
                     <p class="user-needs">Wants time-saving online ordering and quick pickup.</p>
                 </div>
-            </a>
-
-            <a href="https://www.figma.com/proto/HvmPw1ypI2twvYLquDowSJ/IDM216-Pete-sLittleLunchBox-HighFidelity?page-id=2006%3A1582&node-id=2026-1056" target="_blank" class="user-card-link">
+            </div>
+        
+            <div class="user-card-link" data-image="images/user-personas/user-persona-2.webp">
                 <div class="user-card">
                     <img src="images/user-personas/user-2.webp" alt="User 2" class="user-image">
                     <h4 class="user-name">Eric Smith</h4>
                     <p class="user-info">22 | Finance Student</p>
                     <p class="user-needs">Wants fast service and friendly social interactions.</p>
                 </div>
-            </a>
-
-            <a href="https://www.figma.com/proto/HvmPw1ypI2twvYLquDowSJ/IDM216-Pete-sLittleLunchBox-HighFidelity?page-id=2006%3A1582&node-id=2026-1167" target="_blank" class="user-card-link">
+            </div>
+        
+            <div class="user-card-link" data-image="images/user-personas/user-persona-3.webp">
                 <div class="user-card">
                     <img src="images/user-personas/user-3.webp" alt="User 3" class="user-image">
                     <h4 class="user-name">Ryan Miller</h4>
                     <p class="user-info">26 | Law Student</p>
                     <p class="user-needs">Wants healthy, cheap food for long study sessions.</p>
                 </div>
-            </a>
-
-            <a href="https://www.figma.com/proto/HvmPw1ypI2twvYLquDowSJ/IDM216-Pete-sLittleLunchBox-HighFidelity?page-id=2006%3A1582&node-id=2026-1278" target="_blank" class="user-card-link">
+            </div>
+        
+            <div class="user-card-link" data-image="images/user-personas/user-persona-4.webp">
                 <div class="user-card">
                     <img src="images/user-personas/user-4.webp" alt="User 4" class="user-image">
                     <h4 class="user-name">Mike Glenn</h4>
                     <p class="user-info">47 | Professor</p>
                     <p class="user-needs">Wants consistent, efficient lunch options with no wait.</p>
                 </div>
-            </a>
-        </div>
+            </div>
+
+        <div id="persona-popup" class="popup">
+            <div class="popup-overlay"></div>
+            <div class="popup-content">
+                <a href="#" class="popup-close" aria-label="Close persona pop up">×</a>
+                <img id="popup-image" src="" alt="User Persona Full View">
+            </div>
+        </div>        
     </section>
 
     <section id="styling" class="styling-section">
@@ -82,6 +91,9 @@
     <section id="critical-path" class="critical-path-section">
         <h1 class="critical-path-title"><span class="script">critical path</span></h1>
         <p class="critical-path-description">Scroll horizontally to explore the app's user journey.</p>
+        <div class="button-container">
+            <a href="https://www.figma.com/proto/HvmPw1ypI2twvYLquDowSJ/IDM216-Pete-sLittleLunchBox-HighFidelity?page-id=0%3A1&node-id=438-1183&viewport=318%2C443%2C0.09&t=30hvAhr7OgfLIcTV-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=438%3A1183&show-proto-sidebar=1" target="_blank" class="button">View Figma Prototype</a>
+        </div>
 
         <div class="flow-scroll">
             <div class="flow-row">
@@ -180,5 +192,6 @@
     <img src="images/flare-logos/flare-logo-light.svg" alt="Flare Logo">
 </footer>
 
+<script src="js/user-personas.js"></script>
 </body>
 </html>
