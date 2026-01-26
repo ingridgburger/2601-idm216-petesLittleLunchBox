@@ -232,23 +232,14 @@ td:hover {
 }
 
 /* FOOTER */
-footer {
-  background-color: var(--foreground-color);
-  padding: calc(var(--rhythm) * 1.17) var(--rhythm);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.site-footer {
+    background: var(--foreground-color);
+    padding: 50px 40px;
+    display: flex;
+    justify-content: center;
 }
 
-.footer-logo {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.footer-logo img {
-  max-width: calc(var(--rhythm) * 4.17);
-  width: 100%;
-  height: auto;
-  display: block;
+.site-footer img {
+    height: 35px;
+    opacity: 0.9;
 }

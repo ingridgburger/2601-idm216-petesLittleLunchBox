@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pete's Little Lunch Box | Data</title>
+    <link rel="icon" type="image/svg+xml" href="../images/flare-logos/favicon.png">
     <link rel="stylesheet" href="stylesheet.css">
-    <link rel="icon" type="image/svg+xml" href="../team/images/flare-logo-dark.svg">
 </head>
 <body>
 
@@ -51,10 +51,8 @@
     </main>
     <a href="#top" class="back-to-top-btn">BACK TO TOP?</a>
     
-    <footer>
-        <div class='footer-logo'>
-            <img class='logo-image' src='../team/images/flare-logo-light.svg' alt='Flare Logo'>
-        </div>
+    <footer class="site-footer">
+        <img src="../images/flare-logos/flare-logo-light.svg" alt="Flare Logo">
     </footer>
 
     <?php require_once 'includes/close-db.php'; ?>
