@@ -78,6 +78,7 @@
     width: 280px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    cursor: pointer;
 }
 
 .user-card-link {
