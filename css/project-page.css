@@ -238,7 +238,7 @@
 
 .critical-path-description {
     text-align: center;
-    margin: 0 0 60px 0;
+    margin: 0 0 30px 0;
     font-size: 1.05rem;
     color: var(--gray);
 }
@@ -355,7 +355,7 @@
 .button-container {
     display: flex;
     justify-content: center;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
 }
 
 .button {
@@ -377,7 +377,7 @@
 }
 
 .button:hover {
-    background: var(--highlight-2);
+    background: var(--highlight-1);
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(247, 86, 78, 0.3);
 }
