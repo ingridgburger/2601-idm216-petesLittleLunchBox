@@ -12,7 +12,7 @@
 	font-family: 'Futura';
 	font-style: normal;
 	font-weight: 400;
-	src: url('../fonts/futura/futura-light.woff') format('truetype');
+	src: url('../fonts/futura/futura-light.ttf') format('truetype');
 }
 
 @font-face {
@@ -20,7 +20,7 @@
 	font-family: 'Futura';
 	font-style: normal;
 	font-weight: 800;
-	src: url('../fonts/futura/futura-heavy.woff') format('truetype');
+	src: url('../fonts/futura/futura-demi.ttf') format('truetype');
 }
 
 /* GENERAL */
@@ -141,8 +141,10 @@ h3 {
 }
 
 h4 {
+    color: var(--foreground-color);
     font-size: 1rem;
     text-transform: uppercase;
+    letter-spacing: 0.04em;
 }
 
 .script {

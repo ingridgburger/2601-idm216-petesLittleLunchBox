@@ -1,0 +1,150 @@
+/* ITEM CUSTOMIZATION LAYOUT */
+
+.container {
+  max-width: 393px;
+  margin: 0 auto;
+  padding: 24px 20px 32px;
+  background: var(--background-color);
+}
+
+/* HEADER */
+
+.item-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.item-header img {
+  width: 220px;
+  max-width: 100%;
+  margin-bottom: 5px;
+}
+
+.item-header h2 {
+    font-family: var(--font-sans-serif);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin: 0;
+}
+
+.item-header p {
+  font-family: var(--font-sans-serif);
+  margin: 8px auto;
+  max-width: 220px;
+}
+
+/* SELECTORS */
+
+.selector {
+  margin-bottom: 32px;
+}
+
+.selector h2 {
+  font-size: 1rem;
+  margin-bottom: 12px;
+}
+
+/* OPTION ROW */
+
+.option {
+  display: grid;
+  grid-template-columns: 48px 1fr 28px;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.option:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+.option img {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* TEXT STACK */
+
+.option-info {
+  font-family: var(--font-sans-serif);
+  display: flex;
+  flex-direction: column;
+}
+
+.option-name {
+  font-family: var(--font-sans-serif);
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+
+.option-meta {
+  font-size: 0.8rem;
+  color: var(--gray);
+}
+
+/* INPUTS (VISUALLY HIDDEN) */
+
+.option input {
+  display: none;
+}
+
+/* ADD / QUANTITY */
+
+#addBtn {
+  width: 100%;
+  margin-top: 12px;
+  padding: 14px;
+  border-radius: 999px;
+  font-family: var(--font-sans-serif);
+  font-weight: 800;
+  text-transform: uppercase;
+  border: none;
+}
+
+#addBtn:disabled {
+  background: var(--light-gray);
+  color: var(--gray);
+}
+
+#addBtn:not(:disabled) {
+  background: var(--highlight-1);
+  color: var(--white);
+}
+
+.add-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: var(--background-color);
+  padding: 16px;
+  display: flex;
+  gap: 12px;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+}
+
+
+/* TOAST */
+
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--foreground-color);
+  color: var(--white);
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-family: var(--font-sans-serif);
+  font-weight: 800;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.hidden {
+  display: none;
+}

@@ -1,0 +1,210 @@
+/* HEADER */
+.app-header {
+    display: grid;
+    grid-template-columns: 48px 1fr 48px;
+    align-items: center;
+    padding: 0 12px;
+}
+
+.header--compact {
+    height: 56px;
+}
+
+.header--tall {
+    height: 96px;
+    align-items: flex-end;
+    padding-bottom: 16px;
+}
+
+/* background variants */
+.header--white {
+    background: var(--background-color);
+    color: var(--highlight-1);
+}
+
+.header--red {
+    background: var(--highlight-1);
+    color: var(--white);
+}
+
+/* typography variants */
+.header--brand .header-title {
+    font-family: var(--font-bold);
+    font-size: 1.6rem;
+    color: var(--highlight-1);
+    margin: 0 auto;
+}
+
+.header--utility .header-title {
+    font-family: var(--font-sans-serif);
+    font-size: 1.4rem;
+    font-weight: 800;
+}
+
+/* back button variants */
+.app-header:not(.has-back) .back-btn {
+    visibility: hidden;
+}
+
+.app-header:not(.has-cart) .cart-btn {
+    visibility: hidden;
+}
+
+/* header buttons*/
+.icon-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+}
+
+.icon-btn:focus,
+.icon-btn:focus-visible,
+.icon-btn:active {
+    outline: none;
+    box-shadow: none;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+    stroke: currentColor;
+    pointer-events: none;
+}
+
+
+/* DIVIDER COMPONENT */
+.divider {
+    position: relative;
+    width: 90%;
+    height: 1px;
+    background: var(--highlight-2);
+    margin: 24px auto;
+}
+
+.divider-star-img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0 6px;
+    height: 18px;
+    width: auto;
+    display: block;
+}
+
+/* QUANTITY SELECTOR */
+.qty-selector {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.qty-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid var(--highlight-2);
+    background: none;
+    color: var(--highlight-2);
+    font-size: 1.1rem;
+    font-weight: 800;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.qty-btn:disabled {
+    opacity: 0.4;
+    cursor: default;
+}
+
+.qty {
+    min-width: 20px;
+    text-align: center;
+    font-family: var(--font-sans-serif);
+    font-weight: 800;
+    font-size: 1rem;
+    color: var(--foreground-color);
+}
+
+/* CHECKMARK COMPONENT */
+.option input {
+    display: none;
+}
+
+.checkmark {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid var(--gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.option input:checked + img + .option-info + .checkmark {
+    background: var(--highlight-2);
+    border-color: var(--highlight-2);
+}
+
+.option input:checked + img + .option-info + .checkmark::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--white);
+}
+
+/* TOAST BANNER */
+.add-toast {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 88px; 
+    background: var(--highlight-1);
+    color: var(--white);
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-sans-serif);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    z-index: 1000;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.toast-text {
+    font-weight: 400;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.toast-action {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 800;
+}
+
+.toast-action:hover {
+    text-decoration: underline;
+}
+
+.hidden {
+    display: none;
+}
+
