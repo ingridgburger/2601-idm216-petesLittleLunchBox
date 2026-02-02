@@ -7,54 +7,34 @@
     <link rel="icon" type="image/svg+xml" href="../images/flare-logos/favicon.png">
     <link rel="stylesheet" href="stylesheet.css">
 </head>
+
 <body>
 
     <?php require_once 'includes/db.php'; ?>
 
-    <?php 
-    $menu_data = mysqli_query($connection, "SELECT * FROM idm216_menu_items");
-    $menu_item = mysqli_fetch_all($menu_data, MYSQLI_ASSOC);
-     ?>
-
     <?php require_once 'includes/header.php';?>
 
     <main>
-        <table>
-            <thead>
-                <tr><th colspan="8" class="table-heading">MENU ITEMS</th></tr>
-                <tr class="table-column-headings">
-                    <th>ID</th>
-                    <th>Category ID</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Base Price</th>
-                    <th>Calories</th>
-                    <th>Image URL</th>
-                    <th>Is Active</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach($menu_item as $row): ?>
-                <tr>
-                    <td data-label="ID"><?php echo htmlspecialchars($row['id']); ?></td>
-                    <td data-label="Category ID"><?php echo htmlspecialchars($row['category_id']); ?></td>
-                    <td class="col-name" data-label="Name"><?php echo htmlspecialchars($row['item_name']); ?></td>
-                    <td class="col-description" data-label="Description"><?php echo htmlspecialchars($row['description']); ?></td>
-                    <td data-label="Base Price"><?php echo htmlspecialchars($row['base_price']); ?></td>
-                    <td data-label="Calories"><?php echo htmlspecialchars($row['calories']); ?></td>
-                    <td class="col-image-url" data-label="Image URL"><?php echo htmlspecialchars($row['menu_item_image_filename']); ?></td>
-                    <td data-label="Is Active"><?php echo htmlspecialchars($row['is_active']); ?></td>
-                </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
+        <section class="hero">
+            <img src="../images/petes-logos/petes-logo.svg" alt="Pete's Little Lunch Box Logo" class="petes-logo">
+            <h1 class="page-title">Database Dump</h1>
+        </section>
+        <section id="menu-categories"><?php include 'includes/menu-categories.php'; ?></section>
+        <section id="menu-items"><?php include 'includes/menu-items.php'; ?></section>
+        <section id="bagel"><?php include 'includes/bagel-options.php'; ?></section>
+        <section id="bread"><?php include 'includes/bread-options.php'; ?></section>
+        <section id="cheese"><?php include 'includes/cheese-options.php'; ?></section>
+        <section id="toppings"><?php include 'includes/topping-options.php'; ?></section>
+        <section id="dressing"><?php include 'includes/dressing-options.php'; ?></section>
+        <section id="size"><?php include 'includes/size-options.php'; ?></section>
     </main>
-    <a href="#top" class="back-to-top-btn">BACK TO TOP?</a>
+    <a href="#top" class="back-to-top-btn">Back to Top?</a>
     
     <footer class="site-footer">
         <img src="../images/flare-logos/flare-logo-light.svg" alt="Flare Logo">
     </footer>
-
     <?php require_once 'includes/close-db.php'; ?>
+    <script src="../data/script/close-menu.js"></script>
+    <script src="../data/script/table-pagination.js"></script>
 </body>
 </html>
