@@ -1,0 +1,147 @@
+/* TABLE */
+th#image-file,
+th#actions {
+  text-align: center;
+}
+td[data-label="Image File"] {
+  text-align: center;
+  vertical-align: middle;
+}
+td[data-label="Image File"] .item-image {
+  width: 100px;
+  height: auto;
+}
+td[data-label="Actions"] {
+  padding: 0;
+}
+
+.menu-checkbox-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 40px;
+}
+@media (max-width: 1200px) {
+  td[data-label="Image File"] {
+    text-align: right;
+  }
+  td[data-label="Actions"] .menu-checkbox-cell {
+    justify-content: flex-end;
+  }
+
+  .menu-checkbox-cell {
+    padding: var(--rhythm);
+  }
+
+}
+
+@media (max-width: 500px) {
+  td[data-label="Image File"] {
+    text-align: center;
+  }
+  td[data-label="Actions"] .menu-checkbox-cell {
+    justify-content: center;
+  }
+
+  .button-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rhythm);
+    align-items: right;
+  }
+}
+
+/* MODAL */
+#order-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+#order-modal.active {
+  display: flex;
+  cursor: pointer;
+}
+#order-modal .order-modal-content {
+  cursor: default;
+}
+
+#order-modal .order-modal-content {
+  background: #fff;
+  padding: calc(var(--rhythm) * 1.5);
+  border-radius: 8px;
+  max-width: 400px;
+  width: 90%;
+  position: relative;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+#close-order-modal {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.order-list {
+  margin: 1em 0;
+}
+
+.order-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+}
+
+.order-label {
+  flex: 1 1 auto;
+  text-align: left;
+  margin: calc(var(--rhythm) * 0.25) 0;
+}
+
+.order-price {
+  flex: 0 0 auto;
+  text-align: right;
+  min-width: 60px;
+  margin: calc(var(--rhythm) * 0.25) 0;
+}
+
+.order-summary .order-label {
+  font-weight: bold;
+}
+
+
+.order-total {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--highlight-2);
+  border-top: 1px solid var(--highlight-2);
+}
+
+.order-total {
+  padding-top: var(--rhythm);
+  margin-top: var(--rhythm);
+}
+
+.order-row.order-summary:first-of-type {
+  border-top: 1px solid var(--light-gray);
+  margin-top: var(--rhythm);
+  padding-top: var(--rhythm);
+}
+
+.order-modal-content h2 {
+  text-transform: uppercase;
+}

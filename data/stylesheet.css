@@ -281,7 +281,7 @@ section.hero {
   line-height: 0.25;
 }
 
-@media (max-width: 365px) {
+@media (max-width: 420px) {
   .page-title {
     line-height: 1;
   }
@@ -479,4 +479,54 @@ a.back-to-top-btn {
 
 a.back-to-top-btn:hover {
   color: var(--highlight-1);
+}
+
+button, .reset-btn {
+    font-family: var(--font-sans-serif);
+    letter-spacing: 1px;
+    font-size: 1rem;
+    color: var(--white);
+    background-color: var(--highlight-1);
+    border: none;
+    border-radius: 100px;
+    padding: calc(var(--rhythm)*0.5) calc(var(--rhythm)*1.25);
+    cursor: pointer;
+    text-transform: uppercase;
+    transition:
+        background-color 0.3s ease,
+        transform 0.2s ease;
+}
+
+
+button:hover {
+    background-color: var(--highlight-2);
+    transform: scale(1.005);
+}
+
+.reset-btn {
+  background-color: transparent;
+  border: 2px solid var(--highlight-2);
+  color: var(--highlight-2);
+  margin: 0;
+}
+
+.reset-btn:hover {
+  background-color: var(--highlight-2);
+  color: var(--white);
+}
+
+/* CHECKBOX */
+
+input.menu-item-checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  border-radius: 100px;
+  color: var(--highlight-1);
+  accent-color: var(--highlight-1);
+}
+
+input.menu-item-checkbox:checked {
+  background-color: var(--highlight-1);
+  border-color: var(--highlight-1);
 }

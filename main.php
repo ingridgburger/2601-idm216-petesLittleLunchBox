@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pete's Little Lunch Box | Main Menu Items</title>
+    <link rel="icon" type="image/svg+xml" href="./images/flare-logos/favicon.png">
+    <link rel="stylesheet" href="css/main-menu-items.css">
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <link rel="stylesheet" href="data/stylesheet.css">
+</head>
+<body>
+    <?php
+    require_once 'data/includes/db.php';
+    
+
+
+    $menu_data = mysqli_query($connection, "SELECT * FROM idm216_menu_items");
+    $menu_item = mysqli_fetch_all($menu_data, MYSQLI_ASSOC);
+    ?>
+<header class="site-header">
+    <div class="header-content">
+        <a href="#top">
+            <img src="images/flare-logos/flare-logo-dark.svg" alt="Flare Logo" class="nav-logo">
+        </a>
+        <div class="button-wrapper">
+            <button class="reset-btn" type="button">Reset</button>
+            <button id="order-btn">Order (<span id="order-count">0</span>)</button>
+                </div>
+        </div>
+</header>
+
+<div id="order-modal">
+    <div class="order-modal-content">
+        <button id="close-order-modal">&times;</button>
+        <h2>Order Summary</h2>
+        <div id="order-summary-content"></div>
+    </div>
+</div>
+    </div>
+</header>
+
+<main>
+     <section class="hero">
+            <img src="./images/petes-logos/petes-logo.svg" alt="Pete's Little Lunch Box Logo" class="petes-logo">
+            <h1 class="page-title">Main Menu Items</h1>
+        </section>
+    <article class="content">
+        <table>
+            <thead>
+                <tr><th id="menu-items-heading" colspan="14" class="table-heading">Menu Items</th></tr>
+                <tr class="table-column-headings">
+                    <th id="id">ID</th>
+                    <th id="name">Name</th>
+                    <th id="description">Description</th>
+                    <th id="base-price">Base Price</th>
+                        <th id="image-file">Image</th>
+                        <th id="actions">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($menu_item as $row): ?>
+                    <tr>
+                        <td data-label="ID"><?php echo htmlspecialchars($row['id']); ?></td>
+                        <td data-label="Name"><?php echo htmlspecialchars($row['item_name']); ?></td>
+                        <td data-label="Description"><?php echo htmlspecialchars($row['description']); ?></td>
+                        <td data-label="Base Price"><?php echo htmlspecialchars($row['base_price']); ?></td>
+                        <?php
+                            if ($row['category_id'] == 1){
+                                $image_path='breakfast_sandwiches';
+                            }
+                            elseif ($row['category_id'] == 2){
+                                $image_path='breakfast_platters';
+                            }
+                            elseif ($row['category_id'] == 3){
+                                $image_path='pastries_and_sides';
+                            }
+                            elseif ($row['category_id'] == 4){
+                                $image_path='drinks';
+                            }
+                            elseif ($row['category_id'] == 5){
+                                $image_path='fresh_salads';
+                            }
+                            elseif ($row['category_id'] == 6){
+                                $image_path='lunch_sandwiches';
+                            }
+                            elseif ($row['category_id'] == 7){
+                                $image_path='hoagies';
+                            }
+                            elseif ($row['category_id'] == 8){
+                                $image_path='burgers_and_hot_sandwiches';
+                            }
+                            elseif ($row['category_id'] == 9){
+                                $image_path='club_sandwiches';
+                            }
+                            elseif ($row['category_id'] == 10){
+                                $image_path='cheesesteaks';
+                            }
+                            elseif ($row['category_id'] == 11){
+                                $image_path='gyros';
+                            }
+                        ?>
+                                <td data-label="Image File"><img src="images/menu_item_images/<?= htmlspecialchars($image_path . '/' . $row['menu_item_image_filename']); ?>" alt="<?php echo htmlspecialchars($row['item_name']); ?>" class="item-image"></td>
+                            <td data-label="Actions">
+                                <div class="menu-checkbox-cell">
+                                <input class="menu-item-checkbox" type="checkbox" name="select_item" value="<?php echo htmlspecialchars($row['id']); ?>">
+                                </div>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </article>
+</main>
+<script src="./data/script/table-pagination.js"></script>
+<script src="./js/main-menu-items.js"></script>
+
+</script>
+</body>
+</html>
