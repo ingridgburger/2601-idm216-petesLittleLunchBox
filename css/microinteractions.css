@@ -264,7 +264,7 @@ hr {
 }
 
 .size-btn.is-selected:hover {
-  scale: 1;
+  transform: scale(1.05);
 }
 
 /* Bagel Checkbox */
@@ -301,7 +301,7 @@ hr {
 
 .bagel-calories {
   font-size: 0.95rem;
-  color: var(--dark-gray);
+  color: var(--gray);
   margin-top: 0.1rem;
 }
 .bagel-checkbox-label {
@@ -408,11 +408,6 @@ hr {
 }
 
 /* Responsive Styles */
-@media (min-width: 1700px) {
-  .quick-view-modal {
-    width: 120%;
-  }
-}
 
 @media (max-width: 1300px) {
   main {
@@ -421,32 +416,6 @@ hr {
 
   h1,
   h2 {
-    text-align: center;
-  }
-
-  .quick-view-modal {
-    width: 100%;
-  }
-}
-
-@media (max-width: 900px) {
-  .modal-row {
-    flex-direction: column;
-    margin: 0 calc(var(--rhythm) * 1);
-  }
-
-  .quick-view-modal {
-    width: 100%;
-  }
-
-  .product-image-carousel,
-  .product-details,
-  .add-to-bag-btn {
-    width: 100%;
-  }
-
-  .view-full-details {
-    width: 100%;
     text-align: center;
   }
 }
@@ -474,10 +443,6 @@ hr {
   .details-heading {
     justify-content: center;
     flex-direction: column;
-  }
-
-  .add-to-bag-btn {
-    width: 100%;
   }
 
   .size-group {

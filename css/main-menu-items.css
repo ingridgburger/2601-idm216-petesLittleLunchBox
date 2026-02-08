@@ -68,7 +68,7 @@ td[data-label="Actions"] {
 
 #order-modal .order-modal-content {
   background: #fff;
-  padding: calc(var(--rhythm) * 1.5);
+  padding: calc(var(--rhythm) * 2);
   border-radius: 8px;
   max-width: 400px;
   width: 90%;
@@ -79,12 +79,23 @@ td[data-label="Actions"] {
 
 #close-order-modal {
   position: absolute;
-  top: 8px;
-  right: 8px;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
+  top: 10px;
+  right: 20px;
+  font-size: 2rem;
   cursor: pointer;
+  background-color: transparent;
+  color: var(--black);
+  border-radius: 0;
+  padding: 0;
+  text-transform: none;
+  letter-spacing: normal;
+  transition: all 0.3s ease;
+}
+
+#close-order-modal:hover {
+  background-color: transparent;
+  transform: none;
+  color: var(--highlight-1);
 }
 
 .order-list {

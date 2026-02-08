@@ -37,15 +37,14 @@
         <div id="order-summary-content"></div>
     </div>
 </div>
-    </div>
-</header>
+
 
 <main>
      <section class="hero">
             <img src="./images/petes-logos/petes-logo.svg" alt="Pete's Little Lunch Box Logo" class="petes-logo">
             <h1 class="page-title">Main Menu Items</h1>
         </section>
-    <article class="content">
+    <article class="content" id="top">
         <table>
             <thead>
                 <tr><th id="menu-items-heading" colspan="14" class="table-heading">Menu Items</th></tr>
@@ -66,39 +65,20 @@
                         <td data-label="Description"><?php echo htmlspecialchars($row['description']); ?></td>
                         <td data-label="Base Price"><?php echo htmlspecialchars($row['base_price']); ?></td>
                         <?php
-                            if ($row['category_id'] == 1){
-                                $image_path='breakfast_sandwiches';
-                            }
-                            elseif ($row['category_id'] == 2){
-                                $image_path='breakfast_platters';
-                            }
-                            elseif ($row['category_id'] == 3){
-                                $image_path='pastries_and_sides';
-                            }
-                            elseif ($row['category_id'] == 4){
-                                $image_path='drinks';
-                            }
-                            elseif ($row['category_id'] == 5){
-                                $image_path='fresh_salads';
-                            }
-                            elseif ($row['category_id'] == 6){
-                                $image_path='lunch_sandwiches';
-                            }
-                            elseif ($row['category_id'] == 7){
-                                $image_path='hoagies';
-                            }
-                            elseif ($row['category_id'] == 8){
-                                $image_path='burgers_and_hot_sandwiches';
-                            }
-                            elseif ($row['category_id'] == 9){
-                                $image_path='club_sandwiches';
-                            }
-                            elseif ($row['category_id'] == 10){
-                                $image_path='cheesesteaks';
-                            }
-                            elseif ($row['category_id'] == 11){
-                                $image_path='gyros';
-                            }
+                            $category_map = [
+                                1 => 'breakfast_sandwiches',
+                                2 => 'breakfast_platters',
+                                3 => 'pastries_and_sides',
+                                4 => 'drinks',
+                                5 => 'fresh_salads',
+                                6 => 'lunch_sandwiches',
+                                7 => 'hoagies',
+                                8 => 'burgers_and_hot_sandwiches',
+                                9 => 'club_sandwiches',
+                                10 => 'cheesesteaks',
+                                11 => 'gyros'
+                            ];
+                            $image_path = isset($category_map[$row['category_id']]) ? $category_map[$row['category_id']] : 'unknown_category';
                         ?>
                                 <td data-label="Image File"><img src="images/menu_item_images/<?= htmlspecialchars($image_path . '/' . $row['menu_item_image_filename']); ?>" alt="<?php echo htmlspecialchars($row['item_name']); ?>" class="item-image"></td>
                             <td data-label="Actions">
@@ -114,10 +94,10 @@
 </main>
 <footer class="site-footer">
         <img src="images/flare-logos/flare-logo-light.svg" alt="Flare Logo">
-    </footer>
+</footer>
+
 <script src="./data/script/table-pagination.js"></script>
 <script src="./js/main-menu-items.js"></script>
 
-</script>
 </body>
 </html>
