@@ -281,9 +281,17 @@ section.hero {
   line-height: 0.25;
 }
 
+@media (max-width: 768px) {
+  .page-title {
+    font-size: calc(var(--font-large) * 1.2);
+  }
+}
+
 @media (max-width: 420px) {
   .page-title {
     line-height: 1;
+    font-size: var(--font-large);
+    word-break: break-word;
   }
 }
 

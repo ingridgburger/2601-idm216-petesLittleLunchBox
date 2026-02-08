@@ -1,0 +1,503 @@
+:root {
+  --font-bold: "eldwin-script", Helvetica, Arial, sans-serif;
+  --font-sans-serif: "futura-pt", Helvetica, Arial, sans-serif;
+
+  --rhythm: 1.5rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--foreground-color);
+  font-family: var(--font-sans-serif);
+  margin: 0;
+  text-wrap: balance;
+}
+
+main {
+  margin: var(--rhythm) calc(var(--rhythm) * 10);
+  max-width: 1440px;
+}
+
+/* Text Styles */
+h1,
+h2 {
+  font-family: var(--font-sans-serif);
+  font-weight: 900;
+  text-align: center;
+}
+
+h1 {
+  font-family: var(--font-sans-serif);
+  font-size: 2rem;
+  line-height: 2rem;
+  margin: 0;
+  margin: calc(var(--rhythm) * 1.5) 0 calc(var(--rhythm) * 2.5) 0;
+}
+
+h2 {
+  font-family: var(--font-bold);
+  font-size: 2rem;
+  margin: 0;
+  text-transform: lowercase;
+}
+
+h3 {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02rem;
+  text-transform: uppercase;
+  margin: 0;
+  text-align: center;
+}
+
+h4 {
+    text-align: center;
+}
+
+.details-column-heading {
+  text-align: left;
+}
+
+p,
+li {
+  font-size: var(--font-base);
+  font-weight: 300;
+  white-space: normal;
+}
+
+ul {
+  margin-bottom: var(--rhythm);
+}
+
+a {
+  color: var(--black);
+  text-decoration: none;
+}
+
+.details-icon {
+  fill: var(--highlight-2);
+}
+/* Header Styles */
+
+.header-content {
+  justify-content: left;
+}
+
+/* Main Content Styles */
+
+.details {
+  padding: calc(var(--rhythm) * 3) 0;
+}
+
+.details-heading {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: calc(var(--rhythm) * 0.5);
+}
+
+.details-row {
+  margin-top: calc(var(--rhythm) * 2);
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap;
+  gap: calc(var(--rhythm) * 1.5) calc(var(--rhythm) * 3);
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--light-gray);
+  margin: var(--rhythm) 0;
+}
+
+/* Microinteraction Styles */
+
+.microinteraction-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(var(--rhythm) * 2);
+  padding: calc(var(--rhythm) * 3) 0;
+}
+
+.microinteraction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(var(--rhythm) * 1);
+  width: 100%;
+  padding-bottom: calc(var(--rhythm) * 3);
+}
+
+/* Add to Lunchbox Button Styles */
+
+.add-to-lunchbox-btn {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--highlight-2);
+  border: none;
+  border-radius: 100px;
+  color: var(--white);
+  font-family: var(--font-sans-serif);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: calc(var(--rhythm) * 1) calc(var(--rhythm) * 2.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 300px;
+}
+
+.add-to-lunchbox-btn:hover {
+  color: var(--white);
+  background-color: var(--highlight-1);
+  transform: scale(1.02);
+}
+
+.add-to-lunchbox-btn.is-added {
+  background-color: var(--highlight-1);
+  color: var(--white);
+}
+
+.btn-label {
+  font-weight: 500;
+  letter-spacing: 0.05rem;
+}
+
+.add-to-lunchbox-btn .btn-label {
+  display: inline-block;
+  position: relative;
+  letter-spacing: inherit;
+}
+.add-to-lunchbox-btn .btn-label.is-split {
+  letter-spacing: 0;
+}
+.add-to-lunchbox-btn .btn-label .char {
+  display: inline-block;
+  opacity: 0;
+}
+.add-to-lunchbox-btn .btn-label.is-split .char {
+  margin-right: 1px;
+}
+.add-to-lunchbox-btn .btn-label.is-split .char:last-child {
+  margin-right: 0;
+}
+.add-to-lunchbox-btn .btn-label .char-static {
+  transform: none;
+  opacity: 1;
+  animation: none;
+}
+.add-to-lunchbox-btn .btn-label .char-space {
+  width: 0.5rem;
+  display: inline-block;
+}
+
+.add-to-lunchbox-btn .btn-label .char-up {
+  transform: translateY(0.8rem);
+  animation: upAnimation 500ms ease forwards;
+  animation-delay: calc(var(--i) * 40ms);
+}
+.add-to-lunchbox-btn .btn-label .char-down {
+  transform: translateY(-0.8rem);
+  animation: downAnimation 500ms ease forwards;
+  animation-delay: calc(var(--i) * 40ms);
+}
+
+/* Size Button Styles */
+
+.size-selection {
+  display: flex;
+  gap: var(--rhythm) calc(var(--rhythm) * 0.5);
+  padding: 0;
+  margin-top: calc(var(--rhythm) * 0.5);
+  width: 100%;
+  justify-content: center;
+}
+
+.size-group {
+  display: flex;
+  flex-direction: row;
+  gap: calc(var(--rhythm) * 0.5);
+  padding: calc(var(--rhythm) * 0.5) 0;
+  width: 100%;
+  justify-content: center;
+}
+
+.size-btn {
+  position: relative;
+  overflow: hidden;
+  border: 2px solid var(--highlight-2);
+  border-radius: 1000px;
+  background-color: var(--white);
+  color: var(--highlight-2);
+  font-family: var(--font-sans-serif);
+  font-weight: 700;
+  font-size: var(--font-medium);
+  transition: all 0.3s ease;
+  text-align: center;
+  width: 70px;
+  height: 70px;
+  line-height: 1;
+  padding: 0;
+  vertical-align: middle;
+  box-sizing: border-box;
+}
+
+.size-btn:hover {
+  color: var(--white);
+  background-color: var(--highlight-1);
+  border-color: var(--highlight-1);
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.size-btn.is-selected {
+  background-color: var(--highlight-2);
+  color: var(--white);
+  border: 2px solid var(--highlight-2);
+}
+
+.size-btn.is-selected:hover {
+  scale: 1;
+}
+
+/* Bagel Checkbox */
+.bagel-details {
+  display: flex;
+  gap: calc(var(--rhythm) * 0.5);
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.bagel-img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #fff;
+  flex-shrink: 0;
+}
+
+.bagel-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.bagel-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #222;
+}
+
+.bagel-calories {
+  font-size: 0.95rem;
+  color: var(--dark-gray);
+  margin-top: 0.1rem;
+}
+.bagel-checkbox-label {
+    display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.bagel-checkbox-label .checkbox-label-text {
+  display: none;
+}
+
+/* Checkbox Microinteraction */
+.custom-checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 400px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.default-checkbox {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.custom-checkbox {
+  width: 36px;
+  height: 36px;
+  border: 2px solid var(--highlight-2);
+  border-radius: 1000px;
+  background: var(--white);
+  display: inline-block;
+  position: relative;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.bagel-checkbox-label {
+  margin-left: auto;
+  align-items: center;
+  gap: 0;
+}
+
+.default-checkbox:focus + .custom-checkbox {
+  border-color: var(--highlight-2);
+}
+
+.bagel-checkbox-label:hover .custom-checkbox {
+  cursor: pointer;
+  transform: scale(1.05);
+  border-color: var(--highlight-2);
+}
+
+.custom-checkbox::after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 7px;
+  width: 8px;
+  height: 14px;
+  border: solid #fff;
+  border-width: 0 2.2px 2.2px 0;
+  border-radius: 2px;
+  opacity: 0;
+  transform: scale(0.85) rotate(45deg);
+  transition:
+    opacity 0.2s,
+    transform 0.2s;
+}
+
+.default-checkbox:checked + .custom-checkbox {
+  border-color: var(--highlight-2);
+  background: var(--highlight-2);
+}
+
+.default-checkbox:checked + .custom-checkbox::after {
+  opacity: 1;
+  transform: scale(1) rotate(45deg);
+}
+
+@keyframes upAnimation {
+  from {
+    transform: translateY(0.8rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes downAnimation {
+  from {
+    transform: translateY(-0.8rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive Styles */
+@media (min-width: 1700px) {
+  .quick-view-modal {
+    width: 120%;
+  }
+}
+
+@media (max-width: 1300px) {
+  main {
+    margin: var(--rhythm) calc(var(--rhythm) * 2);
+  }
+
+  h1,
+  h2 {
+    text-align: center;
+  }
+
+  .quick-view-modal {
+    width: 100%;
+  }
+}
+
+@media (max-width: 900px) {
+  .modal-row {
+    flex-direction: column;
+    margin: 0 calc(var(--rhythm) * 1);
+  }
+
+  .quick-view-modal {
+    width: 100%;
+  }
+
+  .product-image-carousel,
+  .product-details,
+  .add-to-bag-btn {
+    width: 100%;
+  }
+
+  .view-full-details {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 690px) {
+  main {
+    margin: var(--rhythm) calc(var(--rhythm) * 1);
+    padding: none;
+  }
+  .details-row {
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: calc(var(--rhythm) * 2);
+  }
+
+  .details-column {
+    align-self: center;
+  }
+
+  .details-intro {
+    text-align: center;
+  }
+
+  .details-heading {
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .add-to-bag-btn {
+    width: 100%;
+  }
+
+  .size-group {
+    gap: calc(var(--rhythm) * 1);
+  }
+
+  .size-btn {
+    width: 60px;
+    height: 60px
+  }
+
+  .size-selection {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 300px) {
+  .size-group {
+    flex-direction: column;
+    gap: calc(var(--rhythm) * 0.5);
+    align-items: center;
+  }
+}

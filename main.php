@@ -112,6 +112,9 @@
         </table>
     </article>
 </main>
+<footer class="site-footer">
+        <img src="images/flare-logos/flare-logo-light.svg" alt="Flare Logo">
+    </footer>
 <script src="./data/script/table-pagination.js"></script>
 <script src="./js/main-menu-items.js"></script>
 

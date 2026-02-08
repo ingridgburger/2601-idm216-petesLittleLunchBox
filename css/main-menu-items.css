@@ -33,7 +33,6 @@ td[data-label="Actions"] {
   .menu-checkbox-cell {
     padding: var(--rhythm);
   }
-
 }
 
 @media (max-width: 500px) {
@@ -42,13 +41,6 @@ td[data-label="Actions"] {
   }
   td[data-label="Actions"] .menu-checkbox-cell {
     justify-content: center;
-  }
-
-  .button-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: var(--rhythm);
-    align-items: right;
   }
 }
 
@@ -123,7 +115,6 @@ td[data-label="Actions"] {
   font-weight: bold;
 }
 
-
 .order-total {
   font-weight: bold;
   text-transform: uppercase;
@@ -144,4 +135,12 @@ td[data-label="Actions"] {
 
 .order-modal-content h2 {
   text-transform: uppercase;
+}
+
+.button-wrapper {
+  width: 100%;
+  display: flex;
+  gap: calc(var(--rhythm) * 1);
+  justify-content: flex-end;
+  flex-wrap: wrap;
 }
