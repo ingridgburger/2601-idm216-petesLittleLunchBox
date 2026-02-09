@@ -29,7 +29,7 @@
     font-size: 0.95rem;
 }
 
-.menu-item-info .price {
+.menu-item-info .price, span.price {
     font-family: var(--font-sans-serif);
     font-weight: 800;
     color: var(--highlight-2);

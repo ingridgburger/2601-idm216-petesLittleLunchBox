@@ -73,7 +73,7 @@ $items = mysqli_query($connection, $item_query);
         </g>
       </svg>
     </button>
-    <button class="icon-btn cart-btn" aria-label="Lunchbox">
+    <a href="lunchbox.php" class="icon-btn cart-btn" aria-label="Lunchbox">
       <svg
         width="36"
         height="36"
@@ -92,7 +92,7 @@ $items = mysqli_query($connection, $item_query);
           fill="currentColor"
         />
       </svg>
-    </button>
+</a>
   </section>
   <h1 class="header-title">
     <?= htmlspecialchars($category['category_name']) ?>

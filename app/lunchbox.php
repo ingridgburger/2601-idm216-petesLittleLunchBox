@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="css/item.css">
   <link rel="stylesheet" href="css/category.css">
   <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/lunchbox.css">
 </head>
 
 <body>
@@ -53,12 +54,42 @@
 </header>
 
 <main class="container" style="margin-bottom: 48px; margin-top: 0;">
-    <h4 class="cart-empty-message" style="text-align: center;">
-        Nothing here yet.
-    </h4>
-    <p class="cart-empty-submessage" style="text-align: center; margin-bottom: 36px;">
-        Add something delicious to your lunchbox and we’ll get cooking!
-    </p>
+    <section class="empty-cart-section" style="display: none;">
+        <h4 class="cart-empty-message" style="text-align: center;">
+            Nothing here yet.
+        </h4>
+        <p class="cart-empty-submessage" style="text-align: center; margin-bottom: 36px;">
+            Add something delicious to your lunchbox and we’ll get cooking!
+        </p>
+    </section>
+    <section class="cart-section">
+        <div class="cart-item">
+            <img src="app-images/menu-item-images/breakfast-sandwiches/egg_and_cheese.webp" alt="Egg & Cheese" class="cart-item-img">
+            <div class="cart-item-info">
+                <div class="cart-item-details">
+                    <h4>Egg & Cheese</h4>
+                    <span class="price">$5.00</span>
+                </div>
+                <p class="customizations">
+                    Regular Bagel, American Cheese, Egg
+                </p>
+                <div class="cart-item-actions" >
+                    <button class="icon-btn edit-btn" aria-label="Edit item">
+                        Edit
+                    </button>
+                    <div class="qty-selector">
+                        <button class="qty-btn minus" style="width: 24px; height: 24px; border-width: 1px; font-weight: 500;">
+                            −
+                        </button>
+                        <span class="qty">1</span>
+                        <button class="qty-btn plus" style="width: 24px; height: 24px; border-width: 1px; font-weight: 500;">
+                            +
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <div class="divider">
         <img src="app-images/misc/star.svg" alt="" class="divider-star-img">
     </div>
@@ -118,9 +149,9 @@
 <?php $current_page = basename($_SERVER['PHP_SELF']); ?>
 
 <section class="wide-btn-wrapper">
-    <button class="primary-btn--checkout-btn--disabled" <?= ($current_page == 'lunchbox.php') ? '' : 'disabled' ?>>
+    <a href="checkout.php" class="primary-btn--checkout-btn--active" <?= ($current_page == 'lunchbox.php') ? '' : 'disabled' ?>>
         Checkout
-    </button>
+    </a>
 </section>
 <nav class="bottom-nav">
     <a href="home.php" class="<?= ($current_page == 'home.php' || $current_page == 'category.php' || $current_page == 'item.php') ? 'active' : '' ?>">
