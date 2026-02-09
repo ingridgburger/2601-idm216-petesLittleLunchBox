@@ -32,6 +32,8 @@
 
 html {
   scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -39,13 +41,15 @@ body {
   background-color: var(--background-color);
   color: var(--foreground-color);
   margin: 0;
+  padding: 0;
 }
 
 /* HEADER */
 .site-header {
-  position: sticky;
+  position: fixed;
   width: 100%;
   top: 0;
+  left: 0;
   background: rgba(255, 254, 251, 0.95);
   backdrop-filter: blur(10px);
   z-index: 1000;
@@ -297,6 +301,7 @@ section.hero {
 main {
   font-family: var(--font-sans-serif);
   padding: 0 var(--rhythm);
+  padding-top: 80px;
   margin-bottom: calc(var(--rhythm) * 2);
   max-width: 100%;
 }
