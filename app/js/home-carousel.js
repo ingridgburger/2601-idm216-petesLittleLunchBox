@@ -4,9 +4,9 @@ document.addEventListener('DOMContentLoaded', function() {
   if (!heroImage) return;
   
   const images = [
-    'app-images/carousel/carousel-1.png',
-    'app-images/carousel/carousel-2.png',
-    'app-images/carousel/carousel-3.png'
+    'app-images/carousel/carousel-1.webp',
+    'app-images/carousel/carousel-2.webp',
+    'app-images/carousel/carousel-3.webp'
   ];
   
   let currentIndex = 0;

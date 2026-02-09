@@ -13,9 +13,17 @@
 }
 
 .header--tall {
-    height: 96px;
-    align-items: flex-end;
+    height: 260px;
+    align-items: flex-start; 
+    padding-top: 16px;
     padding-bottom: 16px;
+}
+
+.header--tall .header-title {
+    align-self: flex-end;
+    margin-bottom: 0;
+    font-size: 2.2rem; 
+    line-height: 1.1;
 }
 
 /* background variants */
@@ -26,6 +34,10 @@
 
 .header--red {
     background: var(--highlight-1);
+    color: var(--white);
+}
+
+.header--red .icon-btn {
     color: var(--white);
 }
 
@@ -89,14 +101,54 @@
   color: var(--white);
 }
 
+/* BOTTOM NAV */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: var(--white);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-top: 1px solid var(--light-gray);
+    z-index: 1000;
+}
+
+.bottom-nav a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    gap: 4px;
+    color: var(--gray);
+}
+
+.bottom-nav a.active {
+    color: var(--highlight-2);
+}
+
+.bottom-nav img {
+    width: 24px;
+    height: 24px;
+}
+
+.bottom-nav span {
+    font-family: var(--font-sans-serif);
+    font-weight: 400; 
+    font-size: 14px;
+}
+
 
 /* DIVIDER COMPONENT */
 .divider {
     position: relative;
     width: 90%;
     height: 1px;
-    background: var(--highlight-2);
-    margin: 24px auto;
+    background: var(--highlight-2); 
+    opacity: 0.3; 
+    margin: 16px auto;
 }
 
 .divider-star-img {

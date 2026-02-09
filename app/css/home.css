@@ -2,7 +2,7 @@
 .home-hero {
   position: relative;
   overflow: visible;
-  margin-top: -96px;
+  margin-top: -40px;
   padding-top: 0;
   z-index: 1;
 }
@@ -47,12 +47,12 @@
 .order-card {
   background: var(--highlight-1);
   color: var(--white);
-  border-radius: 16px;
   padding: 24px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
+  height: 112px;
 }
 
 .order-card > div {
@@ -73,7 +73,6 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   padding: 6px 14px;
-  border-radius: 20px;
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -85,15 +84,9 @@
 }
 
 .order-card h4 {
-  font-family: var(--font-sans-serif);
-  font-size: 1.5rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0;
   display: block;
   margin: 0;
   line-height: 1;
-  color: var(--white);
 }
 
 .order-card p {

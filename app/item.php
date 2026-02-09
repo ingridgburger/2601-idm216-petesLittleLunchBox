@@ -79,7 +79,11 @@ if ($show_size) {
 
 
 <header class="app-header header--white header--compact has-back has-cart">
-  <button class="icon-btn back-btn" onclick="history.back()" aria-label="Go back">←</button>
+  <a href="home.php" class="icon-btn back-btn" aria-label="Go back to menu">
+    <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </a>
   <div></div>
   <button class="icon-btn cart-btn-dark" aria-label="Lunchbox">
     <svg
@@ -129,7 +133,7 @@ if ($show_size) {
     <label class="option">
       <input type="radio" name="size">
       <div class="option-info">
-        <span class="option-name"><?= htmlspecialchars($size['size_name']) ?></span>
+        <span class="option-name"><?= htmlspecialchars($size['size_type']) ?></span>
         <span class="option-meta"><?= $size['calories'] ?> cal</span>
       </div>
       <span class="checkmark"></span>
