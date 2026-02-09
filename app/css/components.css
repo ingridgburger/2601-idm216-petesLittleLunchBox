@@ -85,6 +85,10 @@
   color: var(--black);
 }
 
+.cart-btn-light {
+  color: var(--white);
+}
+
 
 /* DIVIDER COMPONENT */
 .divider {
