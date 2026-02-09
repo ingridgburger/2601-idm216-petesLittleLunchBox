@@ -1,27 +1,5 @@
 /* FONT */
-@font-face {
-	font-display: swap;
-	font-family: 'Eldwin';
-	font-style: normal;
-	font-weight: 600;
-	src: url('../../fonts/eldwin/eldwin-bold.otf') format('truetype');
-}
-
-@font-face {
-	font-display: swap;
-	font-family: 'Futura';
-	font-style: normal;
-	font-weight: 400;
-	src: url('../../fonts/futura/futura-light.ttf') format('truetype');
-}
-
-@font-face {
-	font-display: swap;
-	font-family: 'Futura';
-	font-style: normal;
-	font-weight: 800;
-	src: url('../../fonts/futura/futura-heavy.ttf') format('truetype');
-}
+@import url("https://use.typekit.net/fet1nlq.css");
 
 /* GENERAL */
 :root {
@@ -38,8 +16,8 @@
     --highlight-1: var(--red);
     --highlight-2: var(--blue);
 
-    --font-bold: "Eldwin", Helvetica, Arial, sans-serif;
-    --font-sans-serif: "Futura", Helvetica, Arial, sans-serif;
+    --font-bold: "eldwin-script", Helvetica, Arial, sans-serif;
+    --font-sans-serif: "futura-pt", Helvetica, Arial, sans-serif;
 }
 
 * {
@@ -96,6 +74,14 @@ h4 {
 p {
     font-family: var(--font-sans-serif);
     font-size: 1rem;
+}
+
+strong {
+    font-family: var(--font-sans-serif);
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 0.5em;
 }
 
 /* text colors */

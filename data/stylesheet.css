@@ -17,7 +17,7 @@
   --highlight-2: var(--blue);
 
   --font-script: "eldwin-script", Helvetica, Arial, sans-serif;
-  --font-sans-serif: "Futura", Helvetica, Arial, sans-serif;
+  --font-sans-serif: "futura-pt", Helvetica, Arial, sans-serif;
 
   --font-small: clamp(0.75rem, 1vw + 0.8rem, 0.875rem);
   --font-base: clamp(1rem, 1vw + 0.9rem, 1rem);

@@ -1,20 +1,19 @@
 document.addEventListener('DOMContentLoaded', function() {
-  const heroImage = document.querySelector('.home-hero img');
-  
-  if (!heroImage) return;
-  
-  const images = [
-    'app-images/carousel/carousel-1.webp',
-    'app-images/carousel/carousel-2.webp',
-    'app-images/carousel/carousel-3.webp'
-  ];
-  
+  const carouselImages = document.querySelectorAll('.carousel-img');
+  if (!carouselImages.length) return;
   let currentIndex = 0;
-  
-  function rotateImage() {
-    currentIndex = (currentIndex + 1) % images.length;
-    heroImage.src = images[currentIndex];
+
+  function showImage(index) {
+    carouselImages.forEach((img, i) => {
+      img.classList.toggle('active', i === index);
+    });
   }
-  
+
+  function rotateImage() {
+    currentIndex = (currentIndex + 1) % carouselImages.length;
+    showImage(currentIndex);
+  }
+
   setInterval(rotateImage, 5000);
+  showImage(currentIndex);
 });
