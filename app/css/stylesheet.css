@@ -1,0 +1,126 @@
+/* FONT */
+@font-face {
+	font-display: swap;
+	font-family: 'Eldwin';
+	font-style: normal;
+	font-weight: 600;
+	src: url('../../fonts/eldwin/eldwin-bold.otf') format('truetype');
+}
+
+@font-face {
+	font-display: swap;
+	font-family: 'Futura';
+	font-style: normal;
+	font-weight: 400;
+	src: url('../../fonts/futura/futura-light.ttf') format('truetype');
+}
+
+@font-face {
+	font-display: swap;
+	font-family: 'Futura';
+	font-style: normal;
+	font-weight: 800;
+	src: url('../../fonts/futura/futura-heavy.ttf') format('truetype');
+}
+
+/* GENERAL */
+:root {
+  --white: #fffefb;
+  --off-white: #f8f5f1;
+  --light-gray: #eeeeee;
+  --gray: #818181;
+  --black: #1a1a1a;
+  --blue: #143a9b;
+  --red: #f7564e;
+
+  --background-color: var(--white);
+  --foreground-color: var(--black);
+  --highlight-1: var(--red);
+  --highlight-2: var(--blue);
+
+  --font-bold: "Eldwin", Helvetica, Arial, sans-serif;
+  --font-sans-serif: "Futura", Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--foreground-color);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* TYPOGRAPHY */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-sans-serif);
+  font-weight: 800;
+  color: var(--highlight-2);
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+h4 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+}
+
+.script {
+  font-family: var(--font-bold);
+  font-size: 2.7rem;
+  text-align: left;
+  margin: 0;
+}
+
+p {
+  font-family: var(--font-sans-serif);
+  font-size: 1rem;
+}
+
+/* text colors */
+.white-text {
+    color: var(--white);
+}
+
+.red-text {
+    color: var(--highlight-1);
+}
+
+.blue-text {
+    color: var(--highlight-2);
+}
+
+.black-text {
+    color: var(--black);
+}
+
+/* APP WIDTH*/
+.app-shell {
+  width: 393px;
+  min-height: 100vh;
+  margin: 0 auto;
+  background: var(--background-color);
+  overflow-x: hidden;
+  position: relative;
+}
