@@ -143,7 +143,7 @@
 <?php $current_page = basename($_SERVER['PHP_SELF']); ?>
 
 <section class="wide-btn-wrapper" style="position: relative; ">
-    <a href="order-confirmation.php" class="primary-btn--checkout-btn--active">
+    <a class="primary-btn--checkout-btn--active">
         Order with Credit Card
     </a>
     <a href="#" class="primary-btn--checkout-btn--active apple-pay-btn" style="background-color: var(--black); color: var(--white);"> Buy with
