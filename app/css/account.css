@@ -1,0 +1,66 @@
+/* ACCOUNT HEADER */
+.account-header {
+  padding: 20px 20px 32px;
+}
+
+.header-graphics {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 24px;
+}
+
+.user-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-name {
+  font-family: var(--font-sans-serif);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--highlight-2);
+  margin: 0;
+}
+
+.edit-btn {
+  font-family: var(--font-sans-serif);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--foreground-color);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: none;
+  border: none;
+  border-bottom: 2px solid var(--foreground-color);
+  padding: 4px 0;
+  cursor: pointer;
+}
+
+/* ACCOUNT MENU */
+.account-menu {
+  padding: 0 20px;
+}
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  text-decoration: none;
+  color: var(--highlight-2);
+}
+
+.menu-item span {
+  font-family: var(--font-sans-serif);
+  font-size: 1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.menu-item svg {
+  color: var(--foreground-color);
+  flex-shrink: 0;
+}

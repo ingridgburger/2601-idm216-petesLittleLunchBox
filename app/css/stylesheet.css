@@ -4,7 +4,7 @@
 /* GENERAL */
 :root {
     --white: #fffefb;
-    --off-white: #f8f5f1;
+    --off-white: #FAFAFA;
     --light-gray: #eeeeee;
     --gray: #818181;
     --black: #1a1a1a;
@@ -29,7 +29,7 @@ body {
     color: var(--foreground-color);
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
+    overflow-x: clip;
 }
 
 html {
@@ -108,6 +108,5 @@ strong {
     margin: 0 auto;
     background: var(--background-color);
     overflow-x: hidden;
-    position: relative;
     padding-bottom: 80px;
 }

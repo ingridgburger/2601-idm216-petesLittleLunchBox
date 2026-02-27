@@ -17,6 +17,97 @@ if (!$item) {
 
 $category_id = (int) $item['category_id'];
 
+$bagel_list    = str_replace(', ', ',', $item['bagel_options'] ?? '');
+$bread_list    = str_replace(', ', ',', $item['bread_options'] ?? '');
+$cheese_list   = str_replace(', ', ',', $item['cheese_options'] ?? '');
+$topping_list  = str_replace(', ', ',', $item['topping_options'] ?? '');
+$dressing_list = str_replace(', ', ',', $item['dressing_options'] ?? '');
+$size_list     = str_replace(', ', ',', $item['size_options'] ?? '');
+
+$show_bagel = $show_bread = $show_cheese = $show_toppings = $show_dressing = $show_size = false;
+
+if ($bagel_list !== '') {
+  $bagels = mysqli_query(
+    $connection,
+    "SELECT *
+     FROM idm216_bagel_options
+     WHERE FIND_IN_SET(
+       bagel_type,
+       '" . mysqli_real_escape_string($connection, $bagel_list) . "'
+     )"
+  );
+  $show_bagel = $bagels && mysqli_num_rows($bagels) > 0;
+}
+
+if ($bread_list !== '') {
+  $breads = mysqli_query(
+    $connection,
+    "SELECT *
+     FROM idm216_bread_options
+     WHERE FIND_IN_SET(
+       bread_type,
+       '" . mysqli_real_escape_string($connection, $bread_list) . "'
+     )"
+  );
+  $show_bread = $breads && mysqli_num_rows($breads) > 0;
+}
+
+
+if ($cheese_list !== '') {
+  $cheeses = mysqli_query(
+    $connection,
+    "SELECT *
+     FROM idm216_cheese_options
+     WHERE FIND_IN_SET(
+       cheese_type,
+       '" . mysqli_real_escape_string($connection, $cheese_list) . "'
+     )"
+  );
+  $show_cheese = $cheeses && mysqli_num_rows($cheeses) > 0;
+}
+
+
+if ($topping_list !== '') {
+  $toppings = mysqli_query(
+    $connection,
+    "SELECT *
+     FROM idm216_topping_options
+     WHERE FIND_IN_SET(
+       topping_type,
+       '" . mysqli_real_escape_string($connection, $topping_list) . "'
+     )"
+  );
+  $show_toppings = $toppings && mysqli_num_rows($toppings) > 0;
+}
+
+
+if ($dressing_list !== '') {
+  $dressings = mysqli_query(
+    $connection,
+    "SELECT *
+     FROM idm216_dressing_options
+     WHERE FIND_IN_SET(
+       dressing_name,
+       '" . mysqli_real_escape_string($connection, $dressing_list) . "'
+     )"
+  );
+  $show_dressing = $dressings && mysqli_num_rows($dressings) > 0;
+}
+
+
+if ($size_list !== '') {
+  $sizes = mysqli_query(
+    $connection,
+    "SELECT *
+     FROM idm216_size_options
+     WHERE FIND_IN_SET(
+       size_type,
+       '" . mysqli_real_escape_string($connection, $size_list) . "'
+     )"
+  );
+  $show_size = $sizes && mysqli_num_rows($sizes) > 0;
+}
+
 $category_folders = [
   1  => 'breakfast-sandwiches',
   2  => 'breakfast-platters',
@@ -35,32 +126,6 @@ $category_folder = $category_folders[$category_id] ?? 'misc';
 
 $item_image = "app-images/menu-item-images/$category_folder/" .
               htmlspecialchars($item['menu_item_image_filename']);
-
-$show_bagel    = in_array($category_id, [1]);
-$show_bread    = in_array($category_id, [6,7,8,9,10,11]);
-$show_cheese   = in_array($category_id, [1,6,7,8,9,10,11]);
-$show_dressing = in_array($category_id, [5]);
-$show_toppings = in_array($category_id, [1,5,6,7,8,9,10,11]);
-$show_size     = in_array($category_id, [4,5]);
-
-if ($show_bagel) {
-  $bagels = mysqli_query($connection, "SELECT * FROM idm216_bagel_options");
-}
-if ($show_bread) {
-  $breads = mysqli_query($connection, "SELECT * FROM idm216_bread_options");
-}
-if ($show_cheese) {
-  $cheeses = mysqli_query($connection, "SELECT * FROM idm216_cheese_options");
-}
-if ($show_dressing) {
-  $dressings = mysqli_query($connection, "SELECT * FROM idm216_dressing_options");
-}
-if ($show_toppings) {
-  $toppings = mysqli_query($connection, "SELECT * FROM idm216_topping_options");
-}
-if ($show_size) {
-  $sizes = mysqli_query($connection, "SELECT * FROM idm216_size_options");
-}
 ?>
 
 <!DOCTYPE html>
@@ -211,17 +276,22 @@ if ($show_size) {
 </section>
 <?php endif; ?>
 
+</main>
+</div>
+
+<div class="add-toast hidden" id="addToast">
+  <span class="toast-text">Added to Lunchbox</span>
+  <a href="lunchbox.php" class="toast-action">View</a>
+</div>
 
 <div class="add-bar">
   <div class="qty-selector">
     <button class="qty-btn minus">−</button>
-    <span class="qty">1</span>
+    <span class="qty" id="qtyValue">1</span>
     <button class="qty-btn plus">+</button>
   </div>
-  <button id="addBtn" disabled>Add to Lunchbox</button>
-</div>
+  <button id="addBtn" class="add-btn">Add to Lunchbox</button>
 
-</main>
 </div>
 
 <script src="js/item-page.js"></script>

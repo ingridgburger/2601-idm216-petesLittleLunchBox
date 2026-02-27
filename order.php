@@ -3,20 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pete's Little Lunch Box | Main Menu Items</title>
+    <title>Pete's Little Lunch Box | Main Menu Ordering</title>
     <link rel="icon" type="image/svg+xml" href="./images/flare-logos/favicon.png">
     <link rel="stylesheet" href="css/main-menu.css">
     <link rel="stylesheet" href="css/stylesheet.css">
     <link rel="stylesheet" href="data/stylesheet.css">
+    <link rel="stylesheet" href="css/order.css">
 </head>
+
 <body>
     <?php
     require_once 'data/includes/db.php';
     
-
-
     $menu_data = mysqli_query($connection, "SELECT * FROM idm216_menu_items");
     $menu_item = mysqli_fetch_all($menu_data, MYSQLI_ASSOC);
+    
+    $bread_options = mysqli_fetch_all(mysqli_query($connection, "SELECT * FROM idm216_bread_options"), MYSQLI_ASSOC);
+    $size_options = mysqli_fetch_all(mysqli_query($connection, "SELECT * FROM idm216_size_options"), MYSQLI_ASSOC);
+    $cheese_options = mysqli_fetch_all(mysqli_query($connection, "SELECT * FROM idm216_cheese_options"), MYSQLI_ASSOC);
+    $bagel_options = mysqli_fetch_all(mysqli_query($connection, "SELECT * FROM idm216_bagel_options"), MYSQLI_ASSOC);
+    $topping_options = mysqli_fetch_all(mysqli_query($connection, "SELECT * FROM idm216_topping_options"), MYSQLI_ASSOC);
+    $dressing_options = mysqli_fetch_all(mysqli_query($connection, "SELECT * FROM idm216_dressing_options"), MYSQLI_ASSOC);
     ?>
 <header class="site-header">
     <div class="header-content">
@@ -42,7 +49,7 @@
 <main>
      <section class="hero">
             <img src="./images/petes-logos/petes-logo.svg" alt="Pete's Little Lunch Box Logo" class="petes-logo">
-            <h1 class="page-title">Main Menu Items</h1>
+            <h1 class="page-title">Main Menu Ordering</h1>
         </section>
     <article class="content" id="top">
         <table>
@@ -83,7 +90,15 @@
                                 <td data-label="Image File"><img src="images/menu_item_images/<?= htmlspecialchars($image_path . '/' . $row['menu_item_image_filename']); ?>" alt="<?php echo htmlspecialchars($row['item_name']); ?>" class="item-image"></td>
                             <td data-label="Actions">
                                 <div class="menu-checkbox-cell">
-                                <input class="menu-item-checkbox" type="checkbox" name="select_item" value="<?php echo htmlspecialchars($row['id']); ?>">
+                                <input class="menu-item-checkbox" type="checkbox" name="select_item" value="<?php echo htmlspecialchars($row['id']); ?>" 
+                                       data-item-name="<?php echo htmlspecialchars($row['item_name']); ?>"
+                                       data-base-price="<?php echo htmlspecialchars($row['base_price']); ?>"
+                                       data-bagel-options="<?php echo htmlspecialchars($row['bagel_options']); ?>"
+                                       data-bread-options="<?php echo htmlspecialchars($row['bread_options']); ?>"
+                                       data-cheese-options="<?php echo htmlspecialchars($row['cheese_options']); ?>"
+                                       data-topping-options="<?php echo htmlspecialchars($row['topping_options']); ?>"
+                                       data-dressing-options="<?php echo htmlspecialchars($row['dressing_options']); ?>"
+                                       data-size-options="<?php echo htmlspecialchars($row['size_options']); ?>">
                                 </div>
                         </td>
                     </tr>
@@ -92,12 +107,38 @@
         </table>
     </article>
 </main>
+
+<div id="customization-modal">
+    <div class="customization-modal-content">
+        <button id="close-modal">&times;</button>
+        <h2>Customize</h2>
+        <form id="customization-form">
+            <div id="options-container"></div>
+            <div class="customization-buttons">
+                <button type="button" id="cancel-btn">Cancel</button>
+                <button type="button" id="add-to-order-btn">Add to Order</button>
+            </div>
+        </form>
+    </div>
+</div>
+
 <footer class="site-footer">
         <img src="images/flare-logos/flare-logo-light.svg" alt="Flare Logo">
 </footer>
 
+<script>
+window.optionData = {
+    bread: <?php echo json_encode($bread_options); ?>,
+    size: <?php echo json_encode($size_options); ?>,
+    cheese: <?php echo json_encode($cheese_options); ?>,
+    bagel: <?php echo json_encode($bagel_options); ?>,
+    topping: <?php echo json_encode($topping_options); ?>,
+    dressing: <?php echo json_encode($dressing_options); ?>
+};
+</script>
 <script src="./data/script/table-pagination.js"></script>
 <script src="./js/main-menu.js"></script>
+<script src="./js/order.js"></script>
 
 </body>
 </html>

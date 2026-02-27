@@ -76,7 +76,10 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('change', validateSelections)
 
 if (addBtn) {
-  addBtn.addEventListener('click', showAddToast)
+  addBtn.addEventListener('click', (e) => {
+    e.preventDefault()
+    showAddToast()
+  })
 }
 
 const qtyValue = document.getElementById('qtyValue')

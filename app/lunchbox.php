@@ -51,7 +51,7 @@
                     <span class="price">$5.00</span>
                 </div>
                 <p class="customizations">
-                    Regular Bagel, American Cheese, Egg
+                    Everything Bagel, Cheddar Cheese, Egg
                 </p>
                 <div class="cart-item-actions" >
                     <button class="icon-btn edit-btn" aria-label="Edit item">

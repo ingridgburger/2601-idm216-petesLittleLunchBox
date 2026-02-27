@@ -54,6 +54,17 @@
 }
 
 /* ACTIVE ORDER */
+.order-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.order-card strong,
+.order-card p {
+  display: block;
+}
+
 .active-order {
   padding: 24px 20px;
   position: relative;
@@ -281,14 +292,14 @@
 
 .category-title {
   position: absolute;
-  bottom: 16px;
+  bottom: 12px;
   color: var(--highlight-1);
   font-family: var(--font-sans-serif);
   font-size: 1.4rem;
   font-weight: 800;
   text-transform: uppercase;
   max-width: 170px;
-  line-height: 1.2;
+  line-height: 1;
   word-wrap: break-word;
 }
 

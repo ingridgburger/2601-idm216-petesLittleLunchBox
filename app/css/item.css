@@ -96,27 +96,6 @@
 
 /* ADD / QUANTITY */
 
-#addBtn {
-  width: 100%;
-  margin-top: 12px;
-  padding: 14px;
-  border-radius: 999px;
-  font-family: var(--font-sans-serif);
-  font-weight: 800;
-  text-transform: uppercase;
-  border: none;
-}
-
-#addBtn:disabled {
-  background: var(--light-gray);
-  color: var(--gray);
-}
-
-#addBtn:not(:disabled) {
-  background: var(--highlight-1);
-  color: var(--white);
-}
-
 .add-bar {
   position: fixed;
   bottom: 0;
@@ -129,8 +108,37 @@
   display: flex;
   gap: 12px;
   box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+  z-index: 9999;
 }
 
+.add-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  background: var(--highlight-1);
+  flex: 1;
+  color: var(--white);
+  padding: 16px 20px;
+  font-family: var(--font-sans-serif);
+  font-weight: 800;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+}
+
+.add-btn:hover,
+.add-btn:focus,
+.add-btn:active,
+.add-btn:visited {
+  text-decoration: none;
+  color: var(--white);
+  outline: none;
+}
 
 /* TOAST */
 

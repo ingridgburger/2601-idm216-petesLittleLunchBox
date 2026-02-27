@@ -44,7 +44,6 @@ $item_query = "
   SELECT *
   FROM idm216_menu_items
   WHERE category_id = $category_id
-  ORDER BY item_name
 ";
 $items = mysqli_query($connection, $item_query);
 ?>

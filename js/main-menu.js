@@ -1,3 +1,4 @@
+// GET MENU DATA
 function getMenuData() {
   const rows = document.querySelectorAll('tbody tr');
   const map = {};
@@ -10,6 +11,7 @@ function getMenuData() {
   return map;
 }
 
+// ORDER SUMMARY CONTENT
 function showOrderSummary() {
   const checkboxes = document.querySelectorAll('.menu-item-checkbox[type="checkbox"]');
   const menuData = getMenuData();
@@ -43,7 +45,7 @@ function showOrderSummary() {
   const tax = subtotal * taxRate;
   const total = subtotal + tax;
 
-
+// ORDER LINE ITEMS
   function summaryRow(labelText, value, className = 'order-row order-summary') {
     const row = document.createElement('div');
     row.className = className;
@@ -74,9 +76,12 @@ function showOrderSummary() {
   modal.classList.add('active');
 }
 
+// CLOSE MODAL
 function closeOrderSummary() {
   document.getElementById('order-modal').classList.remove('active');
 }
+
+// RESET BTN
 function resetCheckboxes() {
   const clearBtn = document.querySelector(".reset-btn");
   if (clearBtn) {
@@ -89,6 +94,7 @@ function resetCheckboxes() {
   }
 }
 
+// ORDER COUNT
 function updateOrderCount() {
   const checkboxes = document.querySelectorAll(
     '.menu-item-checkbox[type="checkbox"]',

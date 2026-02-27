@@ -63,8 +63,8 @@
         </div>
 
         <p class="customizations">
-          Regular Bagel,<br>
-          American Cheese, Egg
+          Everything Bagel,<br>
+          Cheddar Cheese, Egg
         </p>
 
         <p class="qty-right">1×</p>
