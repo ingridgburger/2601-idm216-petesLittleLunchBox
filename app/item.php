@@ -342,7 +342,6 @@ $item_image = "app-images/menu-item-images/$category_folder/" .
 </div>
 
 <script>
-// Provide item and option data to JavaScript
 window.itemData = {
   id: <?= $item['id'] ?>,
   name: <?= json_encode($item['item_name']) ?>,

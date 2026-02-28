@@ -1,5 +1,7 @@
 const addBtn = document.getElementById('addBtn')
 const toast = document.getElementById('addToast')
+const priceSpan = addBtn ? addBtn.querySelector('span') : null
+const basePrice = addBtn ? parseFloat(addBtn.dataset.basePrice) : 0
 
 const TOAST_DURATION = 10000
 
@@ -31,6 +33,24 @@ function validateSelections() {
 
   const allSelected = Object.values(radioGroups).every(Boolean)
   addBtn.disabled = !allSelected
+  
+  updatePrice()
+}
+
+function updatePrice() {
+  if (!priceSpan) return
+
+  let totalExtra = 0
+
+  document.querySelectorAll('input[type="radio"]:checked, input[type="checkbox"]:checked').forEach(input => {
+    const extraCharge = parseFloat(input.dataset.extraCharge) || 0
+    totalExtra += extraCharge
+  })
+
+  const itemTotal = basePrice + totalExtra
+  const finalTotal = itemTotal * quantity
+  
+  priceSpan.textContent = `$${finalTotal.toFixed(2)}`
 }
 
 function showAddToast() {
@@ -71,9 +91,14 @@ document.addEventListener('DOMContentLoaded', () => {
   selectDefaultRadios()
   validateSelections()
   restoreToast()
+  updatePrice()
 })
 
-document.addEventListener('change', validateSelections)
+document.addEventListener('change', (e) => {
+  if (e.target.matches('input[type="radio"], input[type="checkbox"]')) {
+    validateSelections()
+  }
+})
 
 if (addBtn) {
   addBtn.addEventListener('click', (e) => {
@@ -88,10 +113,13 @@ const plusBtn = document.querySelector('.qty-btn.plus')
 
 let quantity = 1
 const MIN_QTY = 1
+const MAX_QTY = 10
 
 function updateQtyUI() {
   qtyValue.textContent = quantity
   minusBtn.disabled = quantity === MIN_QTY
+  plusBtn.disabled = quantity === MAX_QTY
+  updatePrice()
 }
 
 if (minusBtn && plusBtn && qtyValue) {
@@ -103,8 +131,10 @@ if (minusBtn && plusBtn && qtyValue) {
   })
 
   plusBtn.addEventListener('click', () => {
-    quantity++
-    updateQtyUI()
+    if (quantity < MAX_QTY) {
+      quantity++
+      updateQtyUI()
+    }
   })
 
   updateQtyUI()
