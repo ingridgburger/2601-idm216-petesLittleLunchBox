@@ -46,7 +46,7 @@ $result = mysqli_query($connection, $query);
         </a>
     </section>
 
-    <div class="divider">
+    <div class="divider" id="activeDivider" style="display: none;">
         <img src="app-images/misc/star.svg" alt="" class="divider-star-img">
     </div>
 

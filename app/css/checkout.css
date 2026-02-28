@@ -44,3 +44,7 @@
     font-size: 1.25rem;
     margin: 12px 0;
 }
+
+.qty-display {
+  font-family: var(--font-sans-serif);
+}

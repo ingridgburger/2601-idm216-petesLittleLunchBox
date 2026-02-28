@@ -17,6 +17,13 @@ if (!$item) {
 
 $category_id = (int) $item['category_id'];
 
+$bread_options = mysqli_fetch_all(mysqli_query($connection, "SELECT * FROM idm216_bread_options"), MYSQLI_ASSOC);
+$size_options = mysqli_fetch_all(mysqli_query($connection, "SELECT * FROM idm216_size_options"), MYSQLI_ASSOC);
+$cheese_options = mysqli_fetch_all(mysqli_query($connection, "SELECT * FROM idm216_cheese_options"), MYSQLI_ASSOC);
+$bagel_options = mysqli_fetch_all(mysqli_query($connection, "SELECT * FROM idm216_bagel_options"), MYSQLI_ASSOC);
+$topping_options = mysqli_fetch_all(mysqli_query($connection, "SELECT * FROM idm216_topping_options"), MYSQLI_ASSOC);
+$dressing_options = mysqli_fetch_all(mysqli_query($connection, "SELECT * FROM idm216_dressing_options"), MYSQLI_ASSOC);
+
 $bagel_list    = str_replace(', ', ',', $item['bagel_options'] ?? '');
 $bread_list    = str_replace(', ', ',', $item['bread_options'] ?? '');
 $cheese_list   = str_replace(', ', ',', $item['cheese_options'] ?? '');
@@ -87,7 +94,7 @@ if ($dressing_list !== '') {
     "SELECT *
      FROM idm216_dressing_options
      WHERE FIND_IN_SET(
-       dressing_name,
+       dressing_type,
        '" . mysqli_real_escape_string($connection, $dressing_list) . "'
      )"
   );
@@ -158,11 +165,10 @@ $item_image = "app-images/menu-item-images/$category_folder/" .
     <strong>$<?= number_format($item['base_price'], 2) ?></strong>
     · <?= (int) $item['calories'] ?> cal
   </p>
-
-  <div class="divider">
+</section>
+<div class="divider">
     <img src="app-images/misc/star.svg" alt="" class="divider-star-img">
   </div>
-</section>
 
 
 <?php if ($show_size): ?>
@@ -170,9 +176,13 @@ $item_image = "app-images/menu-item-images/$category_folder/" .
   <h4>Size</h4>
   <?php while ($size = mysqli_fetch_assoc($sizes)): ?>
     <label class="option">
-      <input type="radio" name="size">
+      <input type="radio" name="size" value="<?= htmlspecialchars($size['size_type']) ?>" data-extra-charge="<?= htmlspecialchars($size['extra_charge'] ?? 0) ?>" data-calories="<?= htmlspecialchars($size['calories']) ?>">
       <div class="option-info">
-        <span class="option-name"><?= htmlspecialchars($size['size_type']) ?></span>
+        <span class="option-name"><?= htmlspecialchars($size['size_type']) ?>
+        <?php if ($size['extra_charge'] > 0): ?>
+          (+$<?= number_format($size['extra_charge'], 2) ?>)
+        <?php endif; ?>
+        </span>
         <span class="option-meta"><?= $size['calories'] ?> cal</span>
       </div>
       <span class="checkmark"></span>
@@ -187,10 +197,14 @@ $item_image = "app-images/menu-item-images/$category_folder/" .
   <h4>Bagel</h4>
   <?php while ($bagel = mysqli_fetch_assoc($bagels)): ?>
     <label class="option">
-      <input type="radio" name="bagel">
+      <input type="radio" name="bagel" value="<?= htmlspecialchars($bagel['bagel_type']) ?>" data-extra-charge="<?= htmlspecialchars($bagel['extra_charge'] ?? 0) ?>" data-calories="<?= htmlspecialchars($bagel['calories']) ?>">
       <img src="app-images/bagel-options/<?= $bagel['bagel_type_image_filename'] ?>">
       <div class="option-info">
-        <span class="option-name"><?= htmlspecialchars($bagel['bagel_type']) ?></span>
+        <span class="option-name"><?= htmlspecialchars($bagel['bagel_type']) ?>
+        <?php if ($bagel['extra_charge'] > 0): ?>
+          (+$<?= number_format($bagel['extra_charge'], 2) ?>)
+        <?php endif; ?>
+        </span>
         <span class="option-meta"><?= $bagel['calories'] ?> cal</span>
       </div>
       <span class="checkmark"></span>
@@ -205,10 +219,14 @@ $item_image = "app-images/menu-item-images/$category_folder/" .
   <h4>Bread</h4>
   <?php while ($bread = mysqli_fetch_assoc($breads)): ?>
     <label class="option">
-      <input type="radio" name="bread">
+      <input type="radio" name="bread" value="<?= htmlspecialchars($bread['bread_type']) ?>" data-extra-charge="<?= htmlspecialchars($bread['extra_charge'] ?? 0) ?>" data-calories="<?= htmlspecialchars($bread['calories']) ?>">
       <img src="app-images/bread-options/<?= $bread['bread_type_image_filename'] ?>">
       <div class="option-info">
-        <span class="option-name"><?= htmlspecialchars($bread['bread_type']) ?></span>
+        <span class="option-name"><?= htmlspecialchars($bread['bread_type']) ?>
+        <?php if ($bread['extra_charge'] > 0): ?>
+          (+$<?= number_format($bread['extra_charge'], 2) ?>)
+        <?php endif; ?>
+        </span>
         <span class="option-meta"><?= $bread['calories'] ?> cal</span>
       </div>
       <span class="checkmark"></span>
@@ -223,10 +241,14 @@ $item_image = "app-images/menu-item-images/$category_folder/" .
   <h4>Cheese</h4>
   <?php while ($cheese = mysqli_fetch_assoc($cheeses)): ?>
     <label class="option">
-      <input type="radio" name="cheese">
+      <input type="radio" name="cheese" value="<?= htmlspecialchars($cheese['cheese_type']) ?>" data-extra-charge="<?= htmlspecialchars($cheese['extra_charge'] ?? 0) ?>" data-calories="<?= htmlspecialchars($cheese['calories']) ?>">
       <img src="app-images/cheese-options/<?= $cheese['cheese_type_image_filename'] ?>">
       <div class="option-info">
-        <span class="option-name"><?= htmlspecialchars($cheese['cheese_type']) ?></span>
+        <span class="option-name"><?= htmlspecialchars($cheese['cheese_type']) ?>
+        <?php if ($cheese['extra_charge'] > 0): ?>
+          (+$<?= number_format($cheese['extra_charge'], 2) ?>)
+        <?php endif; ?>
+        </span>
         <span class="option-meta"><?= $cheese['calories'] ?> cal</span>
       </div>
       <span class="checkmark"></span>
@@ -241,13 +263,13 @@ $item_image = "app-images/menu-item-images/$category_folder/" .
   <h4>Toppings</h4>
   <?php while ($topping = mysqli_fetch_assoc($toppings)): ?>
     <label class="option">
-      <input type="checkbox" name="toppings[]">
+      <input type="checkbox" name="toppings[]" value="<?= htmlspecialchars($topping['topping_type']) ?>" data-extra-charge="<?= htmlspecialchars($topping['extra_charge'] ?? 0) ?>" data-calories="<?= htmlspecialchars($topping['calories']) ?>">
       <img src="app-images/topping-options/<?= $topping['topping_type_image_filename'] ?>">
       <div class="option-info">
         <span class="option-name">
           <?= htmlspecialchars($topping['topping_type']) ?>
           <?php if ($topping['extra_charge'] > 0): ?>
-            (+<?= number_format($topping['extra_charge'], 2) ?>)
+            (+$<?= number_format($topping['extra_charge'], 2) ?>)
           <?php endif; ?>
         </span>
         <span class="option-meta"><?= $topping['calories'] ?> cal</span>
@@ -264,10 +286,14 @@ $item_image = "app-images/menu-item-images/$category_folder/" .
   <h4>Dressing</h4>
   <?php while ($dressing = mysqli_fetch_assoc($dressings)): ?>
     <label class="option">
-      <input type="checkbox" name="dressings[]">
+      <input type="checkbox" name="dressings[]" value="<?= htmlspecialchars($dressing['dressing_name']) ?>" data-extra-charge="<?= htmlspecialchars($dressing['extra_charge'] ?? 0) ?>" data-calories="<?= htmlspecialchars($dressing['calories']) ?>">
       <img src="app-images/dressing-options/<?= $dressing['dressing_type_image_filename'] ?>">
       <div class="option-info">
-        <span class="option-name"><?= htmlspecialchars($dressing['dressing_name']) ?></span>
+        <span class="option-name"><?= htmlspecialchars($dressing['dressing_name']) ?>
+        <?php if ($dressing['extra_charge'] > 0): ?>
+          (+$<?= number_format($dressing['extra_charge'], 2) ?>)
+        <?php endif; ?>
+        </span>
         <span class="option-meta"><?= $dressing['calories'] ?> cal</span>
       </div>
       <span class="checkmark"></span>
@@ -290,10 +316,36 @@ $item_image = "app-images/menu-item-images/$category_folder/" .
     <span class="qty" id="qtyValue">1</span>
     <button class="qty-btn plus">+</button>
   </div>
-  <button id="addBtn" class="add-btn">Add to Lunchbox</button>
+  <button id="addBtn" class="add-btn" data-item-id="<?= $item['id'] ?>" data-item-name="<?= htmlspecialchars($item['item_name']) ?>" data-base-price="<?= $item['base_price'] ?>">Add to Lunchbox - $<?= number_format($item['base_price'], 2) ?></button>
 
 </div>
 
+<script>
+// Provide item and option data to JavaScript
+window.itemData = {
+  id: <?= $item['id'] ?>,
+  name: <?= json_encode($item['item_name']) ?>,
+  basePrice: <?= $item['base_price'] ?>,
+  categoryId: <?= $item['category_id'] ?>,
+  imageFilename: <?= json_encode($item['menu_item_image_filename']) ?>,
+  bagelOptions: <?= json_encode($item['bagel_options']) ?>,
+  breadOptions: <?= json_encode($item['bread_options']) ?>,
+  cheeseOptions: <?= json_encode($item['cheese_options']) ?>,
+  toppingOptions: <?= json_encode($item['topping_options']) ?>,
+  dressingOptions: <?= json_encode($item['dressing_options']) ?>,
+  sizeOptions: <?= json_encode($item['size_options']) ?>
+};
+
+window.optionData = {
+  bread: <?= json_encode($bread_options) ?>,
+  size: <?= json_encode($size_options) ?>,
+  cheese: <?= json_encode($cheese_options) ?>,
+  bagel: <?= json_encode($bagel_options) ?>,
+  topping: <?= json_encode($topping_options) ?>,
+  dressing: <?= json_encode($dressing_options) ?>
+};
+</script>
+<script src="js/lunchbox.js"></script>
 <script src="js/item-page.js"></script>
 </body>
 </html>
