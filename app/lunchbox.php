@@ -70,9 +70,7 @@
             </div>
         </div>
     </section>
-    <div class="divider">
-        <img src="app-images/misc/star.svg" alt="" class="divider-star-img">
-    </div>
+    <?php include 'includes/divider.php'; ?>
     <section class="add-items-section" style="padding: 20px 0;">
         <h4 style="text-align: center;">Available Rewards • 2,530 pts</h4>
         <div class="horizontal-scroll">

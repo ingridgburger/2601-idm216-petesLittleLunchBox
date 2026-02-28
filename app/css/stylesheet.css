@@ -25,7 +25,6 @@
 }
 
 body {
-    background-color: var(--off-white);
     color: var(--foreground-color);
     margin: 0;
     padding: 0;
@@ -34,6 +33,11 @@ body {
 
 html {
     scroll-behavior: smooth;
+}
+
+/* MAIN CONTAINER */
+.container {
+  padding: 0 20px;
 }
 
 /* TYPOGRAPHY */
@@ -78,7 +82,6 @@ p {
 
 strong {
     font-family: var(--font-sans-serif);
-    letter-spacing: 0.1rem;
     text-transform: uppercase;
     font-weight: 500;
     margin-bottom: 0.5em;

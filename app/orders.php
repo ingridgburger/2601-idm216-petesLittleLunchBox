@@ -47,16 +47,12 @@
             <p class="order-label script red-text">order number</p>
             <h2 class="order-number">15947</h2>
             
-            <div class="divider">
-                <img src="app-images/misc/star.svg" alt="" class="divider-star-img">
-            </div>
+            <?php include 'includes/divider.php'; ?>
 
             <h3 class="pickup-time">pickup at 3:30 PM</h3>
             <p class="pickup-address">11 N 33rd St Philadelphia, PA 19104</p>
 
-            <div class="divider">
-                <img src="app-images/misc/star.svg" alt="" class="divider-star-img">
-            </div>
+            <?php include 'includes/divider.php'; ?>
 
             <div class="progress-tracker">
                 <div class="progress-bar">
@@ -75,9 +71,7 @@
                 </div>
             </div>
 
-            <div class="divider">
-                <img src="app-images/misc/star.svg" alt="" class="divider-star-img">
-            </div>
+            <?php include 'includes/divider.php'; ?>
 
             <button class="view-details-btn">View Details</button>
         </div>

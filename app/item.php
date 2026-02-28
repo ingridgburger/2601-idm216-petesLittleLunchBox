@@ -166,10 +166,20 @@ $item_image = "app-images/menu-item-images/$category_folder/" .
     · <?= (int) $item['calories'] ?> cal
   </p>
 </section>
-<div class="divider">
-    <img src="app-images/misc/star.svg" alt="" class="divider-star-img">
-  </div>
+<?php include 'includes/divider.php'; ?>
 
+<section class="selector col-2">
+  <h4>Quantity</h4>
+  <div class="qty-selector">
+    <button class="qty-btn minus">−</button>
+    <span class="qty" id="qtyValue">1</span>
+    <button class="qty-btn plus">+</button>
+  </div>
+</section>
+
+<?php if ($show_size || $show_bagel || $show_bread || $show_cheese || $show_toppings || $show_dressing): ?>
+<?php include 'includes/divider.php'; ?>
+<?php endif; ?>
 
 <?php if ($show_size): ?>
 <section class="selector">
@@ -189,6 +199,9 @@ $item_image = "app-images/menu-item-images/$category_folder/" .
     </label>
   <?php endwhile; ?>
 </section>
+<?php if ($show_bagel || $show_bread || $show_cheese || $show_toppings || $show_dressing): ?>
+<?php include 'includes/divider.php'; ?>
+<?php endif; ?>
 <?php endif; ?>
 
 
@@ -211,6 +224,9 @@ $item_image = "app-images/menu-item-images/$category_folder/" .
     </label>
   <?php endwhile; ?>
 </section>
+<?php if ($show_bread || $show_cheese || $show_toppings || $show_dressing): ?>
+<?php include 'includes/divider.php'; ?>
+<?php endif; ?>
 <?php endif; ?>
 
 
@@ -233,6 +249,9 @@ $item_image = "app-images/menu-item-images/$category_folder/" .
     </label>
   <?php endwhile; ?>
 </section>
+<?php if ($show_cheese || $show_toppings || $show_dressing): ?>
+<?php include 'includes/divider.php'; ?>
+<?php endif; ?>
 <?php endif; ?>
 
 
@@ -255,6 +274,9 @@ $item_image = "app-images/menu-item-images/$category_folder/" .
     </label>
   <?php endwhile; ?>
 </section>
+<?php if ($show_toppings || $show_dressing): ?>
+<?php include 'includes/divider.php'; ?>
+<?php endif; ?>
 <?php endif; ?>
 
 
@@ -278,6 +300,9 @@ $item_image = "app-images/menu-item-images/$category_folder/" .
     </label>
   <?php endwhile; ?>
 </section>
+<?php if ($show_dressing): ?>
+<?php include 'includes/divider.php'; ?>
+<?php endif; ?>
 <?php endif; ?>
 
 
@@ -286,10 +311,10 @@ $item_image = "app-images/menu-item-images/$category_folder/" .
   <h4>Dressing</h4>
   <?php while ($dressing = mysqli_fetch_assoc($dressings)): ?>
     <label class="option">
-      <input type="checkbox" name="dressings[]" value="<?= htmlspecialchars($dressing['dressing_name']) ?>" data-extra-charge="<?= htmlspecialchars($dressing['extra_charge'] ?? 0) ?>" data-calories="<?= htmlspecialchars($dressing['calories']) ?>">
+      <input type="checkbox" name="dressings[]" value="<?= htmlspecialchars($dressing['dressing_type']) ?>" data-extra-charge="<?= htmlspecialchars($dressing['extra_charge'] ?? 0) ?>" data-calories="<?= htmlspecialchars($dressing['calories']) ?>">
       <img src="app-images/dressing-options/<?= $dressing['dressing_type_image_filename'] ?>">
       <div class="option-info">
-        <span class="option-name"><?= htmlspecialchars($dressing['dressing_name']) ?>
+        <span class="option-name"><?= htmlspecialchars($dressing['dressing_type']) ?>
         <?php if ($dressing['extra_charge'] > 0): ?>
           (+$<?= number_format($dressing['extra_charge'], 2) ?>)
         <?php endif; ?>
@@ -303,21 +328,17 @@ $item_image = "app-images/menu-item-images/$category_folder/" .
 <?php endif; ?>
 
 </main>
-</div>
-
 <div class="add-toast hidden" id="addToast">
   <span class="toast-text">Added to Lunchbox</span>
   <a href="lunchbox.php" class="toast-action">View</a>
 </div>
 
 <div class="add-bar">
-  <div class="qty-selector">
-    <button class="qty-btn minus">−</button>
-    <span class="qty" id="qtyValue">1</span>
-    <button class="qty-btn plus">+</button>
-  </div>
-  <button id="addBtn" class="add-btn" data-item-id="<?= $item['id'] ?>" data-item-name="<?= htmlspecialchars($item['item_name']) ?>" data-base-price="<?= $item['base_price'] ?>">Add to Lunchbox - $<?= number_format($item['base_price'], 2) ?></button>
-
+  <button id="addBtn" class="add-btn" data-item-id="<?= $item['id'] ?>" data-item-name="<?= htmlspecialchars($item['item_name']) ?>" data-base-price="<?= $item['base_price'] ?>">
+    Add to Lunchbox
+    <span>$<?= number_format($item['base_price'], 2) ?></span>
+  </button>
+</div>
 </div>
 
 <script>

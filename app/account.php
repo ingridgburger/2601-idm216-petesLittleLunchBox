@@ -46,9 +46,7 @@
         </div>
     </section>
 
-    <div class="divider">
-        <img src="app-images/misc/star.svg" alt="" class="divider-star-img">
-    </div>
+    <?php include 'includes/divider.php'; ?>
 
     <section class="account-menu">
         <a href="#" class="menu-item">
@@ -58,9 +56,7 @@
             </svg>
         </a>
 
-        <div class="divider">
-            <img src="app-images/misc/star.svg" alt="" class="divider-star-img">
-        </div>
+        <?php include 'includes/divider.php'; ?>
 
         <a href="#" class="menu-item">
             <span>Payment Methods</span>
@@ -69,9 +65,7 @@
             </svg>
         </a>
 
-        <div class="divider">
-            <img src="app-images/misc/star.svg" alt="" class="divider-star-img">
-        </div>
+        <?php include 'includes/divider.php'; ?>
     </section>
 
     <?php $current_page = basename($_SERVER['PHP_SELF']); ?>

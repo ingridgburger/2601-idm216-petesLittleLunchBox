@@ -32,9 +32,7 @@
     <h2 class="order-number">15947</h2>
   </section>
 
-  <div class="divider">
-    <img src="app-images/misc/star.svg" alt="" class="divider-star-img">
-  </div>
+  <?php include 'includes/divider.php'; ?>
 
   <!-- PICKUP INFO -->
   <section class="confirmation-section center">
@@ -43,9 +41,7 @@
     <p class="reward-text">You've earned 100 pts with this order!</p>
   </section>
 
-  <div class="divider">
-    <img src="app-images/misc/star.svg" alt="" class="divider-star-img">
-  </div>
+  <?php include 'includes/divider.php'; ?>
 
   <!-- ORDER DETAILS -->
   <section class="confirmation-section">

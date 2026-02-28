@@ -252,23 +252,26 @@
 
 /* DIVIDER COMPONENT */
 .divider {
-  position: relative;
-  width: 90%;
-  height: 1px;
-  background: var(--light-gray);
+  display: flex;
+  align-items: center;
+  width: 100%;
   margin: 16px auto;
 }
 
 .divider-star-img {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  color: var(--light-gray);
+  flex-shrink: 0;
   padding: 0 6px;
   height: 18px;
   width: auto;
   display: block;
-  background-color: var(--background-color);
+  background-color: transparent;
+}
+
+.divider span {
+  flex: 1;
+  height: 1px;
+  background: var(--light-gray);
 }
 
 /* QUANTITY SELECTOR */
@@ -278,9 +281,13 @@
   gap: 12px;
 }
 
+.qty-selector h4 {
+  line-height: 1;
+}
+
 .qty-btn {
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   border: 1.5px solid var(--highlight-2);
   background: none;

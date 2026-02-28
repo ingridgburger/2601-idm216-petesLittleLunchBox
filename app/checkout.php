@@ -99,9 +99,7 @@
             </div>
         </div>
     </section>
-    <div class="divider">
-        <img src="app-images/misc/star.svg" alt="" class="divider-star-img">
-    </div>
+    <?php include 'includes/divider.php'; ?>
     <section class="tip-section" style="margin-top: 32px;">
         <h4 class="cart-empty-message" style="text-align: center;">
             Leave a tip?
@@ -114,9 +112,7 @@
     </div>
 
     </section>
-    <div class="divider">
-        <img src="app-images/misc/star.svg" alt="" class="divider-star-img">
-    </div>
+    <?php include 'includes/divider.php'; ?>
     <section class="total-section">
         <div class="total-details">
             <p>Subtotal</p>

@@ -2,6 +2,7 @@ const ACTIVE_ORDER_DURATION = 5 * 60 * 1000;
 
 function checkAndDisplayActiveOrder() {
   const activeOrderSection = document.getElementById('activeOrder');
+  const activeDivider = document.getElementById('activeDivider');
   if (!activeOrderSection) return;
 
   const checkoutTimestamp = localStorage.getItem('checkoutTimestamp');
@@ -15,6 +16,7 @@ function checkAndDisplayActiveOrder() {
 
   if (timeSinceCheckout < ACTIVE_ORDER_DURATION) {
     activeOrderSection.style.display = 'block';
+    activeDivider.style.display = 'block';
     
     const remainingTime = ACTIVE_ORDER_DURATION - timeSinceCheckout;
     setTimeout(() => {
