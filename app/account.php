@@ -32,6 +32,7 @@
                     fill="currentColor"
                     />
                 </svg>
+                <span class="cart-count white" style="display: none;">0</span>
             </a>
         </section>
         <h1 class="header-title white-text">account</h1>
@@ -82,5 +83,6 @@
         </a>
     </nav>
 </div>
+<script src="js/cart-count.js"></script>
 </body>
 </html>

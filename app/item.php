@@ -353,6 +353,7 @@ window.optionData = {
   dressing: <?= json_encode($dressing_options) ?>
 };
 </script>
+<script src="js/cart-count.js"></script>
 <script src="js/lunchbox.js"></script>
 <script src="js/item-page.js"></script>
 </body>

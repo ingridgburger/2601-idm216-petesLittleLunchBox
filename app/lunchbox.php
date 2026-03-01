@@ -101,6 +101,7 @@ include 'includes/category-folders.php';
 </nav>
 
 </div>
+<script src="js/cart-count.js"></script>
 <script src="js/item-page.js"></script>
 </body>
 </html>

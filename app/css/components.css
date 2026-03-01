@@ -149,7 +149,15 @@
   font-family: var(--font-sans-serif);
   font-size: 0.75rem;
   font-weight: 500;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.cart-count.white {
+  background-color: var(--white);
+  color: var(--highlight-1)
 }
 
 .icon-btn {

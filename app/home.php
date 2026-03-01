@@ -205,6 +205,7 @@ $result = mysqli_query($connection, $query);
 
 </div>
 
+<script src="js/cart-count.js"></script>
 <script src="js/home-carousel.js"></script>
 <script src="js/active-order.js"></script>
 </body>

@@ -176,6 +176,10 @@ function addToLunchbox() {
 
   localStorage.setItem("lunchboxItems", JSON.stringify(existingItems));
 
+  if (typeof updateCartCount === 'function') {
+    updateCartCount();
+  }
+
   showAddToast();
 }
 
@@ -385,6 +389,9 @@ function updateCartItemQuantity(itemIndex, change) {
     
     localStorage.setItem('lunchboxItems', JSON.stringify(lunchboxItems))
     renderLunchbox()
+    if (typeof updateCartCount === 'function') {
+      updateCartCount()
+    }
   }
 }
 
