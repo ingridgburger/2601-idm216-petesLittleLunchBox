@@ -3,7 +3,15 @@
   grid-template-columns: 100px 1fr;
   gap: 16px;
   align-items: center;
-  padding: 12px 0;
+  padding: 16px 0;
+}
+
+.cart-item:not(:first-child) {
+  border-top: 1px dashed var(--light-gray);
+}
+
+.cart-item:last-child {
+  padding-bottom: 0;
 }
 
 .cart-item-img {
@@ -21,43 +29,73 @@
 }
 
 .cart-item-details {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .cart-item-details h4 {
-    max-width: 17ch;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    margin: 0;
+  line-clamp: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+}
+
+.cart-item-name-and-customizations {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 150px;
+}
+
+.empty-cart-section {
+    height: 200px;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.cart-empty-submessage {
+    margin: auto;
+    max-width: 300px;
 }
 
 .customizations {
-    max-width: 75%;
-    margin: 0;
+  color: var(--gray);
+  font-size: 0.875rem;
+  max-width: 75%;
+  margin: 0;
 }
 
 .cart-item-actions {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
 }
 
 .cart-item-actions .edit-btn {
-    background: none;
-    border: none;
-    color: var(--black);
-    font-size: 0.875rem;
-    font-family: var(--font-sans-serif);
-    text-transform: uppercase;
-    font-weight: 600;
-    letter-spacing: 0.1rem;
-    text-decoration: underline;
-    text-underline-offset: 6px;
-    cursor: pointer;
+  background: none;
+  border: none;
+  color: var(--black);
+  font-size: 0.875rem;
+  font-family: var(--font-sans-serif);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  cursor: pointer;
 }
 
+/* Cart Summary Styles */
 
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  font-size: 1rem;
+}

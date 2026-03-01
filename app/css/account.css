@@ -1,6 +1,6 @@
 /* ACCOUNT HEADER */
 .account-header {
-  padding: 20px 20px 32px;
+  margin-top: 20px;
 }
 
 .header-graphics {
@@ -39,9 +39,6 @@
 }
 
 /* ACCOUNT MENU */
-.account-menu {
-  padding: 0 20px;
-}
 
 .menu-item {
   display: flex;

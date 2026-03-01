@@ -7,19 +7,7 @@ if (!isset($_GET['category'])) {
 
 $category_id = (int) $_GET['category'];
 
-$category_folders = [
-  1  => 'breakfast-sandwiches',
-  2  => 'breakfast-platters',
-  3  => 'pastries-and-sides',
-  4  => 'drinks',
-  5  => 'fresh-salads',
-  6  => 'lunch-sandwiches',
-  7  => 'hoagies',
-  8  => 'burgers-and-hot-sandwiches',
-  9  => 'club-sandwiches',
-  10 => 'cheesesteaks',
-  11 => 'gyros'
-];
+include 'includes/category-folders.php';
 
 if (!isset($category_folders[$category_id])) {
   die('Invalid category');
@@ -53,7 +41,7 @@ $items = mysqli_query($connection, $item_query);
 <head>
   <meta charset="UTF-8">
   <title><?= htmlspecialchars($category['category_name']) ?></title>
-
+  <link rel="icon" type="svg" href="app-images/misc/favicon.svg">
   <link rel="stylesheet" href="css/stylesheet.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/category.css">
@@ -65,12 +53,7 @@ $items = mysqli_query($connection, $item_query);
 <header class="app-header header--tall header--red has-back has-cart">
   <section class="header-icons">
     <button class="icon-btn back-btn" onclick="history.back()" aria-label="Go back">
-      <svg class="icon" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <mask id="mask0_143_1645" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="36" height="36"><rect width="36" height="36" fill="currentColor"/></mask>
-        <g mask="url(#mask0_143_1645)">
-          <path d="M2.18362 18L13.7565 29.5732C13.9778 29.7943 14.087 30.0586 14.0842 30.3664C14.0812 30.6741 13.9691 30.9385 13.7479 31.1595C13.5269 31.3808 13.2625 31.4914 12.9548 31.4914C12.647 31.4914 12.3826 31.3808 12.1616 31.1595L0.697874 19.7048C0.455624 19.4625 0.27875 19.1924 0.16725 18.8944C0.0557497 18.5961 0 18.298 0 18C0 17.702 0.0557497 17.4039 0.16725 17.1056C0.27875 16.8076 0.455624 16.5375 0.697874 16.2952L12.1616 4.83187C12.3826 4.61062 12.6485 4.5015 12.9592 4.5045C13.2697 4.50725 13.5355 4.61925 13.7565 4.8405C13.9778 5.0615 14.0884 5.32587 14.0884 5.63363C14.0884 5.94138 13.9778 6.20575 13.7565 6.42675L2.18362 18Z" fill="currentColor"/>
-        </g>
-      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="m112.77-480 308.61 308.62q8.85 8.84 8.74 21.15-.12 12.31-8.97 21.15-8.84 8.85-21.15 8.85-12.31 0-21.15-8.85L73.15-434.54q-9.69-9.69-14.15-21.61-4.46-11.93-4.46-23.85 0-11.92 4.46-23.85 4.46-11.92 14.15-21.61l305.7-305.69q8.84-8.85 21.27-8.73 12.42.11 21.26 8.96 8.85 8.84 8.85 21.15 0 12.31-8.85 21.15L112.77-480Z"/></svg>
     </button>
     <a href="lunchbox.php" class="icon-btn cart-btn" aria-label="Lunchbox">
       <svg
@@ -91,6 +74,7 @@ $items = mysqli_query($connection, $item_query);
           fill="currentColor"
         />
       </svg>
+      <span class="cart-count white" style="display: none;">0</span>
 </a>
   </section>
   <h1 class="header-title">
@@ -98,7 +82,7 @@ $items = mysqli_query($connection, $item_query);
   </h1>
 </header>
 
-<main class="category-list">
+<main class="category-list container">
 
 <?php while ($item = mysqli_fetch_assoc($items)): ?>
   <a
@@ -113,16 +97,19 @@ $items = mysqli_query($connection, $item_query);
     <div class="menu-item-info">
       <h4><?= htmlspecialchars($item['item_name']) ?></h4>
       <span class="price">$<?= number_format($item['base_price'], 2) ?></span>
+      <?php if (!empty($item['filter_by'])): ?>
+        <div class="filters">
+          <?php foreach (explode(',', $item['filter_by']) as $filter): ?>
+            <span class="filter-tag"><?= htmlspecialchars(trim($filter)) ?></span>
+          <?php endforeach; ?>
+        </div>
+      <?php endif; ?>
     </div>
 
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--highlight-2)"><path d="M607.46-480 298.85-788.62q-8.85-8.84-8.73-21.26.11-12.43 8.96-21.27 8.84-8.85 21.27-8.85 12.42 0 21.27 8.85l305.46 305.69q9.69 9.69 14.15 21.61 4.46 11.93 4.46 23.85 0 11.92-4.46 23.85-4.46 11.92-14.15 21.61l-305.7 305.69q-8.84 8.85-21.15 8.73-12.31-.11-21.15-8.96-8.85-8.84-8.85-21.27 0-12.42 8.85-21.27L607.46-480Z"/></svg>
   </a>
 
-  <div class="divider">
-    <img src="app-images/misc/star.svg" alt="" class="divider-star-img">
-  </div>
+  <?php include 'includes/divider.php'; ?>
 <?php endwhile; ?>
 
 </main>
@@ -138,10 +125,6 @@ $items = mysqli_query($connection, $item_query);
         <img src="app-images/nav/order-<?= ($current_page == 'orders.php') ? 'active' : 'inactive' ?>.svg" alt="Orders">
         <span>Orders</span>
     </a>
-    <a href="rewards.php" class="<?= ($current_page == 'rewards.php') ? 'active' : '' ?>">
-        <img src="app-images/nav/rewards-<?= ($current_page == 'rewards.php') ? 'active' : 'inactive' ?>.svg" alt="Rewards">
-        <span>Rewards</span>
-    </a>
     <a href="account.php" class="<?= ($current_page == 'account.php') ? 'active' : '' ?>">
         <img src="app-images/nav/account-<?= ($current_page == 'account.php') ? 'active' : 'inactive' ?>.svg" alt="Account">
         <span>Account</span>
@@ -149,5 +132,6 @@ $items = mysqli_query($connection, $item_query);
 </nav>
 
 </div>
+<script src="js/cart-count.js"></script>
 </body>
 </html>

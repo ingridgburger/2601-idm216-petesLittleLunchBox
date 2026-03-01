@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Pete’s Little Lunch Box</title>
+    <link rel="icon" type="svg" href="app-images/misc/favicon.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/splash.css">
 
