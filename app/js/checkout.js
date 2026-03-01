@@ -30,7 +30,6 @@ function renderCheckoutCart() {
 }
 
 function renderCheckoutCartItem(item, index) {
-  // Self-contained customizations formatting
   const customizations = []
   
   if (item.selectedOptions.bagel) customizations.push(item.selectedOptions.bagel.value)
@@ -44,15 +43,12 @@ function renderCheckoutCartItem(item, index) {
     })
   }
   
-  if (item.selectedOptions.dressings) {
-    item.selectedOptions.dressings.forEach(dressing => {
-      customizations.push(dressing.value)
-    })
+  if (item.selectedOptions.dressing) {
+    customizations.push(item.selectedOptions.dressing.value);
   }
   
   const customizationText = customizations.length > 0 ? customizations.join(', ') : '';
   
-  // Self-contained image path generation
   const categoryFolders = {
     1: 'breakfast-sandwiches',
     2: 'breakfast-platters', 
@@ -126,7 +122,6 @@ function calculateTotals() {
   const tip = subtotal * (selectedTipPercentage / 100);
   const total = subtotal + tax + tip;
 
-  // Update displays
   const subtotalEl = document.querySelector(".subtotal-amount");
   const taxEl = document.querySelector(".tax-amount");
   const tipEl = document.querySelector(".tip-amount");
@@ -147,7 +142,6 @@ function initializeTipButtons() {
     button.addEventListener("click", () => {
       const isCurrentlySelected = button.classList.contains("option--selected");
 
-      // Remove selected class from all buttons
       tipButtons.forEach((btn) => {
         btn.classList.remove("option--selected");
         btn.classList.add("option-btn");

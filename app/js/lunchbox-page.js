@@ -10,9 +10,9 @@ function formatCustomizations(selectedOptions) {
     customizations.push(topping.value);
   });
 
-  selectedOptions.dressings.forEach((dressing) => {
-    customizations.push(dressing.value);
-  });
+  if (selectedOptions.dressing) {
+    customizations.push(selectedOptions.dressing.value);
+  }
 
   return customizations.join(", ");
 }

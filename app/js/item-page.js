@@ -63,8 +63,8 @@ function getSelectedOptions() {
     bread: null,
     cheese: null,
     size: null,
+    dressing: null,
     toppings: [],
-    dressings: [],
   };
 
   document.querySelectorAll('input[type="radio"]:checked').forEach((input) => {
@@ -74,8 +74,7 @@ function getSelectedOptions() {
     };
   });
 
-  document
-    .querySelectorAll('input[type="checkbox"]:checked')
+  document.querySelectorAll('input[type="checkbox"]:checked')
     .forEach((input) => {
       const optionData = {
         value: input.value,
@@ -84,8 +83,6 @@ function getSelectedOptions() {
 
       if (input.name === "toppings[]") {
         selectedOptions.toppings.push(optionData);
-      } else if (input.name === "dressings[]") {
-        selectedOptions.dressings.push(optionData);
       }
     });
 
@@ -93,8 +90,7 @@ function getSelectedOptions() {
 }
 
 function optionsMatch(options1, options2) {
-  // Compare radio options (bagel, bread, cheese, size)
-  const radioKeys = ['bagel', 'bread', 'cheese', 'size']
+  const radioKeys = ['bagel', 'bread', 'cheese', 'size', 'dressing']
   for (let key of radioKeys) {
     const opt1 = options1[key]
     const opt2 = options2[key]
@@ -102,14 +98,12 @@ function optionsMatch(options1, options2) {
     if (opt1 && opt2 && (opt1.value !== opt2.value || opt1.extraCharge !== opt2.extraCharge)) return false
   }
   
-  // Compare array options (toppings, dressings)
-  const arrayKeys = ['toppings', 'dressings']
+  const arrayKeys = ['toppings']
   for (let key of arrayKeys) {
     const arr1 = options1[key] || []
     const arr2 = options2[key] || []
     if (arr1.length !== arr2.length) return false
     
-    // Sort by value for comparison
     const sortedArr1 = [...arr1].sort((a, b) => a.value.localeCompare(b.value))
     const sortedArr2 = [...arr2].sort((a, b) => a.value.localeCompare(b.value))
     
@@ -162,16 +156,27 @@ function addToLunchbox() {
 
   if (existingItemIndex !== -1) {
     const existingItem = existingItems[existingItemIndex];
-    existingItem.quantity += quantity;
+    const newQuantity = existingItem.quantity + quantity;
+    
+    if (newQuantity > 10) {
+      alert('Sorry! You have reached the maximum quantity of 10 for this item.');
+      return;
+    }
+    
+    existingItem.quantity = newQuantity;
     const unitPrice = itemTotal;
     existingItem.totalPrice = unitPrice * existingItem.quantity;
   } else {
+    if (quantity > 10) {
+      alert('Sorry! You have reached the maximum quantity of 10 for this item.');
+      return;
+    }
     existingItems.push(lunchboxItem);
   }
 
   localStorage.setItem("lunchboxItems", JSON.stringify(existingItems));
 
-  console.log("Added to lunchbox:", lunchboxItem);
+  showAddToast();
 }
 
 function showAddToast() {
@@ -186,10 +191,6 @@ function hideAddToast() {
   if (!toast) return;
 
   toast.classList.add("hidden");
-}
-
-function restoreToast() {
-  // Toast restoration removed - no longer needed without timestamps
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -231,7 +232,6 @@ if (addBtn) {
   addBtn.addEventListener("click", (e) => {
     e.preventDefault();
     addToLunchbox();
-    showAddToast();
   });
 }
 
@@ -259,16 +259,15 @@ if (minusBtn && plusBtn && qtyValue) {
   });
 
   plusBtn.addEventListener("click", () => {
-    if (quantity < MAX_QTY) {
-      quantity++;
-      updateQtyUI();
-    }
+      if (quantity < MAX_QTY) {
+        quantity++;
+        updateQtyUI();
+      }
   });
 
   updateQtyUI();
 }
 
-// Lunchbox Management Functions
 function formatCustomizations(selectedOptions) {
   const customizations = []
   
@@ -276,13 +275,10 @@ function formatCustomizations(selectedOptions) {
   if (selectedOptions.bread) customizations.push(selectedOptions.bread.value) 
   if (selectedOptions.cheese) customizations.push(selectedOptions.cheese.value)
   if (selectedOptions.size) customizations.push(selectedOptions.size.value)
+  if (selectedOptions.dressing) customizations.push(selectedOptions.dressing.value)
   
   selectedOptions.toppings.forEach(topping => {
     customizations.push(topping.value)
-  })
-  
-  selectedOptions.dressings.forEach(dressing => {
-    customizations.push(dressing.value)
   })
   
   return customizations.join(', ')
@@ -313,6 +309,8 @@ function renderCartItem(item, index) {
   const customizations = formatCustomizations(item.selectedOptions)
   const imagePath = getItemImagePath(item)
   
+  const plusDisabled = item.quantity >= 10 ? 'disabled' : ''
+  
   return `
     <div class="cart-item" data-index="${index}">
       <img src="${imagePath}" alt="${item.name}" class="cart-item-img">
@@ -335,7 +333,7 @@ function renderCartItem(item, index) {
               −
             </button>
             <span class="qty">${item.quantity}</span>
-            <button class="qty-btn plus" onclick="updateCartItemQuantity(${index}, 1)" style="width: 24px; height: 24px; border-width: 1px; font-weight: 500;">
+            <button class="qty-btn plus" onclick="updateCartItemQuantity(${index}, 1)" style="width: 24px; height: 24px; border-width: 1px; font-weight: 500;" ${plusDisabled}>
               +
             </button>
           </div>
@@ -406,22 +404,33 @@ function updateCartTotal() {
   const checkoutBtn = document.querySelector('.primary-btn--checkout-btn--active')
   const totalSpan = checkoutBtn ? checkoutBtn.querySelector('.checkout-total') : null
   
-  if (checkoutBtn && lunchboxItems.length > 0) {
+  if (checkoutBtn) {
     checkoutBtn.style.display = 'flex'
-    if (totalSpan) {
-      totalSpan.textContent = `$${total.toFixed(2)}`
-    }
-  } else if (checkoutBtn) {
-    checkoutBtn.style.display = 'none'
-    if (totalSpan) {
-      totalSpan.textContent = '$0.00'
+    if (lunchboxItems.length > 0) {
+      checkoutBtn.disabled = false
+      if (totalSpan) {
+        totalSpan.textContent = `$${total.toFixed(2)}`
+      }
+    } else {
+      checkoutBtn.disabled = true
+      if (totalSpan) {
+        totalSpan.textContent = '$0.00'
+      }
     }
   }
 }
 
-// Initialize lunchbox if on lunchbox page
 if (window.location.pathname.includes('lunchbox.php')) {
   document.addEventListener('DOMContentLoaded', () => {
     renderLunchbox()
+    
+    const checkoutBtn = document.getElementById('checkoutBtn')
+    if (checkoutBtn) {
+      checkoutBtn.addEventListener('click', () => {
+        if (!checkoutBtn.disabled) {
+          window.location.href = 'checkout.php'
+        }
+      })
+    }
   })
 }

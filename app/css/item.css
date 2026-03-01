@@ -147,9 +147,9 @@
 
 .toast {
   position: fixed;
-  bottom: 24px;
+  bottom: 120px;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(0);
   background: var(--foreground-color);
   color: var(--white);
   padding: 12px 20px;
@@ -157,8 +157,12 @@
   font-family: var(--font-sans-serif);
   font-weight: 800;
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  opacity: 1;
+  transition: all 0.3s ease-out;
 }
 
-.hidden {
-  display: none;
+.toast.hidden {
+  opacity: 0;
+  transform: translateX(-50%) translateY(20px);
+  pointer-events: none;
 }

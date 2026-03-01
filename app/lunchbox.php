@@ -40,7 +40,7 @@ include 'includes/category-folders.php';
   </h1>
 </header>
 
-<main class="container" style="margin-bottom: 48px; margin-top: 0;">
+<main class="container" style="margin-bottom: 60px; margin-top: 0;">
     <section class="empty-cart-section" style="display: none;">
         <h4 class="cart-empty-message">
             Nothing here yet.
@@ -71,15 +71,19 @@ include 'includes/category-folders.php';
             <?php endforeach; ?>
         </div>
     </section>
+     <?php include 'includes/divider.php'; ?>
+    <div class="summary-row">
+        <h4>Subtotal</h4>
+        <span class="price">$0.00</span>
+    </div>
 </main>
 
 <?php $current_page = basename($_SERVER['PHP_SELF']); ?>
 
 <section class="wide-btn-wrapper">
-    <a href="checkout.php" class="primary-btn--checkout-btn--active" <?= ($current_page == 'lunchbox.php') ? '' : 'disabled' ?>>
+    <button class="primary-btn--checkout-btn--active center" id="checkoutBtn">
         Checkout
-        <span class="checkout-total">$0.00</span>
-    </a>
+    </button>
 </section>
 <nav class="bottom-nav">
     <a href="home.php" class="<?= ($current_page == 'home.php' || $current_page == 'category.php' || $current_page == 'item.php') ? 'active' : '' ?>">

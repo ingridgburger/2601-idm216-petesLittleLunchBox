@@ -120,8 +120,8 @@ function renderConfirmationItems(items) {
         if (item.selectedOptions && item.selectedOptions.toppings) {
             item.selectedOptions.toppings.forEach(topping => customizations.push(topping.value));
         }
-        if (item.selectedOptions && item.selectedOptions.dressings) {
-            item.selectedOptions.dressings.forEach(dressing => customizations.push(dressing.value));
+        if (item.selectedOptions && item.selectedOptions.dressing) {
+            customizations.push(item.selectedOptions.dressing.value);
         }
         
         const customizationText = customizations.length > 0 ? customizations.join(',<br>') : '';
@@ -131,10 +131,12 @@ function renderConfirmationItems(items) {
                 <img src="${imagePath}" alt="${item.name}" class="cart-item-img">
                 <div class="cart-item-info">
                     <div class="cart-item-details">
-                        <h4>${item.name}</h4>
+                        <div class="cart-item-name-and-customizations">
+                          <h4>${item.name}</h4>
+                          ${customizationText ? `<p class="customizations">${customizationText}</p>` : ''}
+                        </div>
                         <span class="price">$${item.totalPrice.toFixed(2)}</span>
                     </div>
-                    ${customizationText ? `<p class="customizations">${customizationText}</p>` : ''}
                     <p class="qty-right">${item.quantity}×</p>
                 </div>
             </div>

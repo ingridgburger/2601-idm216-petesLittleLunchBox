@@ -299,7 +299,7 @@ $item_image = "app-images/menu-item-images/$category_folder/" .
   <h4>Dressing</h4>
   <?php while ($dressing = mysqli_fetch_assoc($dressings)): ?>
     <label class="option">
-      <input type="checkbox" name="dressings[]" value="<?= htmlspecialchars($dressing['dressing_type']) ?>" data-extra-charge="<?= htmlspecialchars($dressing['extra_charge'] ?? 0) ?>" data-calories="<?= htmlspecialchars($dressing['calories']) ?>">
+      <input type="radio" name="dressing" value="<?= htmlspecialchars($dressing['dressing_type']) ?>" data-extra-charge="<?= htmlspecialchars($dressing['extra_charge'] ?? 0) ?>" data-calories="<?= htmlspecialchars($dressing['calories']) ?>">
       <img src="app-images/dressing-options/<?= $dressing['dressing_type_image_filename'] ?>">
       <div class="option-info">
         <span class="option-name"><?= htmlspecialchars($dressing['dressing_type']) ?>

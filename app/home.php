@@ -176,6 +176,14 @@ $result = mysqli_query($connection, $query);
         <?php endwhile; ?>
     </section>
 
+    <div id="addToast" class="add-toast hidden">
+        <div class="toast-content">
+            <span>ADDED TO LUNCHBOX</span>
+            <span class="check">✓</span>
+            <a href="lunchbox.php" class="toast-link">VIEW</a>
+        </div>
+  </div>
+
   </main>
 
   <?php $current_page = basename($_SERVER['PHP_SELF']); ?>
@@ -194,14 +202,6 @@ $result = mysqli_query($connection, $query);
         <span>Account</span>
         </a>
   </nav>
-
-  <div id="addToast" class="add-toast hidden">
-        <div class="toast-content">
-            <span>ADDED TO LUNCHBOX</span>
-            <span class="check">✓</span>
-            <a href="lunchbox.php" class="toast-link">VIEW</a>
-        </div>
-  </div>
 
 </div>
 

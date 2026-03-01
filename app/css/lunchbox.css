@@ -91,24 +91,11 @@
 }
 
 /* Cart Summary Styles */
-.cart-summary {
-  margin-top: 20px;
-  padding: 20px 0;
-  border-top: 1px solid #e1e1e1;
-}
 
 .summary-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 8px;
   text-align: center;
   font-size: 1rem;
-}
-
-.summary-row.total-row {
-  margin-top: 12px;
-  padding-top: 12px;
-  border-top: 1px solid #e1e1e1;
-  font-size: 1.125rem;
 }

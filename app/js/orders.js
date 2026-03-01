@@ -110,8 +110,8 @@ function renderActiveOrderItems(items) {
         if (item.selectedOptions && item.selectedOptions.toppings) {
             item.selectedOptions.toppings.forEach(topping => customizations.push(topping.value));
         }
-        if (item.selectedOptions && item.selectedOptions.dressings) {
-            item.selectedOptions.dressings.forEach(dressing => customizations.push(dressing.value));
+        if (item.selectedOptions && item.selectedOptions.dressing) {
+            customizations.push(item.selectedOptions.dressing.value);
         }
         
         const customizationText = customizations.length > 0 ? customizations.join(',<br>') : '';

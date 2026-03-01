@@ -217,6 +217,12 @@
   cursor: pointer;
 }
 
+.primary-btn--checkout-btn--active:disabled {
+  background: var(--light-gray);
+  color: var(--gray);
+  cursor: not-allowed;
+}
+
 .center {
   display: flex;
   justify-content: center;
@@ -307,7 +313,8 @@
 }
 
 .qty-btn:disabled {
-  opacity: 0.4;
+  color: var(--gray);
+  border-color: var(--gray);
   cursor: default;
 }
 
@@ -356,20 +363,22 @@
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
-  width: 100%;
-  max-width: 393px;
-  bottom: 88px;
-  background: var(--highlight-1);
-  color: var(--white);
+  width: 70%;
+  max-width: 360px;
+  bottom: 100px;
+  background: white;
+  color: var(--highlight-2);
   padding: 16px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-family: var(--font-sans-serif);
   font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
   z-index: 1000;
+  opacity: 1;
+  transition: var(--transition);
+  border-radius: 4px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 .toast-text {
@@ -381,17 +390,21 @@
 }
 
 .toast-action {
-  color: var(--white);
+  text-transform: uppercase;
+  color: var(--highlight-2);
   text-decoration: none;
   font-weight: 800;
 }
 
 .toast-action:hover {
   text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
-.hidden {
-  display: none;
+.add-toast.hidden {
+  opacity: 0;
+  transform: translateX(-50%) translateY(20px);
+  pointer-events: none;
 }
 
 
