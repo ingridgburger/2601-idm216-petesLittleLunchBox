@@ -82,4 +82,5 @@ span.price {
 
 .header--red .header-title {
   color: var(--white);
+  text-transform: lowercase;
 }

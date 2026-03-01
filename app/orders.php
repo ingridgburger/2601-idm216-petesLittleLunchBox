@@ -5,6 +5,10 @@
   <title>Orders - Pete's Little Lunch Box</title>
   <link rel="stylesheet" href="css/stylesheet.css">
   <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/category.css">
+  <link rel="stylesheet" href="css/lunchbox.css">
+  <link rel="stylesheet" href="css/checkout.css">
+  <link rel="stylesheet" href="css/order-confirmation.css">
   <link rel="stylesheet" href="css/orders.css">
 </head>
 
@@ -34,7 +38,7 @@
       </svg>
     </a>
   </section>
-  <h1 class="header-title script white-text">orders</h1>
+  <h1 class="header-title white-text">orders</h1>
 </header>
 
     <section class="tabs">
@@ -43,37 +47,51 @@
     </section>
 
     <div class="tab-content active" id="active-tab">
-        <div class="order-detail-card">
-            <p class="order-label script red-text">order number</p>
-            <h2 class="order-number">15947</h2>
-            
-            <?php include 'includes/divider.php'; ?>
+        <div class="active-order-container" style="display: none;">
+            <div class="order-detail-card">
+                <p class="order-label script red-text">order number</p>
+                <h2 class="order-number" id="activeOrderNumber">-</h2>
+                
+                <?php include 'includes/divider.php'; ?>
 
-            <h3 class="pickup-time">pickup at 3:30 PM</h3>
-            <p class="pickup-address">11 N 33rd St Philadelphia, PA 19104</p>
+                <h3 class="pickup-time" id="activePickupTime">pickup time</h3>
+                <p class="pickup-address">11 N 33rd St Philadelphia, PA 19104</p>
 
-            <?php include 'includes/divider.php'; ?>
+                <?php include 'includes/divider.php'; ?>
 
-            <div class="progress-tracker">
-                <div class="progress-bar">
-                    <div class="progress-fill received"></div>
+                <div class="progress-tracker">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="activeProgressFill"></div>
+                    </div>
+                    <div class="progress-labels">
+                        <div class="progress-label" id="activeReceivedStatus">
+                            <span>Received</span>
+                        </div>
+                        <div class="progress-label" id="activePreparingStatus">
+                            <span>Preparing</span>
+                        </div>
+                        <div class="progress-label" id="activeReadyStatus">
+                            <span>Ready</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="progress-labels">
-                    <div class="progress-label active">
-                        <span>Received</span>
-                    </div>
-                    <div class="progress-label">
-                        <span>Preparing</span>
-                    </div>
-                    <div class="progress-label">
-                        <span>Ready</span>
-                    </div>
+
+                <?php include 'includes/divider.php'; ?>
+
+                <button class="view-details-btn" onclick="toggleActiveOrderDetails()">View Details</button>
+                
+                <div class="order-details" id="activeOrderDetails" style="display: none;">
+                    <?php include 'includes/divider.php'; ?>
+                    <div class="order-items" id="activeOrderItems"></div>
+                    <?php include 'includes/divider.php'; ?>
+                    <div class="order-totals" id="activeOrderTotals"></div>
                 </div>
             </div>
-
-            <?php include 'includes/divider.php'; ?>
-
-            <button class="view-details-btn">View Details</button>
+        </div>
+        
+        <div class="empty-active-state" style="display: block;">
+            <h3>No active orders.</h3>
+            <p>Your current orders will appear here.</p>
         </div>
     </div>
 

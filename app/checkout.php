@@ -47,12 +47,20 @@
   </h1>
   <section class="pickup-section">
     <p>Pickup at 11 N 33rd St Philadelphia, PA 19104</p>
-    <div class="option-btn-group">
-        <button class="option--selected">3:30 PM</button>
-        <button class="option-btn">3:40 PM</button>
-        <button class="option-btn">3:50 PM</button>
-        <button class="option-btn">4:00 PM</button>
-        <button class="option-btn">4:10 PM</button>
+    <div class="horizontal-scroll">
+        <?php
+        date_default_timezone_set('America/New_York');
+        
+        $currentTime = time();
+        $startTime = $currentTime + (10 * 60);
+        
+        for ($i = 0; $i < 5; $i++) {
+            $slotTime = $startTime + ($i * 10 * 60);
+            $displayTime = date('g:i A', $slotTime);
+            $buttonClass = ($i === 0) ? 'option--selected' : 'option-btn';
+            echo '<button class="' . $buttonClass . '">' . $displayTime . '</button>';
+        }
+        ?>
     </div>
   </section>
 </header>
@@ -76,10 +84,9 @@
             Leave a tip?
         </h4>
         <div class="option-btn-group" style="text-align: center; justify-content: center; margin-bottom: 32px;">
-        <button class="option-btn" style="color: var(--black); border-color: var(--black);">10%</button>
-        <button class="option-btn" style="color: var(--black); border-color: var(--black);">15%</button>
-        <button class="option-btn" style="color: var(--black); border-color: var(--black);">20%</button>
-        <button class="option-btn" style="color: var(--black); border-color: var(--black);">Custom</button>
+        <button class="option-btn black">10%</button>
+        <button class="option-btn black">15%</button>
+        <button class="option-btn black">20%</button>
     </div>
 
     </section>

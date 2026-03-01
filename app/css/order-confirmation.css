@@ -20,44 +20,46 @@
   /* GENERIC SECTION */
   .confirmation-section {
     margin: 24px 0;
+    
   }
-  
-  .confirmation-section.center {
-    text-align: center;
-  }
+
   
   /* ORDER NUMBER */
   .script.small {
+    font-weight: 800;
     font-size: 1.3rem;
     margin-bottom: 8px;
     text-align: center;
   }
   
   .order-number {
+    text-align: center;
     font-size: 2.4rem;
     margin: 0;
   }
   
   /* PICKUP TEXT */
+  #pickupTime {
+    text-align: center;
+  }
+
   .gray-text {
     color: var(--gray);
     margin: 4px 0 8px;
+    text-align: center;
   }
-  
-  .reward-text {
-    font-size: 0.9rem;
-    color: var(--gray);
-  }
+
   
   /* ORDER DETAILS LABEL */
   .section-label {
+    text-align: left;
     margin-bottom: 16px;
   }
   
   /* QTY RIGHT ALIGN */
   .qty-right {
     text-align: right;
-    font-weight: 700;
+    font-weight: 500;
     margin: 0;
   }
   

@@ -153,7 +153,6 @@ function initializeTipButtons() {
         btn.classList.add("option-btn");
       });
 
-      // If the button wasn't selected before, select it now
       if (!isCurrentlySelected) {
         button.classList.remove("option-btn");
         button.classList.add("option--selected");
@@ -165,7 +164,6 @@ function initializeTipButtons() {
           selectedTipPercentage = 0;
         }
       } else {
-        // If it was already selected, deselect it (no tip)
         selectedTipPercentage = 0;
       }
 
@@ -174,10 +172,85 @@ function initializeTipButtons() {
   });
 }
 
+function initializePickupButtons() {
+  const pickupButtons = document.querySelectorAll(
+    ".pickup-section .horizontal-scroll button",
+  );
+
+  pickupButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+
+      pickupButtons.forEach((btn) => {
+        btn.classList.remove("option--selected");
+        btn.classList.add("option-btn");
+      });
+
+      button.classList.remove("option-btn");
+      button.classList.add("option--selected");
+    });
+  });
+}
+
+function saveOrderAndRedirect() {
+  const lunchboxItems = JSON.parse(localStorage.getItem("lunchboxItems") || "[]");
+  
+  if (lunchboxItems.length === 0) return;
+  
+  const subtotal = lunchboxItems.reduce((sum, item) => sum + item.totalPrice, 0);
+  const tax = subtotal * TAX_RATE;
+  const tip = subtotal * (selectedTipPercentage / 100);
+  const total = subtotal + tax + tip;
+  
+  const selectedPickupBtn = document.querySelector('.pickup-section .option--selected');
+  const pickupTime = selectedPickupBtn ? selectedPickupBtn.textContent.trim() : 'ASAP';
+  
+  const orderNumber = Math.floor(Math.random() * 90000) + 10000;
+  
+  const orderData = {
+    orderNumber: orderNumber,
+    items: lunchboxItems,
+    subtotal: subtotal,
+    tax: tax,
+    tip: tip,
+    total: total,
+    pickupTime: pickupTime,
+    orderTime: new Date().toLocaleString(),
+    timestamp: Date.now()
+  };
+  
+  localStorage.setItem("confirmationOrder", JSON.stringify(orderData));
+  
+  localStorage.setItem("checkoutTimestamp", Date.now());
+  
+  localStorage.removeItem("lunchboxItems");
+  
+  window.location.href = "order-confirmation.php";
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   renderCheckoutCart();
 
   initializeTipButtons();
+  
+  initializePickupButtons();
+  
+  const creditCardBtn = document.querySelector(".primary-btn--checkout-btn--active:not(.apple-pay-btn)");
+  if (creditCardBtn && !creditCardBtn.classList.contains('apple-pay-btn')) {
+    creditCardBtn.addEventListener("click", function(e) {
+      e.preventDefault();
+      saveOrderAndRedirect();
+    });
+  }
+  
+  const paymentBtns = document.querySelectorAll(".primary-btn--checkout-btn--active");
+  paymentBtns.forEach(btn => {
+    if (!btn.classList.contains('apple-pay-btn')) {
+      btn.addEventListener("click", function(e) {
+        e.preventDefault();
+        saveOrderAndRedirect();
+      });
+    }
+  });
 
   const applePayBtn = document.querySelector(".apple-pay-btn");
 
@@ -231,8 +304,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 50);
 
       const goHome = () => {
-        localStorage.setItem("checkoutTimestamp", Date.now());
-        window.location.href = "home.php";
+        saveOrderAndRedirect();
       };
 
       setTimeout(() => {

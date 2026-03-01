@@ -34,7 +34,7 @@
                 </svg>
             </a>
         </section>
-        <h1 class="header-title script white-text">account</h1>
+        <h1 class="header-title white-text">account</h1>
     </header>
 
     <main class="container">
