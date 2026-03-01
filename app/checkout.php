@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title><?= htmlspecialchars($category['category_name']) ?></title>
+  <title>Checkout</title>
 
   <link rel="stylesheet" href="css/stylesheet.css">
   <link rel="stylesheet" href="css/components.css">
@@ -16,15 +16,10 @@
 <body>
 <div class="app-shell" style="padding: 0;">
 
-<header class="app-header header--tall header--red has-back has-cart" style="height: 300px;">
+<header class="app-header header--tall header--red has-back has-cart">
   <section class="header-icons">
     <button class="icon-btn back-btn" onclick="history.back()" aria-label="Go back">
-      <svg class="icon" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <mask id="mask0_143_1645" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="36" height="36"><rect width="36" height="36" fill="currentColor"/></mask>
-        <g mask="url(#mask0_143_1645)">
-          <path d="M2.18362 18L13.7565 29.5732C13.9778 29.7943 14.087 30.0586 14.0842 30.3664C14.0812 30.6741 13.9691 30.9385 13.7479 31.1595C13.5269 31.3808 13.2625 31.4914 12.9548 31.4914C12.647 31.4914 12.3826 31.3808 12.1616 31.1595L0.697874 19.7048C0.455624 19.4625 0.27875 19.1924 0.16725 18.8944C0.0557497 18.5961 0 18.298 0 18C0 17.702 0.0557497 17.4039 0.16725 17.1056C0.27875 16.8076 0.455624 16.5375 0.697874 16.2952L12.1616 4.83187C12.3826 4.61062 12.6485 4.5015 12.9592 4.5045C13.2697 4.50725 13.5355 4.61925 13.7565 4.8405C13.9778 5.0615 14.0884 5.32587 14.0884 5.63363C14.0884 5.94138 13.9778 6.20575 13.7565 6.42675L2.18362 18Z" fill="currentColor"/>
-        </g>
-      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="m112.77-480 308.61 308.62q8.85 8.84 8.74 21.15-.12 12.31-8.97 21.15-8.84 8.85-21.15 8.85-12.31 0-21.15-8.85L73.15-434.54q-9.69-9.69-14.15-21.61-4.46-11.93-4.46-23.85 0-11.92 4.46-23.85 4.46-11.92 14.15-21.61l305.7-305.69q8.84-8.85 21.27-8.73 12.42.11 21.26 8.96 8.85 8.84 8.85 21.15 0 12.31-8.85 21.15L112.77-480Z"/></svg>
     </button>
     <button class="icon-btn cart-btn" aria-label="Lunchbox">
       <svg
@@ -71,41 +66,17 @@
             Add something delicious to your lunchbox and we'll get cooking!
         </p>
     </section>
+
     <section class="cart-section">
-        <div class="cart-item">
-            <img src="app-images/menu-item-images/breakfast-sandwiches/egg_and_cheese.webp" alt="Egg & Cheese" class="cart-item-img">
-            <div class="cart-item-info">
-                <div class="cart-item-details">
-                    <h4>Egg & Cheese</h4>
-                    <span class="price">$5.00</span>
-                </div>
-                <p class="customizations">
-                    Regular Bagel, American Cheese, Egg
-                </p>
-                <div class="cart-item-actions" >
-                    <button class="icon-btn edit-btn" aria-label="Edit item">
-                        Edit
-                    </button>
-                    <div class="qty-selector">
-                        <button class="qty-btn minus" style="width: 24px; height: 24px; border-width: 1px; font-weight: 500;">
-                            −
-                        </button>
-                        <span class="qty">1</span>
-                        <button class="qty-btn plus" style="width: 24px; height: 24px; border-width: 1px; font-weight: 500;">
-                            +
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
     </section>
+
     <?php include 'includes/divider.php'; ?>
     <section class="tip-section" style="margin-top: 32px;">
         <h4 class="cart-empty-message" style="text-align: center;">
             Leave a tip?
         </h4>
         <div class="option-btn-group" style="text-align: center; justify-content: center; margin-bottom: 32px;">
-        <button class="option--selected">10%</button>
+        <button class="option-btn" style="color: var(--black); border-color: var(--black);">10%</button>
         <button class="option-btn" style="color: var(--black); border-color: var(--black);">15%</button>
         <button class="option-btn" style="color: var(--black); border-color: var(--black);">20%</button>
         <button class="option-btn" style="color: var(--black); border-color: var(--black);">Custom</button>
@@ -116,22 +87,22 @@
     <section class="total-section">
         <div class="total-details">
             <p>Subtotal</p>
-            <p>$5.00</p>
+            <p class="subtotal-amount">$0.00</p>
         </div>
 
         <div class="total-details">
             <p>Tax</p>
-            <p>$1.50</p>
+            <p class="tax-amount">$0.00</p>
         </div>
 
         <div class="total-details">
             <p>Tip</p>
-            <p>$0.50</p>
+            <p class="tip-amount">$0.00</p>
         </div>
 
         <div class="total-details">
             <h4>Total</h4>
-            <span class="price">$7.00</span>
+            <span class="price total-amount">$0.00</span>
         </div>
     </section>
 </main>
@@ -139,10 +110,10 @@
 <?php $current_page = basename($_SERVER['PHP_SELF']); ?>
 
 <section class="wide-btn-wrapper" style="position: relative; ">
-    <a class="primary-btn--checkout-btn--active">
+    <a class="primary-btn--checkout-btn--active center">
         Order with Credit Card
     </a>
-    <a href="#" class="primary-btn--checkout-btn--active apple-pay-btn" style="background-color: var(--black); color: var(--white);"> Buy with
+    <a href="#" class="primary-btn--checkout-btn--active apple-pay-btn center" style="background-color: var(--black); color: var(--white);"> Buy with
         <svg width="58" height="24" viewBox="0 0 58 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_2487_941)">
             <path d="M10.5976 3.08281C9.91791 3.89039 8.83018 4.52758 7.74257 4.43647C7.60663 3.34453 8.13905 2.18411 8.76221 1.46741C9.4419 0.637081 10.6316 0.0454976 11.5946 0C11.7079 1.13755 11.266 2.25236 10.5976 3.08281ZM11.5834 4.6527C10.0085 4.56171 8.66037 5.55128 7.9126 5.55128C7.15362 5.55128 6.00925 4.6982 4.76305 4.72095C3.14301 4.7437 1.63614 5.66502 0.809077 7.13255C-0.890368 10.0675 0.36728 14.4131 2.00997 16.8019C2.81438 17.985 3.77739 19.2818 5.04625 19.2363C6.24726 19.1908 6.72304 18.4514 8.17326 18.4514C9.63471 18.4514 10.054 19.2363 11.3228 19.2135C12.637 19.1908 13.4641 18.0306 14.2685 16.8474C15.1861 15.5051 15.56 14.1969 15.5827 14.1286C15.56 14.1059 13.0449 13.139 13.0223 10.2267C12.9996 7.79238 15.0049 6.63208 15.0955 6.56383C13.9625 4.88019 12.1952 4.6982 11.5834 4.6527ZM20.681 1.35367V19.0885H23.4226V13.0253H27.218C30.6847 13.0253 33.1206 10.6364 33.1206 7.17816C33.1206 3.72 30.7301 1.35378 27.3086 1.35378L20.681 1.35367ZM23.4226 3.67439H26.5835C28.9628 3.67439 30.3222 4.94844 30.3222 7.18942C30.3222 9.43041 28.9628 10.7159 26.5722 10.7159H23.4226V3.67439ZM38.1281 19.2249C39.8502 19.2249 41.4476 18.3491 42.1727 16.9612H42.2293V19.0884H44.7672V10.2609C44.7672 7.70138 42.7279 6.05187 39.5896 6.05187C36.6779 6.05187 34.5253 7.72413 34.446 10.022H36.9159C37.1198 8.92993 38.128 8.21323 39.5103 8.21323C41.187 8.21323 42.1274 8.99818 42.1274 10.443V11.4212L38.7058 11.6259C35.5223 11.8193 33.8003 13.1275 33.8003 15.4028C33.8003 17.7006 35.5789 19.2249 38.1281 19.2249ZM38.8644 17.1204C37.4031 17.1204 36.474 16.4152 36.474 15.3344C36.474 14.2197 37.369 13.5713 39.0798 13.4689L42.1274 13.2755V14.2765C42.1274 15.9374 40.7226 17.1204 38.8646 17.1204M48.1548 23.9117C50.8285 23.9117 52.0861 22.888 53.185 19.7824L57.9999 6.22248H55.2129L51.984 16.6994H51.9274L48.6985 6.22248H45.8321L50.4771 19.1339L50.2279 19.9189C49.8088 21.2498 49.129 21.7617 47.9167 21.7617C47.7015 21.7617 47.2824 21.739 47.1123 21.7162V23.8435C47.2709 23.889 47.9506 23.9117 48.1546 23.9117" fill="currentColor"/>
         </g>
@@ -153,7 +124,7 @@
         </defs>
     </svg>
     </a>
-    <a class="primary-btn--checkout-btn--active" style="background-color: var(--highlight-2);">
+    <a class="primary-btn--checkout-btn--active center" style="background-color: var(--highlight-2);">
         <svg width="70" height="14" viewBox="0 0 70 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M63.5017 9.89625C62.7229 9.89625 62.3904 9.16417 62.3933 7.98583C62.3933 6.43125 62.7463 3.39208 64.47 3.39208C65.2487 3.39208 65.5113 4.10084 65.5113 5.13625C65.5113 6.69084 65.1321 9.89625 63.5017 9.89625ZM64.9658 0.0466661C60.0746 0.0466661 57.9512 3.79458 57.9512 7.79917C57.9512 10.8383 59.1792 13.265 62.8892 13.265C67.8971 13.265 70 9.16417 70 5.20625C70 2.21667 68.6525 0.0466661 64.9658 0.0466661ZM53.7863 0.0466661C52.1588 0.0466661 50.9746 0.5425 49.7233 1.43792C49.2742 0.635833 48.3758 0.0466661 47.005 0.0466661C45.4242 0.0466661 44.2429 0.685417 43.3679 1.32125L43.2513 0.259583H39.4917L37.485 12.9587H41.8775L43.2746 4.05417C43.6508 3.86458 44.2167 3.605 44.7854 3.605C45.2083 3.605 45.5642 3.74792 45.5642 4.38375C45.5642 4.54708 45.5175 4.80667 45.4942 5.01958L44.2429 12.9587H48.6121L50.0063 4.05417C50.4088 3.84125 50.9513 3.605 51.4938 3.605C51.9196 3.605 52.2754 3.74792 52.2754 4.38375C52.2754 4.54708 52.2258 4.80667 52.2025 5.01958L50.9513 12.9587H55.3233L56.6679 4.47708C56.7408 4.03083 56.8108 3.34542 56.8108 2.87583C56.8108 1.17833 56.0321 0.0466661 53.7863 0.0466661ZM33.7458 0.0466661C32.0687 0.0466661 30.8875 0.685417 29.9921 1.27458L29.9425 0.259583H26.1392L24.1296 12.9587H28.525L29.9192 4.05417C30.2983 3.86458 30.8642 3.605 31.43 3.605C31.8588 3.605 32.2117 3.74792 32.2117 4.31084C32.2117 4.54709 32.1417 4.97292 32.1183 5.18292L30.8875 12.9587H35.2596L36.6071 4.47708C36.6771 4.03083 36.75 3.34542 36.75 2.87583C36.75 1.17833 35.9683 0.0466661 33.7458 0.0466661ZM17.3221 5.39583C17.4417 3.98125 18.5267 2.9925 19.355 2.9925C19.8275 2.9925 20.2271 3.27542 20.2271 3.84125C20.2271 5.01958 18.1475 5.39583 17.3221 5.39583ZM19.7808 0.0466661C15.1025 0.0466661 12.8333 4.10083 12.8333 7.91583C12.8333 10.8617 14.2275 13.2154 18.1242 13.2154C19.6613 13.2154 21.245 12.8858 22.26 12.3929L22.8025 8.71792C21.3617 9.44708 20.2533 9.73 19.0954 9.73C18.0308 9.73 17.2288 9.16417 17.2288 7.72625C19.6379 7.70292 23.7971 6.71417 23.7971 3.48833C23.7971 1.48458 22.3563 0.0466661 19.7808 0.0466661ZM7.41708 0.825417C7.67667 1.36792 7.84292 2.02708 7.84292 2.9925C7.84292 4.76 6.59167 7.35 5.57667 9.00083L4.48875 0.282917L0 0.70875L2.05625 12.9587H7.18083C9.42667 10.0129 12.1917 5.81875 12.1917 2.59292C12.1917 1.58083 11.9788 0.77875 11.5063 0L7.41708 0.825417Z" fill="white"/>
     </svg>
     </a>
@@ -183,6 +154,7 @@
     </div>
 </div>
 
+<script src="js/item-page.js"></script>
 <script src="js/checkout.js"></script>
 </body>
 </html>

@@ -37,36 +37,33 @@
         <h1 class="header-title script white-text">account</h1>
     </header>
 
-    <section class="account-header">
-        <img src="app-images/misc/3-graphics.webp" alt="Decorative graphics" class="header-graphics">
+    <main class="container">
+        <section class="account-header">
+            <img src="app-images/misc/3-graphics.webp" alt="Decorative graphics" class="header-graphics">
         
-        <div class="user-info">
-            <h2 class="user-name">Kayla Liu</h2>
-            <button class="edit-btn">Edit</button>
-        </div>
-    </section>
-
-    <?php include 'includes/divider.php'; ?>
-
-    <section class="account-menu">
-        <a href="#" class="menu-item">
-            <span>Contact Information</span>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-        </a>
-
+            <div class="user-info">
+                <h2 class="user-name">Kayla Liu</h2>
+                <button class="edit-btn">Edit</button>
+            </div>
+        </section>
         <?php include 'includes/divider.php'; ?>
-
-        <a href="#" class="menu-item">
-            <span>Payment Methods</span>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-        </a>
-
-        <?php include 'includes/divider.php'; ?>
-    </section>
+        <section class="account-menu">
+            <a href="#" class="menu-item">
+                <span>Contact Information</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+            <?php include 'includes/divider.php'; ?>
+            <a href="#" class="menu-item">
+                <span>Payment Methods</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+            <?php include 'includes/divider.php'; ?>
+        </section>
+    </main>
 
     <?php $current_page = basename($_SERVER['PHP_SELF']); ?>
 

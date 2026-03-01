@@ -45,7 +45,7 @@
   height: 36px;
   width: 36px;
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
 }
 
@@ -200,13 +200,13 @@
 
 .primary-btn--checkout-btn--active {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   gap: 8px;
   background: var(--highlight-1);
   width: 100%;
   color: var(--white);
-  padding: 16px 20px;
+  padding: 20px;
   font-family: var(--font-sans-serif);
   font-weight: 800;
   text-align: center;
@@ -216,6 +216,12 @@
   border: none;
   border-radius: 9999px;
   cursor: pointer;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .wide-btn-wrapper {

@@ -230,6 +230,7 @@
   text-align: center;
   line-height: 1.2;
   text-overflow: ellipsis;
+  max-width: 11ch;
   white-space: nowrap;
   overflow: hidden;
 }

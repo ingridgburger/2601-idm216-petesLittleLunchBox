@@ -48,3 +48,14 @@
 .qty-display {
   font-family: var(--font-sans-serif);
 }
+
+.pickup-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.pickup-section p {
+    margin: 0;
+}
