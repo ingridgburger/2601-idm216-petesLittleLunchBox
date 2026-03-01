@@ -128,7 +128,7 @@ $item_image = "app-images/menu-item-images/$category_folder/" .
 <head>
   <meta charset="UTF-8">
   <title><?= htmlspecialchars($item['item_name']) ?></title>
-
+  <link rel="icon" type="svg" href="app-images/misc/favicon.svg">
   <link rel="stylesheet" href="css/stylesheet.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/item.css">

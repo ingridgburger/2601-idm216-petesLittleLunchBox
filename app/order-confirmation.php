@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Order Confirmation</title>
-
+  <link rel="icon" type="svg" href="app-images/misc/favicon.svg">
   <link rel="stylesheet" href="css/stylesheet.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/item.css">
