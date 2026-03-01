@@ -228,21 +228,11 @@ document.addEventListener("DOMContentLoaded", () => {
   
   initializePickupButtons();
   
-  const creditCardBtn = document.querySelector(".primary-btn--checkout-btn--active:not(.apple-pay-btn)");
-  if (creditCardBtn && !creditCardBtn.classList.contains('apple-pay-btn')) {
-    creditCardBtn.addEventListener("click", function(e) {
-      e.preventDefault();
-      saveOrderAndRedirect();
-    });
-  }
-  
   const paymentBtns = document.querySelectorAll(".primary-btn--checkout-btn--active");
   paymentBtns.forEach(btn => {
     if (!btn.classList.contains('apple-pay-btn')) {
-      btn.addEventListener("click", function(e) {
-        e.preventDefault();
-        saveOrderAndRedirect();
-      });
+      btn.style.cursor = 'not-allowed';
+      btn.style.pointerEvents = 'none';
     }
   });
 
