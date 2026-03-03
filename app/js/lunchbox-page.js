@@ -142,22 +142,20 @@ function updateCartTotal() {
   );
   const total = lunchboxItems.reduce((sum, item) => sum + item.totalPrice, 0);
 
+  const subtotalElement = document.querySelector(".subtotal-amount");
+  if (subtotalElement) {
+    subtotalElement.textContent = `$${total.toFixed(2)}`;
+  }
+
   const checkoutBtn = document.querySelector(
     ".primary-btn--checkout-btn--active",
   );
-  const totalSpan = checkoutBtn
-    ? checkoutBtn.querySelector(".checkout-total")
-    : null;
 
-  if (checkoutBtn && lunchboxItems.length > 0) {
-    checkoutBtn.style.display = "flex";
-    if (totalSpan) {
-      totalSpan.textContent = `$${total.toFixed(2)}`;
-    }
-  } else if (checkoutBtn) {
-    checkoutBtn.style.display = "none";
-    if (totalSpan) {
-      totalSpan.textContent = "$0.00";
+  if (checkoutBtn) {
+    if (lunchboxItems.length > 0) {
+      checkoutBtn.style.display = "flex";
+    } else {
+      checkoutBtn.style.display = "none";
     }
   }
 }
