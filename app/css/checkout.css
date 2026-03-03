@@ -18,10 +18,15 @@
     border-radius: 999px;
     cursor: pointer;
     white-space: nowrap;
+    transition: var(--transition);
+}
+
+.option-btn.black {
+    border-color: var(--black);
+    color: var(--black);
 }
 
 .option--selected {
-    font-weight: 700;
     border-color: var(--highlight-2);
     background-color: var(--highlight-2);
     color: var(--white);
@@ -43,4 +48,43 @@
     font-family: var(--font-sans-serif);
     font-size: 1.25rem;
     margin: 12px 0;
+}
+
+.qty-display {
+  font-family: var(--font-sans-serif);
+}
+
+.pickup-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 24px;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.pickup-section p {
+    margin: 0;
+    width: fit-content;
+}
+
+.pickup-section .horizontal-scroll {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.pickup-section .horizontal-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.pickup-section button {
+    flex-shrink: 0;
+    white-space: nowrap;
 }

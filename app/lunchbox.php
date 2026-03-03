@@ -1,11 +1,23 @@
 
 
+<?php
+require_once '../data/includes/db.php';
+
+$recommended_ids = [71, 41, 14, 34, 47 ];
+$id_list = implode(',', $recommended_ids);
+$recommended_sql = "SELECT * FROM idm216_menu_items WHERE id IN ($id_list)";
+$recommended_result = mysqli_query($connection, $recommended_sql);
+$recommended_items = mysqli_fetch_all($recommended_result, MYSQLI_ASSOC);
+
+include 'includes/category-folders.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title><?= htmlspecialchars($category['category_name']) ?></title>
-
+  <title>Lunchbox</title>
+  <link rel="icon" type="svg" href="app-images/misc/favicon.svg">
   <link rel="stylesheet" href="css/stylesheet.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/item.css">
@@ -20,12 +32,7 @@
 <header class="app-header header--tall header--red has-back has-cart">
   <section class="header-icons">
     <button class="icon-btn back-btn" onclick="history.back()" aria-label="Go back">
-      <svg class="icon" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <mask id="mask0_143_1645" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="36" height="36"><rect width="36" height="36" fill="currentColor"/></mask>
-        <g mask="url(#mask0_143_1645)">
-          <path d="M2.18362 18L13.7565 29.5732C13.9778 29.7943 14.087 30.0586 14.0842 30.3664C14.0812 30.6741 13.9691 30.9385 13.7479 31.1595C13.5269 31.3808 13.2625 31.4914 12.9548 31.4914C12.647 31.4914 12.3826 31.3808 12.1616 31.1595L0.697874 19.7048C0.455624 19.4625 0.27875 19.1924 0.16725 18.8944C0.0557497 18.5961 0 18.298 0 18C0 17.702 0.0557497 17.4039 0.16725 17.1056C0.27875 16.8076 0.455624 16.5375 0.697874 16.2952L12.1616 4.83187C12.3826 4.61062 12.6485 4.5015 12.9592 4.5045C13.2697 4.50725 13.5355 4.61925 13.7565 4.8405C13.9778 5.0615 14.0884 5.32587 14.0884 5.63363C14.0884 5.94138 13.9778 6.20575 13.7565 6.42675L2.18362 18Z" fill="currentColor"/>
-        </g>
-      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="m112.77-480 308.61 308.62q8.85 8.84 8.74 21.15-.12 12.31-8.97 21.15-8.84 8.85-21.15 8.85-12.31 0-21.15-8.85L73.15-434.54q-9.69-9.69-14.15-21.61-4.46-11.93-4.46-23.85 0-11.92 4.46-23.85 4.46-11.92 14.15-21.61l305.7-305.69q8.84-8.85 21.27-8.73 12.42.11 21.26 8.96 8.85 8.84 8.85 21.15 0 12.31-8.85 21.15L112.77-480Z"/></svg>
     </button>
   </section>
   <h1 class="header-title">
@@ -33,105 +40,50 @@
   </h1>
 </header>
 
-<main class="container" style="margin-bottom: 48px; margin-top: 0;">
+<main class="container" style="margin-bottom: 60px; margin-top: 0;">
     <section class="empty-cart-section" style="display: none;">
-        <h4 class="cart-empty-message" style="text-align: center;">
+        <h4 class="cart-empty-message">
             Nothing here yet.
         </h4>
-        <p class="cart-empty-submessage" style="text-align: center; margin-bottom: 36px;">
+        <p class="cart-empty-submessage">
             Add something delicious to your lunchbox and we’ll get cooking!
         </p>
     </section>
+
     <section class="cart-section">
-        <div class="cart-item">
-            <img src="app-images/menu-item-images/breakfast-sandwiches/egg_and_cheese.webp" alt="Egg & Cheese" class="cart-item-img">
-            <div class="cart-item-info">
-                <div class="cart-item-details">
-                    <h4>Egg & Cheese</h4>
-                    <span class="price">$5.00</span>
-                </div>
-                <p class="customizations">
-                    Everything Bagel, Cheddar Cheese, Egg
-                </p>
-                <div class="cart-item-actions" >
-                    <button class="icon-btn edit-btn" aria-label="Edit item">
-                        Edit
-                    </button>
-                    <div class="qty-selector">
-                        <button class="qty-btn minus" style="width: 24px; height: 24px; border-width: 1px; font-weight: 500;">
-                            −
-                        </button>
-                        <span class="qty">1</span>
-                        <button class="qty-btn plus" style="width: 24px; height: 24px; border-width: 1px; font-weight: 500;">
-                            +
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <div class="divider">
-        <img src="app-images/misc/star.svg" alt="" class="divider-star-img">
-    </div>
-    <section class="add-items-section" style="padding: 20px 0;">
-        <h4 style="text-align: center;">Available Rewards • 2,530 pts</h4>
-        <div class="horizontal-scroll">
-            <a href="item.php?id=26" class="item-card">
-                <img src="app-images/menu-item-images/drinks/iced_coffee.webp" alt="Iced Coffee">
-                <h5>Iced Coffee</h5>
-                <p class="price">50 PTS</p>
-            </a>
-            <a href="item.php?id=21" class="item-card">
-                <img src="app-images/menu-item-images/pastries-and-sides/muffin.webp" alt="Muffin">
-                <h5>Muffin</h5>
-                <p class="price">100 PTS</p>
-            </a>
-            <a href="item.php?id=22" class="item-card">
-                <img src="app-images/menu-item-images/pastries-and-sides/jelly_toast.webp" alt="Jelly Toast">
-                <h5>Jelly Toast</h5>
-                <p class="price">150 PTS</p>
-            </a>
-            <a href="item.php?id=1" class="item-card">
-                <img src="app-images/menu-item-images/breakfast-sandwiches/egg_and_cheese.webp" alt="Cheeseburger">
-                <h5>Egg & Cheese</h5>
-                <p class="price">450 PTS</p>
-            </a>
-        </div>
     </section>
 
+    <?php include 'includes/divider.php'; ?>
+
     <section class="bestsellers-section" style="padding: 20px 0;">
-        <h4 style="text-align: center;">Add another item?</h4>
+        <h4 style="text-align: center;">You might like these</h4>
         <div class="horizontal-scroll">
-            <a href="item.php?id=60" class="item-card">
-                <img src="app-images/menu-item-images/club-sandwiches/turkey_club.webp" alt="Turkey Club">
-                <h5>Turkey Club</h5>
-                <p class="price">$8.00</p>
-            </a>
-            <a href="item.php?id=30" class="item-card">
-                <img src="app-images/menu-item-images/drinks/thai_iced_tea.webp" alt="Thai Tea">
-                <h5>Thai Tea</h5>
-                <p class="price">$3.00</p>
-            </a>
-            <a href="item.php?id=10" class="item-card">
-                <img src="app-images/menu-item-images/breakfast-sandwiches/blt_wheat_white.webp" alt="B.L.T.">
-                <h5>B.L.T.</h5>
-                <p class="price">$6.00</p>
-            </a>
-            <a href="item.php?id=31" class="item-card">
-                <img src="app-images/menu-item-images/drinks/hot_chocolate.webp" alt="Hot Chocolate">
-                <h5>Hot Chocolate</h5>
-                <p class="price">$1.00</p>
-            </a>
+            <?php foreach ($recommended_items as $rec_item): ?>
+                <?php 
+                    $category_folder = $category_folders[$rec_item['category_id']] ?? 'misc';
+                    $item_image_path = "app-images/menu-item-images/$category_folder/" . htmlspecialchars($rec_item['menu_item_image_filename']);
+                ?>
+                <a href="item.php?id=<?= $rec_item['id'] ?>" class="item-card">
+                    <img src="<?= $item_image_path ?>" alt="<?= htmlspecialchars($rec_item['item_name']) ?>">
+                    <h5><?= htmlspecialchars($rec_item['item_name']) ?></h5>
+                    <p class="price">$<?= number_format($rec_item['base_price'], 2) ?></p>
+                </a>
+            <?php endforeach; ?>
         </div>
     </section>
+     <?php include 'includes/divider.php'; ?>
+    <div class="summary-row">
+        <h4>Subtotal</h4>
+        <span class="price">$0.00</span>
+    </div>
 </main>
 
 <?php $current_page = basename($_SERVER['PHP_SELF']); ?>
 
 <section class="wide-btn-wrapper">
-    <a href="checkout.php" class="primary-btn--checkout-btn--active" <?= ($current_page == 'lunchbox.php') ? '' : 'disabled' ?>>
+    <button class="primary-btn--checkout-btn--active center" id="checkoutBtn">
         Checkout
-    </a>
+    </button>
 </section>
 <nav class="bottom-nav">
     <a href="home.php" class="<?= ($current_page == 'home.php' || $current_page == 'category.php' || $current_page == 'item.php') ? 'active' : '' ?>">
@@ -149,5 +101,7 @@
 </nav>
 
 </div>
+<script src="js/cart-count.js"></script>
+<script src="js/item-page.js"></script>
 </body>
 </html>

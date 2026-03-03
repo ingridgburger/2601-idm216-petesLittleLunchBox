@@ -14,9 +14,8 @@
 .header--tall {
   grid-template-columns: 1fr;
   position: relative;
-  height: 200px;
-  padding-top: 16px;
-  padding-bottom: 16px;
+  height: fit-content;
+  padding: 20px;
   align-items: start;
 }
 
@@ -28,8 +27,10 @@
 }
 
 .petes-logo-header {
-  width: 100%;
-  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 55%;
+  transform: translate(-50%, -50%);
 }
 
 .header-icons {
@@ -37,6 +38,14 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+}
+
+.icon-btn.back-btn {
+  height: 36px;
+  width: 36px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
 }
 
 /* background variants */
@@ -52,6 +61,13 @@
 
 .header--red .icon-btn {
   color: var(--white);
+}
+
+.header-w-logo {
+  background-color: var(--white);
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 12px;
 }
 
 /* typography variants */
@@ -107,7 +123,9 @@
 
   width: 44px;
   height: 44px;
+}
 
+.cart-btn-dark.solo {
   background: white;
   border-radius: 50%;
 
@@ -116,6 +134,34 @@
 
 .cart-btn-light {
   color: var(--white);
+}
+
+/* Cart count badge */
+.cart-count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: var(--highlight-1);
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-family: var(--font-sans-serif);
+  font-size: 0.75rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.cart-count.white {
+  background-color: var(--white);
+  color: var(--highlight-1)
+}
+
+.icon-btn {
+  position: relative;
 }
 
 /* BOTTOM NAV */
@@ -161,13 +207,13 @@
 
 .primary-btn--checkout-btn--active {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   gap: 8px;
   background: var(--highlight-1);
   width: 100%;
   color: var(--white);
-  padding: 16px 20px;
+  padding: 20px;
   font-family: var(--font-sans-serif);
   font-weight: 800;
   text-align: center;
@@ -177,6 +223,18 @@
   border: none;
   border-radius: 9999px;
   cursor: pointer;
+}
+
+.primary-btn--checkout-btn--active:disabled {
+  background: var(--light-gray);
+  color: var(--gray);
+  cursor: not-allowed;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .wide-btn-wrapper {
@@ -213,23 +271,26 @@
 
 /* DIVIDER COMPONENT */
 .divider {
-  position: relative;
-  width: 90%;
-  height: 1px;
-  background: var(--highlight-2);
-  opacity: 0.3;
+  display: flex;
+  align-items: center;
+  width: 100%;
   margin: 16px auto;
 }
 
 .divider-star-img {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  color: var(--light-gray);
+  flex-shrink: 0;
   padding: 0 6px;
   height: 18px;
   width: auto;
   display: block;
+  background-color: transparent;
+}
+
+.divider span {
+  flex: 1;
+  height: 1px;
+  background: var(--light-gray);
 }
 
 /* QUANTITY SELECTOR */
@@ -239,15 +300,19 @@
   gap: 12px;
 }
 
+.qty-selector h4 {
+  line-height: 1;
+}
+
 .qty-btn {
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
-  border: 2px solid var(--highlight-2);
+  border: 1.5px solid var(--highlight-2);
   background: none;
   color: var(--highlight-2);
   font-size: 1.1rem;
-  font-weight: 800;
+  font-weight: 200;
   line-height: 1;
   display: flex;
   align-items: center;
@@ -256,7 +321,8 @@
 }
 
 .qty-btn:disabled {
-  opacity: 0.4;
+  color: var(--gray);
+  border-color: var(--gray);
   cursor: default;
 }
 
@@ -278,18 +344,21 @@
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  border: 2px solid var(--gray);
+  border: 1.5px solid var(--gray);
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
-.option input:checked + img + .option-info + .checkmark {
+.option input:checked + img + .option-info + .checkmark,
+.option input:checked + .option-info + .checkmark {
   background: var(--highlight-2);
   border-color: var(--highlight-2);
 }
 
-.option input:checked + img + .option-info + .checkmark::after {
+.option input:checked + img + .option-info + .checkmark::after,
+.option input:checked + .option-info + .checkmark::after {
   content: "";
   width: 8px;
   height: 8px;
@@ -302,20 +371,22 @@
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
-  width: 100%;
-  max-width: 393px;
-  bottom: 88px;
-  background: var(--highlight-1);
-  color: var(--white);
+  width: 70%;
+  max-width: 360px;
+  bottom: 100px;
+  background: white;
+  color: var(--highlight-2);
   padding: 16px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-family: var(--font-sans-serif);
   font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
   z-index: 1000;
+  opacity: 1;
+  transition: var(--transition);
+  border-radius: 4px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 .toast-text {
@@ -327,17 +398,21 @@
 }
 
 .toast-action {
-  color: var(--white);
+  text-transform: uppercase;
+  color: var(--highlight-2);
   text-decoration: none;
   font-weight: 800;
 }
 
 .toast-action:hover {
   text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
-.hidden {
-  display: none;
+.add-toast.hidden {
+  opacity: 0;
+  transform: translateX(-50%) translateY(20px);
+  pointer-events: none;
 }
 
 
