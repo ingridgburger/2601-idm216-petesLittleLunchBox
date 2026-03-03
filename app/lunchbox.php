@@ -74,7 +74,7 @@ include 'includes/category-folders.php';
      <?php include 'includes/divider.php'; ?>
     <div class="summary-row">
         <h4>Subtotal</h4>
-        <span class="price">$0.00</span>
+        <span class="price subtotal-amount">$0.00</span>
     </div>
 </main>
 
@@ -103,5 +103,6 @@ include 'includes/category-folders.php';
 </div>
 <script src="js/cart-count.js"></script>
 <script src="js/item-page.js"></script>
+<script src="js/lunchbox-page.js"></script>
 </body>
 </html>
