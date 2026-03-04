@@ -4,7 +4,7 @@
 	font-family: 'Eldwin';
 	font-style: normal;
 	font-weight: 600;
-	src: url('../fonts/eldwin/eldwin-bold.otf') format('truetype');
+	src: url('../../fonts/eldwin/eldwin-bold.otf') format('truetype');
 }
 
 @font-face {
@@ -12,7 +12,7 @@
 	font-family: 'Futura';
 	font-style: normal;
 	font-weight: 400;
-	src: url('../fonts/futura/futura-light.woff') format('woff');
+	src: url('../../fonts/futura/futura-light.woff') format('woff');
 }
 
 @font-face {
@@ -20,7 +20,7 @@
 	font-family: 'Futura';
 	font-style: normal;
 	font-weight: 800;
-	src: url('../fonts/futura/futura-heavy.woff') format('woff');
+	src: url('../../fonts/futura/futura-heavy.woff') format('woff');
 }
 
 /* GENERAL */
