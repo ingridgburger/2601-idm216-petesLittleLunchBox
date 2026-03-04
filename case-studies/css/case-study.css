@@ -1,0 +1,174 @@
+/* FONT */
+@font-face {
+	font-display: swap;
+	font-family: 'Eldwin';
+	font-style: normal;
+	font-weight: 600;
+	src: url('../fonts/eldwin/eldwin-bold.otf') format('truetype');
+}
+
+@font-face {
+	font-display: swap;
+	font-family: 'Futura';
+	font-style: normal;
+	font-weight: 400;
+	src: url('../fonts/futura/futura-light.woff') format('woff');
+}
+
+@font-face {
+	font-display: swap;
+	font-family: 'Futura';
+	font-style: normal;
+	font-weight: 800;
+	src: url('../fonts/futura/futura-heavy.woff') format('woff');
+}
+
+/* GENERAL */
+:root {
+  --white: #fffefb;
+  --off-white: #f8f5f1;
+  --light-gray: #eeeeee;
+  --gray: #818181;
+  --black: #1a1a1a;
+  --blue: #143a9b;
+  --red: #f7564e;
+
+  --background-color: var(--white);
+  --foreground-color: var(--black);
+  --highlight-1: var(--red);
+  --highlight-2: var(--blue);
+
+  --font-script-bold: "Eldwin", Helvetica, Arial, sans-serif;
+  --font-sans-serif: "Futura", Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--foreground-color);
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+h1 {
+    font-family: var(--font-sans-serif);
+    color: var(--blue);
+    font-size: 3rem;
+    font-weight: 800;
+    text-align: center;
+}
+
+h2 {
+    font-family: var(--font-script-bold);
+    color: var(--red);
+    font-size: 2rem;
+}
+
+p {
+    font-family: var(--font-sans-serif);
+    color: var(--black);
+    font-size: 0.95rem;
+    font-weight: 400;
+}
+
+/* CONTAINER */
+.case-study-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem 1.5rem;
+}
+
+.hero {
+  height: 60vh;
+  min-height: 320px;
+  background-color: var(--light-gray);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.hero p {
+  font-family: var(--font-sans-serif);
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: var(--gray);
+}
+
+.case-title {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.case-study-details {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* SECTION */
+.case-section {
+  max-width: 80ch;
+  margin: 0 auto 3.5rem auto;
+}
+
+.case-subheading {
+  margin-bottom: 1rem;
+}
+
+.case-text {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.case-image {
+  display: block;          
+  max-width: 80ch;         
+  width: 100%;             
+  height: auto;
+  margin: 2rem auto;       
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+
+  .case-title {
+    font-size: 2.2rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  .hero {
+    height: 40vh;
+    min-height: 250px;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .case-study-container {
+    padding: 0 1rem 3rem 1rem;
+  }
+
+  .case-title {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  .case-text {
+    font-size: 0.9rem;
+  }
+
+}
