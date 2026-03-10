@@ -1,27 +1,5 @@
 /* FONT */
-@font-face {
-	font-display: swap;
-	font-family: 'Eldwin';
-	font-style: normal;
-	font-weight: 600;
-	src: url('../fonts/eldwin/eldwin-bold.otf') format('truetype');
-}
-
-@font-face {
-	font-display: swap;
-	font-family: 'Futura';
-	font-style: normal;
-	font-weight: 400;
-	src: url('../fonts/futura/futura-light.woff') format('truetype');
-}
-
-@font-face {
-	font-display: swap;
-	font-family: 'Futura';
-	font-style: normal;
-	font-weight: 800;
-	src: url('../fonts/futura/futura-heavy.woff') format('truetype');
-}
+@import url("https://use.typekit.net/fet1nlq.css");
 
 /* GENERAL */
 :root {
