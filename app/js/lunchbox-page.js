@@ -86,6 +86,7 @@ function renderLunchbox() {
     if (emptySection) {
       emptySection.style.display = "block";
     }
+    updateCartTotal();
     return;
   }
 
