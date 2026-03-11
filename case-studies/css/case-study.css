@@ -1,27 +1,5 @@
 /* FONT */
-@font-face {
-	font-display: swap;
-	font-family: 'Eldwin';
-	font-style: normal;
-	font-weight: 600;
-	src: url('../../fonts/eldwin/eldwin-bold.otf') format('truetype');
-}
-
-@font-face {
-	font-display: swap;
-	font-family: 'Futura';
-	font-style: normal;
-	font-weight: 400;
-	src: url('../../fonts/futura/futura-light.woff') format('woff');
-}
-
-@font-face {
-	font-display: swap;
-	font-family: 'Futura';
-	font-style: normal;
-	font-weight: 800;
-	src: url('../../fonts/futura/futura-heavy.woff') format('woff');
-}
+@import url("https://use.typekit.net/fet1nlq.css");
 
 /* GENERAL */
 :root {
@@ -38,8 +16,8 @@
   --highlight-1: var(--red);
   --highlight-2: var(--blue);
 
-  --font-script-bold: "Eldwin", Helvetica, Arial, sans-serif;
-  --font-sans-serif: "Futura", Helvetica, Arial, sans-serif;
+  --font-script-bold: "eldwin-script", Helvetica, Arial, sans-serif;
+  --font-sans-serif: "futura-pt", Helvetica, Arial, sans-serif;
 }
 
 * {
@@ -71,10 +49,19 @@ h2 {
     font-size: 2rem;
 }
 
-p {
+h3 {
+    font-family: var(--font-sans-serif);
+    color: var(--blue);
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-top: 3rem;
+}
+
+p, li{
     font-family: var(--font-sans-serif);
     color: var(--black);
-    font-size: 0.95rem;
+    font-size: 1.25rem;
     font-weight: 400;
 }
 
@@ -118,7 +105,7 @@ a:hover {
 
 /* SECTION */
 .case-section {
-  max-width: 80ch;
+  max-width: 150ch;
   margin: 0 auto 3.5rem auto;
 }
 
@@ -127,13 +114,12 @@ a:hover {
 }
 
 .case-text {
-  line-height: 1.6;
   margin-bottom: 1rem;
 }
 
 .case-image {
   display: block;          
-  max-width: 80ch;         
+  max-width: 150ch;         
   width: 100%;             
   height: auto;
   margin: 2rem auto;       
@@ -153,7 +139,7 @@ a:hover {
 }
 
 .imgs p {
-  font-size: 0.75rem;
+  font-size: 1rem;
   color: var(--gray);
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -188,7 +174,7 @@ a:hover {
     font-size: 1.4rem;
   }
 
-  .case-text {
+  .case-text, li {
     font-size: 0.9rem;
   }
 
@@ -196,15 +182,10 @@ a:hover {
 
 .case-study-details {
   text-align: center;
+  font-size: 1rem;
   margin-bottom: 2rem;
   max-width: 90ch;
   margin-left: auto;
   margin-right: auto;
   line-height: 2;
-}
-
-li {
-  font-family: var(--font-sans-serif);
-  font-size: 0.95rem;
-  font-weight: 400;
 }
