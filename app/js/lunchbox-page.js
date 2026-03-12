@@ -57,9 +57,6 @@ function renderCartItem(item, index) {
           <span class="price">$${item.totalPrice.toFixed(2)}</span>
         </div>
         <div class="cart-item-actions">
-          <button class="icon-btn edit-btn" aria-label="Edit item" onclick="editCartItem(${index})">
-            Edit
-          </button>
           <div class="qty-selector">
             <button class="qty-btn minus" onclick="updateCartItemQuantity(${index}, -1)" style="width: 24px; height: 24px; border-width: 1px; font-weight: 500;">
               −
@@ -89,6 +86,7 @@ function renderLunchbox() {
     if (emptySection) {
       emptySection.style.display = "block";
     }
+    updateCartTotal();
     return;
   }
 

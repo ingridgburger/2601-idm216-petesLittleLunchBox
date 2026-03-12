@@ -6,7 +6,7 @@
     <title>Pete's Little Lunch Box | Case Study</title>
     <link rel="icon" type="image/svg+xml" href="../images/flare-logos/favicon.png">
     <link rel="stylesheet" href="css/case-study.css">
-    <link rel="stylesheet" href="app/css/components.css">
+    <link rel="stylesheet" href="../app/css/components.css">
 </head>
 <body>
     <div class="hero">
@@ -18,7 +18,7 @@
         <p class="case-study-details">NAME | ROLE | TIME | TOOLS</p>
 
         <div class="divider">
-            <img src="app/app-images/misc/star.svg" alt="" class="divider-star-img">
+            <img src="../app/app-images/misc/star.svg" alt="" class="divider-star-img">
         </div>
 
         <section class="case-section">
@@ -66,7 +66,7 @@
         <section class="case-section">
             <h2 class="case-subheading">results</h2>
             <p class="case-text">A quick wrap up. Was the project a success and why. Do you have qualitative and quantitative success metrics from your project? These should directly address the objectives you established in The Context and Challenge section. If this is client work, include a client testimonial. This also is an opportunity to define the lessons learned and what you would change about your process / approach in the future.</p>
-            <img src="app/app-images/misc/3-graphics.webp" alt="" class="case-image">
+            <img src="images/3-graphics.webp" alt="" class="case-image">
         </section>
 
 </body>

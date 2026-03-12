@@ -71,7 +71,7 @@
 
 .cart-item-actions {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 12px;
   align-items: center;
 }
