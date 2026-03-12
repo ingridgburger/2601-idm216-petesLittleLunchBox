@@ -247,6 +247,7 @@
                 <li>Interactive Menu Selection: Users can browse menu items with descriptions and prices and select multiple items in a single order.</li>
                 <li>Customization Options: Users can modify orders with options such as bagel type, toppings, spreads, and size, which dynamically affect pricing.</li>
                 <li>Real-Time Order Summary: The system automatically updates and displays individual item prices, sales tax, and the total order cost.</li>
+                <li>Order Receipt: After checkout, users receive a receipt with a visible order number for pickup.</li>
             </ul>
 
             <!-- <p class="case-text">Interactive Menu Selection: </p>
@@ -263,8 +264,8 @@
                 <li>Total order cost</li>
             </ul> -->
 
-            <p class="case-text">Order Receipt</p>
-            <p class="case-text">After checkout, users receive a receipt with a visible order number for pickup.</p>
+            <!-- <p class="case-text">Order Receipt</p>
+            <p class="case-text">After checkout, users receive a receipt with a visible order number for pickup.</p> -->
 
             <p class="case-text">These features demonstrate how design, database architecture, and front-end functionality support a clear and efficient ordering experience.</p>
 
