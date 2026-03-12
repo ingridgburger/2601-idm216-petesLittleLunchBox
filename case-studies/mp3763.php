@@ -17,7 +17,7 @@
         <h1 class="case-title">pete's little lunch box</h1>
         <p class="case-study-details">
         MIHIKA PATEL | ROLE: DATA ARCHITECT & PROJECT MANAGER | TIME: 10 WEEKS <br>
-        TOOLS: FIGMA, HTML, CSS, JAVASCRIPT, PHP, MYSQL, MICROSOFT TEAMS, GITHUB, MAMP, GOOGLE FORMS, ZOOM
+        TOOLS: FIGMA, HTML, CSS, MICROSOFT TEAMS, GITHUB, MAMP, GOOGLE FORMS, ZOOM
         </p>
         <section class="case-section">
             <h2 class="case-subheading">overview</h2>
