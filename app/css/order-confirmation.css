@@ -1,0 +1,76 @@
+/* HEADER AREA */
+.confirmation-header {
+    background: linear-gradient(to top, #efefef, transparent);
+    padding: 80px 24px 32px;
+  }
+  
+  .confirmation-header h1 {
+    margin: 0;
+    font-size: 2.6rem;
+    line-height: 1.1;
+  }
+  
+  /* MAIN CONTAINER */
+  .confirmation-container {
+    max-width: 393px;
+    margin: 0 auto;
+    padding: 24px 20px 140px;
+  }
+  
+  /* GENERIC SECTION */
+  .confirmation-section {
+    margin: 24px 0;
+    
+  }
+
+  
+  /* ORDER NUMBER */
+  .script.small {
+    font-weight: 800;
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  
+  .order-number {
+    text-align: center;
+    font-size: 2.4rem;
+    margin: 0;
+  }
+  
+  /* PICKUP TEXT */
+  #pickupTime {
+    text-align: center;
+  }
+
+  .gray-text {
+    color: var(--gray);
+    margin: 4px 0 8px;
+    text-align: center;
+  }
+
+  
+  /* ORDER DETAILS LABEL */
+  .section-label {
+    text-align: left;
+    margin-bottom: 16px;
+  }
+  
+  /* QTY RIGHT ALIGN */
+  .qty-right {
+    text-align: right;
+    font-weight: 500;
+    margin: 0;
+  }
+  
+  /* TOTALS */
+  .totals {
+    margin-top: 16px;
+  }
+  
+  .total-final span.price {
+    font-size: 1.4rem;
+    border-bottom: 2px solid var(--highlight-1);
+    padding-bottom: 2px;
+  }
+  

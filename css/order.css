@@ -1,0 +1,137 @@
+/* ITEM CUSTOMIZATION MODAL */
+#customization-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#customization-modal.active {
+    display: block;
+}
+
+.customization-modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: calc(var(--rhythm)*2) calc(var(--rhythm)*1.5);
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+#close-modal {
+    position: absolute;
+    top: var(--rhythm);
+    right: calc(var(--rhythm)*1.5);
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #666;
+    padding: 0;
+}
+
+h2 {
+    margin: 0;
+    color: var(--highlight-2);
+    font-size: 2rem;
+    text-transform: lowercase;
+    font-family: var(--font-bold);
+}
+
+#close-modal:hover {
+    color: #000;
+}
+
+.option-group {
+    padding: calc(var(--rhythm)*0.5) 0;
+}
+
+.option-group h3 {
+    margin-bottom: calc(var(--rhythm)*0.5);
+    color: var(--highlight-2);
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.option-item {
+    margin-bottom: calc(var(--rhythm)*0.5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.option-item label {
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.customization-buttons {
+    margin-top: calc(var(--rhythm)*1);
+    display: flex;
+    gap: var(--rhythm);
+    justify-content: flex-end;
+}
+
+.customization-buttons button {
+    font-family: var(--font-sans-serif);
+    letter-spacing: 1px;
+    font-size: 1rem;
+    color: var(--white);
+    background-color: var(--highlight-1);
+    border: none;
+    border-radius: 100px;
+    padding: calc(var(--rhythm)*0.5) calc(var(--rhythm)*1.25);
+    cursor: pointer;
+    text-transform: uppercase;
+    transition:
+        background-color 0.3s ease,
+        transform 0.2s ease;
+}
+
+.customization-buttons button:hover, #cancel-btn:hover {
+    background-color: var(--highlight-2);
+    color: var(--white);
+    transform: scale(1.005);
+}
+
+#cancel-btn {
+    background-color: transparent;
+    border: 2px solid var(--highlight-2);
+    color: var(--highlight-2);
+}
+
+
+/* ORDER SUMMARY */
+.order-item-info {
+    flex: 1;
+}
+
+.order-customizations {
+    font-size: 12px;
+    color: #666;
+    margin: 2px 0;
+    font-style: italic;
+}
+
+.order-row {
+    padding: calc(var(--rhythm)*0.5) 0;
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.order-row:last-child {
+    border-bottom: none;
+}
+
+.order-row.order-summary {
+    border-bottom: none;
+    padding: 0;
+}

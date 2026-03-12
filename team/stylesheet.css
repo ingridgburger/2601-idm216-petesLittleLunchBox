@@ -91,11 +91,6 @@ main {
   
 .team-member {
   text-align: center;
-  transition: transform 180ms ease;
-}
-  
-.team-member:hover {
-  transform: translateY(-4px);
 }
   
 .team-photo {
@@ -145,7 +140,7 @@ main {
 }
 
 a.team-contact {
-  color: gray;
+  color: var(--foreground-color);
   font-size: 0.85rem;
   line-height: 2.5rem;
   transition: color 180ms ease;
@@ -156,23 +151,14 @@ a.team-contact:hover {
 }
 
 /* FOOTER */
-footer {
-  background-color: var(--foreground-color);
-  padding: 28px 24px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.site-footer {
+    background: var(--foreground-color);
+    padding: 50px 40px;
+    display: flex;
+    justify-content: center;
 }
 
-.footer-logo {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.footer-logo img {
-  max-width: 100px;
-  width: 100%;
-  height: auto;
-  display: block;
+.site-footer img {
+    height: 35px;
+    opacity: 0.9;
 }
