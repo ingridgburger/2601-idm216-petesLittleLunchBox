@@ -17,7 +17,7 @@
         <h1 class="case-title">pete's little lunch box</h1>
         <p class="case-study-details">
         MAAYAN CHASHPER | ROLE: PROJECT MANAGER & DATA ARCHITECT | TIME: 10 WEEKS <br>
-        TOOLS: FIGMA, HTML, CSS, JAVASCRIPT, PHP, MYSQL, MICROSOFT TEAMS, GITHUB, GOOGLE FORMS, ZOOM
+        TOOLS: FIGMA, HTML, CSS, MICROSOFT TEAMS, GITHUB, GOOGLE FORMS, ZOOM
         </p>
         <section class="case-section">
             <h2 class="case-subheading">overview</h2>
@@ -243,23 +243,29 @@
             <p class="case-text">The final product is a mobile-first ordering web application for Pete’s Little Lunch Box.</p>
 
             <p class="case-text">Key features include:</p>
+            <ul>
+                <li>Interactive Menu Selection: Users can browse menu items with descriptions and prices and select multiple items in a single order.</li>
+                <li>Customization Options: Users can modify orders with options such as bagel type, toppings, spreads, and size, which dynamically affect pricing.</li>
+                <li>Real-Time Order Summary: The system automatically updates and displays individual item prices, sales tax, and the total order cost.</li>
+                <li>Order Receipt: After checkout, users receive a receipt with a visible order number for pickup.</li>
+            </ul>
 
-            <p class="case-text">Interactive Menu Selection</p>
+            <!-- <p class="case-text">Interactive Menu Selection: </p>
             <p class="case-text">Users can browse menu items with descriptions and prices and select multiple items in a single order.</p>
 
             <p class="case-text">Customization Options</p>
             <p class="case-text">Users can modify orders with options such as bagel type, toppings, spreads, and size, which dynamically affect pricing.</p>
 
-            <p class="case-text">Real-Time Order Summary</p>
-            <p class="case-text">The system calculates:</p>
+            <p class="case-text">Real-Time Order Summary</p> -->
+            <!-- <p class="case-text">The system calculates:</p>
             <ul>
-                <li>individual item prices</li>
-                <li>sales tax</li>
-                <li>total order cost</li>
-            </ul>
+                <li>Individual item prices</li>
+                <li>Sales tax</li>
+                <li>Total order cost</li>
+            </ul> -->
 
-            <p class="case-text">Order Receipt</p>
-            <p class="case-text">After checkout, users receive a receipt with a visible order number for pickup.</p>
+            <!-- <p class="case-text">Order Receipt</p>
+            <p class="case-text">After checkout, users receive a receipt with a visible order number for pickup.</p> -->
 
             <p class="case-text">These features demonstrate how design, database architecture, and front-end functionality support a clear and efficient ordering experience.</p>
 
