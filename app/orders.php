@@ -79,15 +79,14 @@
                 </div>
 
                 <?php include 'includes/divider.php'; ?>
-
-                <button class="view-details-btn" onclick="toggleActiveOrderDetails()">View Details</button>
                 
                 <div class="order-details" id="activeOrderDetails" style="display: none;">
-                    <?php include 'includes/divider.php'; ?>
                     <div class="order-items" id="activeOrderItems"></div>
                     <?php include 'includes/divider.php'; ?>
                     <div class="order-totals" id="activeOrderTotals"></div>
                 </div>
+
+                 <button class="view-details-btn" onclick="toggleActiveOrderDetails()">View Details</button>
             </div>
         </div>
         
