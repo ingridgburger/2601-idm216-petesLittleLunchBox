@@ -1,0 +1,106 @@
+.apple-pay-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.apple-pay-modal:not(.hidden) {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.apple-pay-container {
+  width: 100%;
+  max-width: 393px;
+  background: #f2f2f2;
+  border-radius: 40px 40px 0 0;
+  padding: 25px;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+
+  transform: translateY(100%);
+  transition: transform 0.35s cubic-bezier(0.25,1,0.5,1);
+}
+
+.apple-pay-modal:not(.hidden) .apple-pay-container {
+  transform: translateY(0);
+}
+
+.hidden {
+  display: flex;
+}
+
+.apple-pay-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.apple-pay-title {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.close-btn {
+  border: none;
+  background: #ddd;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.card-box {
+  background: white;
+  border-radius: 20px;
+  padding: 18px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.card-name {
+  font-weight: 600;
+}
+
+.card-meta {
+  color: #777;
+  font-size: 14px;
+}
+
+.change-payment {
+  background: white;
+  padding: 18px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.payment-info {
+  margin-bottom: 30px;
+}
+
+.merchant {
+  color: #666;
+  margin-bottom: 6px;
+}
+
+.amount {
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.pay-instruction {
+  text-align: center;
+  color: #333;
+  font-size: 18px;
+}
