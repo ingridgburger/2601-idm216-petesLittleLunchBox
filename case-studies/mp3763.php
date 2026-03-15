@@ -151,13 +151,13 @@
 
             <p class="case-text">I compiled all of the data into an Excel spreadsheet to create a clear and easily referenceable structure. Within the spreadsheet, I organized tables so they could connect through primary and foreign keys during code integration. Maintaining consistent naming conventions and structured formatting helped simplify database imports and ensured alignment between the design assets and backend functionality.</p>
 
-            <p class="case-text">The secondary Data Architect and I also created a dedicated tab within our Figma file to collect all image assets in one place. After gathering the images, we optimized them and added them to the spreadsheet alongside their corresponding menu items. This streamlined the implementation process and allowed developers to quickly reference both the data and assets while building the final application.</p>
-
             <div class="imgs">
                 <p>Spreadsheet Database Structure</p>
                 <img src="images/db.webp" alt="">
             </div>
 
+            <p class="case-text">The secondary Data Architect and I also created a dedicated tab within our Figma file to collect all image assets in one place. After gathering the images, we optimized them and added them to the spreadsheet alongside their corresponding menu items. This streamlined the implementation process and allowed developers to quickly reference both the data and assets while building the final application.</p>
+            
             <div class="imgs">
                 <p>Image Gathering & Organization in Figma</p>
                 <img src="images/figma_file_images_tab.webp" alt="">
