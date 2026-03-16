@@ -16,7 +16,7 @@
     <div class="case-study-container">
         <h1 class="case-title">pete's little lunch box</h1>
         <p class="case-study-details">
-        INGRID | ROLE: DESIGNER & CODER | TIME: 10 WEEKS <br>
+        INGRID BURGER | ROLE: DESIGNER & CODER | TIME: 10 WEEKS <br>
         TOOLS: FIGMA, HTML, CSS, JAVASCRIPT, PHP, MYSQL, MICROSOFT TEAMS, GITHUB, GOOGLE FORMS, ZOOM
         </p>
         <section class="case-section">
@@ -94,10 +94,8 @@
             
             <p class="case-text">An additional challenge was coordinating development work across team members while maintaining code quality and preventing conflicts through version control.</p>
 
-            <div class="imgs">
-                <p>Retrieving Menu Categories & Items From the DB Using PHP</p>
-            <img src="images/item-code-snippet.webp" alt="">
-        </div>
+
+
 
             <h3>Goals & Objectives</h3>
 
@@ -146,6 +144,11 @@
 
             <p class="case-text">This work involved translating the visual prototype into a working interface that communicates ordering choices clearly to users. By implementing the front-end structure and styling, the interface preserved the design system while supporting the application's dynamic ordering functionality.</p>
 
+             <div class="imgs">
+                <p>From Design to Development</p>
+                <img src="images/des-to-dev.webp" alt="From Design to Development">
+            </div>
+
             <h3>Static Prototypes & Key Page Design</h3>
 
             <p class="case-text">As the primary designer, I created static prototypes for the most critical pages in the user journey and translated these designs into front-end code. These prototypes helped define the structure and hierarchy of the interface before dynamic functionality was implemented.</p>
@@ -170,6 +173,11 @@
             </ul>
 
             <p class="case-text">This work ensured that the menu interface could dynamically display the correct number of items, categories, and customization options directly from the database. By structuring how data was queried and rendered in PHP, the front-end interface could respond to changes in the database without requiring manual updates to the HTML structure.</p>
+
+            <div class="imgs">
+                <p>Retrieving Menu Categories & Items From the DB Using PHP</p>
+                <img src="images/item-code-snippet.webp" alt="">
+            </div>
 
             <h3>Testing & Iteration</h3>
 
