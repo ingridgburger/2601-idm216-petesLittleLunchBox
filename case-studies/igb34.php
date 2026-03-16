@@ -54,8 +54,7 @@
 
             <p class="case-text">Each member held both a primary and secondary role to support collaboration throughout the project.</p>
 
-            <!-- Change this paragraph so it's specific to you -->
-            <p class="case-text">My primary role was Designer, where I handled the UX/UI decisions, interface design, visual consistency, and front-end development of the application. My secondary role was as Coder, where I contributed to backend development, implementing interactive features and database integration.</p>
+            <p class="case-text">My primary role was Designer, where I focused on UX/UI decisions, interface design, and visual consistency across the application. I was responsible for translating the high-fidelity Figma prototype from IDM 215 into the application's front-end interface by implementing the layouts and styling using HTML and CSS. My secondary role was Coder, where I supported development tasks including assisting with PHP functionality and working with MySQL data to ensure menu items and customization options were properly integrated with the interface.</p>
 
             <p class="case-text">The project progressed through several phases:</p>
             <ul>
@@ -66,10 +65,9 @@
                 <li>Final development and deployment</li>
             </ul>
 
-            <!-- Change this paragraph so it's specific to you -->
-            <p class="case-text">To support collaboration, we used Microsoft Teams for communication and task management and GitHub for version control.</p>
+            <p class="case-text">To support collaboration, we used Microsoft Teams for communication and task management and GitHub for version control. I collaborated closely with the development workflow by implementing front-end interface components and ensuring the design translated accurately into code while maintaining visual consistency across the application.</p>
 
-            <p class="case-text">Development began with a high-fidelity Figma prototype created in IDM 215, which defined the application’s brand design, interface structure, navigation flow, and interaction patterns.</p>
+            <p class="case-text">Development began with a high-fidelity Figma prototype created in IDM 215, which defined the application's brand design, interface structure, navigation flow, and interaction patterns.</p>
 
             <div class="imgs">
                 <p>Figma Prototype</p>
@@ -90,14 +88,16 @@
                 <li>Display a receipt for order pickup</li>
             </ul>
 
-            <!-- Change this paragraph so it's specific to you -->            
-            <p class="case-text">Beyond the product itself, our team also had to manage a collaborative workflow involving multiple roles, organized files, and clear communication. As Project Manager, I helped keep the team aligned by managing tasks, tracking progress, and maintaining communication.</p>
+            <p class="case-text">Beyond the product itself, the technical implementation required complex JavaScript functionality for cart management, dynamic pricing calculations, and real-time updates. From a design and front-end perspective, I focused on structuring the interface so customization options, menu selections, and pricing updates were communicated clearly to users. This required translating the visual prototype into front-end layouts that worked seamlessly with the application's dynamic functionality.</p>
 
-            <p class="case-text">Without strong organization and iterative testing, integrating design, code, and data could easily create usability issues or development bottlenecks.</p>
+            <p class="case-text">Without proper code structure and responsive design implementation, the application could easily become slow, buggy, or difficult to use across different devices.</p>
+            
+            <p class="case-text">An additional challenge was coordinating development work across team members while maintaining code quality and preventing conflicts through version control.</p>
+
             <div class="imgs">
-                <p>Microsoft Teams Tasks View</p>
-                <img src="images/teams.webp" alt="">
-            </div>
+                <p>Retrieving Menu Categories & Items From the DB Using PHP</p>
+            <img src="images/item-code-snippet.webp" alt="">
+        </div>
 
             <h3>Goals & Objectives</h3>
 
@@ -128,111 +128,62 @@
 
         </section>
 
-        <!-- Change this entire "process and insight" section so it's specific to you -->
         <section class="case-section">
             <h2 class="case-subheading">process and insight</h2>
 
-            <h3>Project Management & Collaboration</h3>
+            <h3>Interface Design & Front-End Implementation</h3>
 
-            <!-- Change this paragraph so it's specific to you -->            
-            <p class="case-text">Effective coordination was essential for keeping our team aligned throughout the project timeline. As Project Manager, I maintained our Microsoft Teams workspace, which served as the hub for communication, file management, and task tracking.</p>
+            <p class="case-text">As the primary designer, I focused on translating the Figma prototype into a functional interface for the application. I implemented the front-end structure and styling using HTML and CSS, building the layouts that allow users to browse menu items, customize selections, and move through the ordering process.</p>
 
-            <p class="case-text">The workspace included:</p>
+            <p class="case-text">Key functionality implementations included:</p>
             <ul>
-                <li>A Wiki tab containing key project links</li>
-                <li>A Files tab for shared assets and documentation</li>
-                <li>A Planner tab with Kanban-style task buckets</li>
+                <li>Converting the IDM 215 Figma prototype into functional front-end pages</li>
+                <li>Implementing the interface structure and styling using HTML and CSS</li>
+                <li>Maintaining visual consistency across all application screens</li>
+                <li>Structuring the lunchbox, checkout, and confirmation pages</li>
+                <li>Supporting PHP functionality and MySQL menu integration</li>
             </ul>
 
-            <!-- Change this paragraph so it's specific to you -->            
-            <p class="case-text">I created and managed tasks within Planner, ensuring each team member had clear responsibilities and deadlines. Completed tasks included links to deliverables, helping maintain organized documentation.</p>
-           
-            <!-- Change this paragraph so it's specific to you -->            
-            <p class="case-text">Communication occurred through the Posts channel, where I shared updates and coordinated weekly action items. I also scheduled usability testing sessions and organized assignment submissions throughout the project.</p>
+            <p class="case-text">This work involved translating the visual prototype into a working interface that communicates ordering choices clearly to users. By implementing the front-end structure and styling, the interface preserved the design system while supporting the application's dynamic ordering functionality.</p>
 
+            <h3>Static Prototypes & Key Page Design</h3>
 
-            <h3>Design & Prototype Development</h3>
+            <p class="case-text">As the primary designer, I created static prototypes for the most critical pages in the user journey and translated these designs into front-end code. These prototypes helped define the structure and hierarchy of the interface before dynamic functionality was implemented.</p>
 
-            <p class="case-text">The design process focused on refining the mobile-first ordering interface for Pete’s Little Lunch Box. Using the IDM 215 prototype, we defined the critical navigation path users would follow when placing an order.</p>
+            <p class="case-text">These pages required careful UX consideration because they represent the most critical steps in the ordering process. I focused on ensuring that the interface supported clear decision-making and smooth progression through the checkout flow.</p>
 
-            <p class="case-text">Design activities included:</p>
-            <ul>
-                <li>Updating interface layouts in Figma</li>
-                <li>Mapping navigation flows between screens</li>
-            </ul>
-
-            <p class="case-text">The prototype emphasized a streamlined ordering process where users move from browsing the menu, to selecting options, to checkout and order confirmation.</p>
-     
-            <!-- Change this paragraph so it's specific to you -->            
-            <p class="case-text">While the designers led the design process, I contributed by implementing small Figma adjustments based on instructor feedback before usability testing.</p>
-
-
-            <h3>Data Architecture</h3>
-
-            <p class="case-text">The application required structured data to organize menu items and customization options.</p>
-
-            <p class="case-text">Database tables included:</p>
-            <ul>
-                <li>menu categories</li>
-                <li>menu items</li>
-                <li>bagel options</li>
-                <li>cheese options</li>
-                <li>topping options</li>
-                <li>bread options</li>
-                <li>dressing options</li>
-                <li>size options</li>
-            </ul>
-
-            <!-- Change this paragraph so it's specific to you -->            
-            <p class="case-text">As the secondary Data Architect, I helped organize the data tables and prepare image assets associated with menu items. Maintaining consistent naming conventions and structured formatting helped simplify database imports and maintain alignment between design assets and backend functionality.</p>
             <div class="imgs">
-                <p>Database Structure</p>
-                <img src="images/db.webp" alt="">
+                <p>Static HTML Prototypes</p>
+                <img src="images/static-html.webp" alt="Static HTML prototypes" class="case-image">
             </div>
 
-            <h3>Development</h3>
+            <h3>Backend Development & Database Setup</h3>
 
-            <p class="case-text">Development focused on building the responsive interface and integrating database content.</p>
+            <p class="case-text">In my secondary role as a coder, I supported backend functionality related to the menu system. This included assisting with PHP logic and working with MySQL data to ensure menu items, customization options, and pricing information were correctly connected to the front-end interface.</p>
 
-            <p class="case-text">Front-end development included:</p>
+            <p class="case-text">Backend contributions included:</p>
             <ul>
-                <li>Mobile-first layouts</li>
-                <li>Interactive navigation</li>
-                <li>Styled buttons, forms, and menus</li>
+                <li>Structuring PHP queries to retrieve menu categories and items from the database</li>
+                <li>Implementing loops that dynamically display menu items within their correct categories</li>
+                <li>Converting static HTML menu layouts into dynamic templates that render database-driven content</li>
+                <li>Ensuring menu data, categories, and item options were displayed correctly across the application</li>
             </ul>
 
-            <p class="case-text">Back-end development included:</p>
+            <p class="case-text">This work ensured that the menu interface could dynamically display the correct number of items, categories, and customization options directly from the database. By structuring how data was queried and rendered in PHP, the front-end interface could respond to changes in the database without requiring manual updates to the HTML structure.</p>
+
+            <h3>Testing & Iteration</h3>
+
+            <p class="case-text">As part of my design role, I helped conduct several usability testing sessions to evaluate how users interacted with the interface and ordering flow. Observing users navigate the application helped identify areas where layout structure, customization options, and navigation could be improved.</p>
+
+            <p class="case-text">Based on testing feedback, I implemented changes including:</p>
             <ul>
-                <li>Creating database tables</li>
-                <li>Importing structured data</li>
-                <li>Displaying menu information dynamically</li>
-                <li>Implementing ordering functionality</li>
+                <li>Refining the ordering system workflow for better user understanding</li>
+                <li>Improving customization interface clarity</li>
+                <li>Enhancing the checkout flow based on user confusion points</li>
+                <li>Optimizing the order confirmation process for clarity</li>
             </ul>
 
-            <p class="case-text">The system allows users to select menu items, customize options, checkout, and calculate the final order total.</p>
-
-
-            <h3>Usability Testing</h3>
-
-            <p class="case-text">Two rounds of usability testing were conducted to identify usability issues and guide improvements.</p>
-
-            <p class="case-text">Each round included three participants, totaling six usability tests.</p>
-
-            <!-- Change this paragraph so it's specific to you -->            
-            <p class="case-text">As Project Manager, I scheduled testing sessions and coordinated participants.</p>
-
-            <p class="case-text">During testing:</p>
-            <ul>
-                <li>A moderator guided participants through tasks</li>
-                <li>Participants shared screens while interacting with the prototype</li>
-                <li>Observers recorded responses in structured forms</li>
-                <li>Sessions were recorded via Zoom</li>
-            </ul>
-
-            <!-- Change this paragraph so it's specific to you -->            
-            <p class="case-text">I assisted by recording responses during Round 1, revising the testing script for Round 2, and both moderating and documenting tests in the second round.</p>
-
-            <p class="case-text">Testing revealed navigation and interaction issues that were addressed before the Beta build, helping confirm a clearer user flow.</p>
+            <p class="case-text">These testing insights helped refine the interface and improve the overall usability of the ordering experience..</p>
 
         </section>
 
@@ -240,26 +191,20 @@
         <section class="case-section">
             <h2 class="case-subheading">solution</h2>
 
-            <p class="case-text">The final product is a mobile-first ordering web application for Pete’s Little Lunch Box.</p>
+            <p class="case-text">The final product is a mobile-first ordering web application for Pete's Little Lunch Box. Key features include:</p>
+            
+            <p class="case-text"><strong>Interactive Menu Selection:</strong> Users can browse menu items with descriptions and prices and select multiple items in a single order.</p>
 
-            <p class="case-text">Key features include:</p>
+            <p class="case-text"><strong>Customization Options:</strong> Users can modify orders with options such as bagel type, toppings, spreads, and size, which dynamically affect pricing.</p>
 
-            <p class="case-text">Interactive Menu Selection</p>
-            <p class="case-text">Users can browse menu items with descriptions and prices and select multiple items in a single order.</p>
-
-            <p class="case-text">Customization Options</p>
-            <p class="case-text">Users can modify orders with options such as bagel type, toppings, spreads, and size, which dynamically affect pricing.</p>
-
-            <p class="case-text">Real-Time Order Summary</p>
-            <p class="case-text">The system calculates:</p>
+            <p class="case-text"><strong>Real-Time Order Summary:</strong> The system calculates individual item prices, sales tax, and total order cost in real-time. The system calculates:</p>
             <ul>
                 <li>individual item prices</li>
                 <li>sales tax</li>
                 <li>total order cost</li>
             </ul>
 
-            <p class="case-text">Order Receipt</p>
-            <p class="case-text">After checkout, users receive a receipt with a visible order number for pickup.</p>
+            <p class="case-text"><strong>Order Receipt:</strong> After checkout, users receive a receipt with a visible order number for pickup.</p>
 
             <p class="case-text">These features demonstrate how design, database architecture, and front-end functionality support a clear and efficient ordering experience.</p>
 
@@ -279,8 +224,7 @@
                 <li>Organized collaboration through Microsoft Teams and GitHub</li>
             </ul>
 
-            <!-- Change this paragraph so it's specific to you -->
-            <p class="case-text">The project highlighted the importance of strong project management in collaborative development. Through my role as Project Manager, maintaining clear task organization, communication, and documentation helped keep the team on track.</p>
+            <p class="case-text">The project highlighted the importance of translating interface design into functional web applications. Through my role as the primary designer, converting the Figma prototype into HTML and CSS front-end code ensured that the final application maintained its visual design while supporting a clear and intuitive ordering process.</p>
 
             <p class="case-text">Usability testing proved valuable in identifying areas where interface clarity and interaction design could improve before final implementation.</p>
 
@@ -288,7 +232,7 @@
            
             <div class="imgs">
                 <p>Final Application Screens</p>
-                <img src="images/hero.webp" alt="">
+                <img src="images/hero.webp" alt="Final Application Screens">
             </div>
 
            <h3>Project Links</h3>
@@ -299,7 +243,7 @@
             <p class="case-text"><a href="https://digmstudents.westphal.drexel.edu/~sej84/idm216/order.php" target="_blank">Main Menu Ordering Web Page</a></p>
             <p class="case-text"><a href="https://digmstudents.westphal.drexel.edu/~sej84/idm216/app/home.php" target="_blank">Final Web Page</a></p>
 
-            <img src="images/3-graphics.webp" alt="" class="case-image">
+            <img src="images/3-graphics.webp" alt="Final Application Graphics" class="case-image">
         </section>
 </body>
 </html>
