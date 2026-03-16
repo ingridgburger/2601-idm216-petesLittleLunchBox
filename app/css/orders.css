@@ -48,7 +48,7 @@
 /* ORDER DETAIL CARD */
 .order-detail-card {
   background: var(--off-white);
-  padding: 32px 24px;
+  padding: 20px 24px;
   position: relative;
 }
 
@@ -63,7 +63,7 @@
   font-size: 3rem;
   font-weight: 800;
   color: var(--highlight-2);
-  margin: 0 0 24px 0;
+  margin: 0 0 20px 0;
   text-align: center;
   line-height: 1;
 }
@@ -89,7 +89,7 @@
 
 /* PROGRESS TRACKER */
 .progress-tracker {
-  margin: 24px 0;
+  margin: 20px 0;
 }
 
 .progress-bar {
@@ -97,7 +97,7 @@
   height: 8px;
   background: var(--light-gray);
   border-radius: 4px;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .progress-fill {
@@ -194,8 +194,8 @@
   letter-spacing: 0.05em;
   color: var(--foreground-color);
   cursor: pointer;
-  padding: 16px;
-  margin-top: 12px;
+  padding: 12px;
+  margin-top: 10px;
 }
 
 /* EMPTY STATE */
