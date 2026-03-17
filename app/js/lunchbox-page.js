@@ -42,6 +42,7 @@ function getItemImagePath(item) {
 function renderCartItem(item, index) {
   const customizations = formatCustomizations(item.selectedOptions);
   const imagePath = getItemImagePath(item);
+  const plusDisabled = item.quantity >= 10 ? "disabled" : "";
 
   return `
     <div class="cart-item" data-index="${index}">
@@ -62,7 +63,7 @@ function renderCartItem(item, index) {
               −
             </button>
             <span class="qty">${item.quantity}</span>
-            <button class="qty-btn plus" onclick="updateCartItemQuantity(${index}, 1)" style="width: 24px; height: 24px; border-width: 1px; font-weight: 500;">
+            <button class="qty-btn plus" onclick="updateCartItemQuantity(${index}, 1)" style="width: 24px; height: 24px; border-width: 1px; font-weight: 500;" ${plusDisabled}>
               +
             </button>
           </div>
